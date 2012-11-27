@@ -14,6 +14,10 @@ The Cyclus Library Suite
 
 This guide will describe how to install each library.
 
+If you would prefer a short cut to simply running and learning about
+*Cyclus*, feel free to test out the 
+:doc:`Virtual Box Environment <tutorial/virtual_env>` first.
+
 Dependencies
 ------------
 Each of the above libraries has external dependencies, and some have
