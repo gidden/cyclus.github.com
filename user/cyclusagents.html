@@ -81,7 +81,7 @@ if(ga_enabled){
           <div class="body">
             
   <div class="section" id="cyclus-archetypes">
-<h1><span style="font-variant:small-caps;">Cyclus</span> Archetypes<a class="headerlink" href="#cyclus-archetypes" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Cyclus Archetypes<a class="headerlink" href="#cyclus-archetypes" title="Permalink to this headline">¶</a></h1>
 <p>This is a collection of archetypes found in the <tt class="docutils literal"><span class="pre">agents</span></tt> module that comes with
 <span style="font-variant:small-caps;">Cyclus</span> itself.</p>
 <div class="section" id="agents-source">
@@ -165,8 +165,8 @@ if(ga_enabled){
 <div class="section" id="agents-sink">
 <h2>:agents:<strong>Sink</strong><a class="headerlink" href="#agents-sink" title="Permalink to this headline">¶</a></h2>
 <p>A minimum implementation sink facility that accepts specified amounts of commodities from other agents</p>
-<div class="section" id="id1">
-<h3>State Variables<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>State Variables<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -206,8 +206,8 @@ if(ga_enabled){
 </tbody>
 </table>
 </div>
-<div class="section" id="id2">
-<h3>Other Info<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>Other Info<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><strong>Full Archetype Name</strong>: cyclus::Sink</li>
 <li><strong>Simulation Entity Type</strong>: facility</li>
@@ -215,8 +215,8 @@ if(ga_enabled){
 <li><strong>All Interfaces</strong>: [cyclus::Agent, cyclus::Facility, cyclus::Ider, cyclus::StateWrangler, cyclus::TimeListener, cyclus::Trader]</li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h3>XML Input Schema<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>XML Input Schema<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;interleave&gt;</span>
     <span class="nt">&lt;optional&gt;</span>
         <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">&quot;recipe_name&quot;</span><span class="nt">&gt;</span>
@@ -247,8 +247,8 @@ if(ga_enabled){
 <div class="section" id="agents-nullregion">
 <h2>:agents:<strong>NullRegion</strong><a class="headerlink" href="#agents-nullregion" title="Permalink to this headline">¶</a></h2>
 <p>A region that owns the simulation&#8217;s institutions but exhibits null behavior. No parameters are given when using the null region.</p>
-<div class="section" id="id4">
-<h3>Other Info<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>Other Info<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><strong>Full Archetype Name</strong>: cyclus::NullRegion</li>
 <li><strong>Simulation Entity Type</strong>: region</li>
@@ -256,8 +256,8 @@ if(ga_enabled){
 <li><strong>All Interfaces</strong>: [cyclus::Agent, cyclus::Ider, cyclus::Region, cyclus::StateWrangler, cyclus::TimeListener]</li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h3>XML Input Schema<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>XML Input Schema<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;text/&gt;</span>
 </pre></div>
 </div>
@@ -267,8 +267,8 @@ if(ga_enabled){
 <div class="section" id="agents-nullinst">
 <h2>:agents:<strong>NullInst</strong><a class="headerlink" href="#agents-nullinst" title="Permalink to this headline">¶</a></h2>
 <p>An instition that owns facilities in the simulation but exhibits null behavior. No parameters are given when using the null institution.</p>
-<div class="section" id="id6">
-<h3>Other Info<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>Other Info<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><strong>Full Archetype Name</strong>: cyclus::NullInst</li>
 <li><strong>Simulation Entity Type</strong>: institution</li>
@@ -276,8 +276,8 @@ if(ga_enabled){
 <li><strong>All Interfaces</strong>: [cyclus::Agent, cyclus::Ider, cyclus::Institution, cyclus::StateWrangler, cyclus::TimeListener]</li>
 </ul>
 </div>
-<div class="section" id="id7">
-<h3>XML Input Schema<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h3>XML Input Schema<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;text/&gt;</span>
 </pre></div>
 </div>
@@ -287,8 +287,8 @@ if(ga_enabled){
 <div class="section" id="agents-kfacility">
 <h2>:agents:<strong>KFacility</strong><a class="headerlink" href="#agents-kfacility" title="Permalink to this headline">¶</a></h2>
 <p>A facility designed for integration tests that both provides and consumes commodities. It changes its request and offer amounts based on a power law with respect to time.</p>
-<div class="section" id="id8">
-<h3>State Variables<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h3>State Variables<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -384,8 +384,8 @@ if(ga_enabled){
 </tbody>
 </table>
 </div>
-<div class="section" id="id9">
-<h3>Other Info<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h3>Other Info<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><strong>Full Archetype Name</strong>: cyclus::KFacility</li>
 <li><strong>Simulation Entity Type</strong>: facility</li>
@@ -393,8 +393,8 @@ if(ga_enabled){
 <li><strong>All Interfaces</strong>: [cyclus::Agent, cyclus::Facility, cyclus::Ider, cyclus::StateWrangler, cyclus::TimeListener, cyclus::Trader]</li>
 </ul>
 </div>
-<div class="section" id="id10">
-<h3>XML Input Schema<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h3>XML Input Schema<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;interleave&gt;</span>
     <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">&quot;in_commod&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;data</span> <span class="na">type=</span><span class="s">&quot;token&quot;</span><span class="nt">/&gt;</span>
@@ -436,8 +436,8 @@ if(ga_enabled){
 <div class="section" id="agents-predator">
 <h2>:agents:<strong>Predator</strong><a class="headerlink" href="#agents-predator" title="Permalink to this headline">¶</a></h2>
 <p>A facility that represents predators in the Lotka-Volterra integration tests</p>
-<div class="section" id="id11">
-<h3>State Variables<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id12">
+<h3>State Variables<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -553,8 +553,8 @@ if(ga_enabled){
 </tbody>
 </table>
 </div>
-<div class="section" id="id12">
-<h3>Other Info<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id13">
+<h3>Other Info<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><strong>Full Archetype Name</strong>: cyclus::Predator</li>
 <li><strong>Simulation Entity Type</strong>: facility</li>
@@ -562,8 +562,8 @@ if(ga_enabled){
 <li><strong>All Interfaces</strong>: [cyclus::Agent, cyclus::Facility, cyclus::Ider, cyclus::StateWrangler, cyclus::TimeListener, cyclus::Trader]</li>
 </ul>
 </div>
-<div class="section" id="id13">
-<h3>XML Input Schema<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id14">
+<h3>XML Input Schema<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;interleave&gt;</span>
     <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">&quot;commod&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;data</span> <span class="na">type=</span><span class="s">&quot;token&quot;</span><span class="nt">/&gt;</span>
@@ -635,8 +635,8 @@ if(ga_enabled){
 <div class="section" id="agents-prey">
 <h2>:agents:<strong>Prey</strong><a class="headerlink" href="#agents-prey" title="Permalink to this headline">¶</a></h2>
 <p>A facility that represents prey in the Lotka-Volterra integration tests</p>
-<div class="section" id="id14">
-<h3>State Variables<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id15">
+<h3>State Variables<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -694,8 +694,8 @@ if(ga_enabled){
 </tbody>
 </table>
 </div>
-<div class="section" id="id15">
-<h3>Other Info<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id16">
+<h3>Other Info<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><strong>Full Archetype Name</strong>: cyclus::Prey</li>
 <li><strong>Simulation Entity Type</strong>: facility</li>
@@ -703,8 +703,8 @@ if(ga_enabled){
 <li><strong>All Interfaces</strong>: [cyclus::Agent, cyclus::Facility, cyclus::Ider, cyclus::StateWrangler, cyclus::TimeListener, cyclus::Trader]</li>
 </ul>
 </div>
-<div class="section" id="id16">
-<h3>XML Input Schema<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id17">
+<h3>XML Input Schema<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;interleave&gt;</span>
     <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">&quot;commod&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;data</span> <span class="na">type=</span><span class="s">&quot;token&quot;</span><span class="nt">/&gt;</span>
@@ -752,7 +752,7 @@ if(ga_enabled){
         </a></p><div class="sphinxlocaltoc">
     <h3><a href="../index.html">Page contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#"><span style="font-variant:small-caps;">Cyclus</span> Archetypes</a><ul>
+<li><a class="reference internal" href="#">Cyclus Archetypes</a><ul>
 <li><a class="reference internal" href="#agents-source">:agents:<strong>Source</strong></a><ul>
 <li><a class="reference internal" href="#state-variables">State Variables</a></li>
 <li><a class="reference internal" href="#other-info">Other Info</a></li>
@@ -760,37 +760,37 @@ if(ga_enabled){
 </ul>
 </li>
 <li><a class="reference internal" href="#agents-sink">:agents:<strong>Sink</strong></a><ul>
-<li><a class="reference internal" href="#id1">State Variables</a></li>
-<li><a class="reference internal" href="#id2">Other Info</a></li>
-<li><a class="reference internal" href="#id3">XML Input Schema</a></li>
+<li><a class="reference internal" href="#id2">State Variables</a></li>
+<li><a class="reference internal" href="#id3">Other Info</a></li>
+<li><a class="reference internal" href="#id4">XML Input Schema</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#agents-nullregion">:agents:<strong>NullRegion</strong></a><ul>
-<li><a class="reference internal" href="#id4">Other Info</a></li>
-<li><a class="reference internal" href="#id5">XML Input Schema</a></li>
+<li><a class="reference internal" href="#id5">Other Info</a></li>
+<li><a class="reference internal" href="#id6">XML Input Schema</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#agents-nullinst">:agents:<strong>NullInst</strong></a><ul>
-<li><a class="reference internal" href="#id6">Other Info</a></li>
-<li><a class="reference internal" href="#id7">XML Input Schema</a></li>
+<li><a class="reference internal" href="#id7">Other Info</a></li>
+<li><a class="reference internal" href="#id8">XML Input Schema</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#agents-kfacility">:agents:<strong>KFacility</strong></a><ul>
-<li><a class="reference internal" href="#id8">State Variables</a></li>
-<li><a class="reference internal" href="#id9">Other Info</a></li>
-<li><a class="reference internal" href="#id10">XML Input Schema</a></li>
+<li><a class="reference internal" href="#id9">State Variables</a></li>
+<li><a class="reference internal" href="#id10">Other Info</a></li>
+<li><a class="reference internal" href="#id11">XML Input Schema</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#agents-predator">:agents:<strong>Predator</strong></a><ul>
-<li><a class="reference internal" href="#id11">State Variables</a></li>
-<li><a class="reference internal" href="#id12">Other Info</a></li>
-<li><a class="reference internal" href="#id13">XML Input Schema</a></li>
+<li><a class="reference internal" href="#id12">State Variables</a></li>
+<li><a class="reference internal" href="#id13">Other Info</a></li>
+<li><a class="reference internal" href="#id14">XML Input Schema</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#agents-prey">:agents:<strong>Prey</strong></a><ul>
-<li><a class="reference internal" href="#id14">State Variables</a></li>
-<li><a class="reference internal" href="#id15">Other Info</a></li>
-<li><a class="reference internal" href="#id16">XML Input Schema</a></li>
+<li><a class="reference internal" href="#id15">State Variables</a></li>
+<li><a class="reference internal" href="#id16">Other Info</a></li>
+<li><a class="reference internal" href="#id17">XML Input Schema</a></li>
 </ul>
 </li>
 </ul>

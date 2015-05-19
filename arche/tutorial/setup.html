@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Setup a new code repository based on Cycstub &mdash; Home</title>
+    <title>Setup a New Project Based on Cycstub &mdash; Home</title>
     
     <link rel="stylesheet" href="../../_static/cyclus.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -29,7 +29,10 @@
     <script type="text/javascript" src="../../_static/jquery.cookie.js"></script>
     <script type="text/javascript" src="../../_static/cloud.js"></script>
     <link rel="shortcut icon" href="../../_static/big_c.ico"/>
-    <link rel="top" title="Home" href="../../index.html" /> 
+    <link rel="top" title="Home" href="../../index.html" />
+    <link rel="up" title="Archetype Development Tutorial" href="index.html" />
+    <link rel="next" title="Adding State Variables" href="state_var.html" />
+    <link rel="prev" title="Archetype Development Tutorial" href="index.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1"><script type="text/javascript">
 var ga_enabled = !$.cookie('disable-ga');
 if(ga_enabled){
@@ -58,8 +61,16 @@ if(ga_enabled){
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="state_var.html" title="Adding State Variables"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="index.html" title="Archetype Development Tutorial"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../../index.html">Home</a> &raquo;</li>
- 
+
+          <li><a href="../index.html" ><span style="font-variant:small-caps;">Cyclus</span> Archetype Developer Guide</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Archetype Development Tutorial</a> &raquo;</li> 
       </ul>
     </div>
     </div>
@@ -70,83 +81,117 @@ if(ga_enabled){
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="setup-a-new-code-repository-based-on-cycstub">
-<h1>Setup a new code repository based on Cycstub<a class="headerlink" href="#setup-a-new-code-repository-based-on-cycstub" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="setup-a-new-project-based-on-cycstub">
+<h1>Setup a New Project Based on Cycstub<a class="headerlink" href="#setup-a-new-project-based-on-cycstub" title="Permalink to this headline">¶</a></h1>
 <p>In this lesson, we will:</p>
 <ol class="arabic simple">
-<li>Clone the Cycstub repository to your local machine</li>
-<li>Rename the templates in your Cycstub repository</li>
-<li>Create a new respository on Github</li>
-<li>Connect this repository with your new Github repository</li>
-<li>Push the Cycstub repository to your new Github repository</li>
+<li>Do the tasks the the Cyclus Archetype Hello World!</li>
+<li>Clean up the file system for the single storage facility</li>
+<li>Install the storage facility</li>
+<li>Run an input file that uses the new storage facility</li>
 </ol>
-<div class="section" id="clone-the-cycstub-repository-to-your-local-machine">
-<h2>Clone the Cycstub repository to your local machine<a class="headerlink" href="#clone-the-cycstub-repository-to-your-local-machine" title="Permalink to this headline">¶</a></h2>
-<p>First, you need to get the <tt class="docutils literal"><span class="pre">cycstub</span></tt> code.  Cycstub is a skeleton code base
-that you can use to quick-start new <span style="font-variant:small-caps;">Cyclus</span> module development projects.  We
-will grab cycstub by using git to <a class="reference external" href="https://github.com/cyclus/cycstub.git">clone the repository</a>.  Let&#8217;s put this code in a
-<tt class="docutils literal"><span class="pre">TutorialStorage</span></tt> directory and go into it.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git clone https://github.com/cyclus/cycstub.git TutorialStorage
-<span class="nv">$ </span><span class="nb">cd </span>TutorialStorage
+<div class="section" id="follow-the-hello-cyclus-instructions">
+<h2>Follow the Hello Cyclus! Instructions<a class="headerlink" href="#follow-the-hello-cyclus-instructions" title="Permalink to this headline">¶</a></h2>
+<p>Follow all of the steps of <a class="reference internal" href="../hello_world.html#hello-world"><em>Hello, Cyclus!</em></a>.</p>
+</div>
+<div class="section" id="make-a-storage-facility">
+<h2>Make a Storage Facility<a class="headerlink" href="#make-a-storage-facility" title="Permalink to this headline">¶</a></h2>
+<p>Next, make a new facility by copying the facility archetype from the Hello World! tutorial.</p>
+<p>Start by making sure you are in the correct directory</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">cd</span> ~/tutorial
+</pre></div>
+</div>
+<p>Then make the new archetype, updating all the files as needed</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are on a Mac, replace all instances of <tt class="docutils literal"><span class="pre">sed</span> <span class="pre">-i</span></tt> with <tt class="docutils literal"><span class="pre">sed</span> <span class="pre">-i</span> <span class="pre">''</span></tt>.</p>
+</div>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="k">for </span>file in <span class="sb">`</span>ls src/tutorial_facility*<span class="sb">`</span>; <span class="k">do </span>cp <span class="s2">&quot;${file}&quot;</span> <span class="s2">&quot;${file/tutorial_facility/storage}&quot;</span>; <span class="k">done</span>
+<span class="gp">$</span><span class="k"> </span>sed -i <span class="s2">&quot;s/tutorial_facility/storage/g&quot;</span> src/storage*
+<span class="gp">$</span> sed -i <span class="s2">&quot;s/TutorialFacility/Storage/g&quot;</span> src/storage*
+<span class="gp">$</span> sed -i <span class="s2">&quot;s/TUTORIAL_FACILITY/STORAGE/g&quot;</span> src/storage*
+</pre></div>
+</div>
+<p>Finally, open -<tt class="docutils literal"><span class="pre">src/CMakeLists.txt</span></tt> with your favorite text editor and add the
+following line to the end of it</p>
+<div class="highlight-bash"><div class="highlight"><pre>install_cyclus_standalone<span class="o">(</span><span class="s2">&quot;Storage&quot;</span> <span class="s2">&quot;storage&quot;</span> <span class="s2">&quot;tutorial&quot;</span><span class="o">)</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="rename-the-templates-in-the-cycstub-clone">
-<h2>Rename the templates in the Cycstub clone<a class="headerlink" href="#rename-the-templates-in-the-cycstub-clone" title="Permalink to this headline">¶</a></h2>
-<p>Since cycstub is a template project everything is named <tt class="docutils literal"><span class="pre">stub</span></tt>. We need to
-change this to reflect the name we want our new project to be called -
-<tt class="docutils literal"><span class="pre">tutorial_storage</span></tt> here.  Cycstub comes with a renaming tool to do just
-this!  From the command line, run Python in the following way:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python rename.py tutorial_storage
+<div class="section" id="install-and-test">
+<h2>Install and Test<a class="headerlink" href="#install-and-test" title="Permalink to this headline">¶</a></h2>
+<p>Install the tutorial project</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> ./install.py
 </pre></div>
 </div>
-<p>We will now commit the changes to this local repository.  The first step is to
-stop tracking the original stub files:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git rm src/stub_*
+<p>Run the unit tests</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> Storage_unit_tests
 </pre></div>
 </div>
-<p>We will then add the files that were modified:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git add CMakeLists.txt input/example.xml src/CMakeLists.txt src/tutorial_storage_*
+<p>Make a new input file that is a copy of the test input file</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> cp input/example.xml input/storage.xml
 </pre></div>
 </div>
-<p>Finally, we can commit these changes:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git commit -m <span class="s2">&quot;Changed cycstub files from stub to tutorial_storage&quot;</span>
+<p>Then change every instance of <tt class="docutils literal"><span class="pre">TutorialFacility</span></tt> with <tt class="docutils literal"><span class="pre">Storage</span></tt>. This can be
+done by hand or on the command line with</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> sed -i<span class="s1">&#39;&#39;</span> <span class="s2">&quot;s/TutorialFacility/Storage/g&quot;</span> input/storage.xml
 </pre></div>
 </div>
-</div>
-<div class="section" id="create-a-new-repository-on-github">
-<h2>Create a New Repository on Github<a class="headerlink" href="#create-a-new-repository-on-github" title="Permalink to this headline">¶</a></h2>
-<p>Log in to your Github account and start a new repository by clicking on the
-&#8216;+&#8217; symbol next to your account name.</p>
-<img alt="../../_images/github_new.png" src="../../_images/github_new.png" />
-<p>Enter the name for your repository, &#8220;TutorialStorage&#8221;, and click the &#8220;Create
-repository&#8221; button.</p>
-</div>
-<div class="section" id="connect-this-repository-with-your-new-github-repository">
-<h2>Connect this repository with your new Github repository<a class="headerlink" href="#connect-this-repository-with-your-new-github-repository" title="Permalink to this headline">¶</a></h2>
-<p>The clone of <tt class="docutils literal"><span class="pre">cycstub</span></tt> that you just made is connected to the original
-<a class="reference external" href="https://github.com/cyclus/cycstub.git">cycstub repository</a>.  You can see
-this using the <tt class="docutils literal"><span class="pre">git</span> <span class="pre">remote</span></tt> command:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git remote -v
-origin      https://github.com/cyclus/cycstub.git <span class="o">(</span>fetch<span class="o">)</span>
-origin      https://github.com/cyclus/cycstub.git <span class="o">(</span>push<span class="o">)</span>
-</pre></div>
-</div>
-<p>We would like to sever this connection since and instead connect this local
-repository to our new Github repository:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git remote <span class="nb">set</span>-url origin https://github.com/&lt;your_github_username&gt;/TutorialStorage.git
-<span class="nv">$ </span>git remote -v
-origin      https://github.com/&lt;your_github_username&gt;/TutorialStorage.git <span class="o">(</span>fetch<span class="o">)</span>
-origin      https://github.com/&lt;your_github_username&gt;/TutorialStorage.git <span class="o">(</span>push<span class="o">)</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="push-the-cycstub-repository-to-your-new-github-repository">
-<h2>Push the Cycstub repository to your new Github repository<a class="headerlink" href="#push-the-cycstub-repository-to-your-new-github-repository" title="Permalink to this headline">¶</a></h2>
-<p>You are now ready to push this renamed clone of <tt class="docutils literal"><span class="pre">cycstub</span></tt> to your new
-repository and begin development.  Since the primary branch of this repository
-is the <tt class="docutils literal"><span class="pre">develop</span></tt> branch, you will need to connect this branch</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git push origin
+<p>Test the input file by running Cyclus</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> cyclus -v 2 input/storage.xml
+<span class="go">              :</span>
+<span class="go">          .CL:CC CC             _Q     _Q  _Q_Q    _Q    _Q              _Q</span>
+<span class="go">        CC;CCCCCCCC:C;         /_\)   /_\)/_/\\)  /_\)  /_\)            /_\)</span>
+<span class="go">        CCCCCCCCCCCCCl       __O|/O___O|/O_OO|/O__O|/O__O|/O____________O|/O__</span>
+<span class="go">     CCCCCCf     iCCCLCC     /////////////////////////////////////////////////</span>
+<span class="go">     iCCCt  ;;;;;.  CCCC</span>
+<span class="go">    CCCC  ;;;;;;;;;. CClL.                          c</span>
+<span class="go">   CCCC ,;;       ;;: CCCC  ;                   : CCCCi</span>
+<span class="go">    CCC ;;         ;;  CC   ;;:                CCC`   `C;</span>
+<span class="go">  lCCC ;;              CCCC  ;;;:             :CC .;;. C;   ;    :   ;  :;;</span>
+<span class="go">  CCCC ;.              CCCC    ;;;,           CC ;    ; Ci  ;    :   ;  :  ;</span>
+<span class="go">   iCC :;               CC       ;;;,        ;C ;       CC  ;    :   ; .</span>
+<span class="go">  CCCi ;;               CCC        ;;;.      .C ;       tf  ;    :   ;  ;.</span>
+<span class="go">  CCC  ;;               CCC          ;;;;;;; fC :       lC  ;    :   ;    ;:</span>
+<span class="go">   iCf ;;               CC         :;;:      tC ;       CC  ;    :   ;     ;</span>
+<span class="go">  fCCC :;              LCCf      ;;;:         LC :.  ,: C   ;    ;   ; ;   ;</span>
+<span class="go">  CCCC  ;;             CCCC    ;;;:           CCi `;;` CC.  ;;;; :;.;.  ; ,;</span>
+<span class="go">    CCl ;;             CC    ;;;;              CCC    CCL</span>
+<span class="go">   tCCC  ;;        ;; CCCL  ;;;                  tCCCCC.</span>
+<span class="go">    CCCC  ;;     :;; CCCCf  ;                     ,L</span>
+<span class="go">     lCCC   ;;;;;;  CCCL</span>
+<span class="go">     CCCCCC  :;;  fCCCCC</span>
+<span class="go">      . CCCC     CCCC .</span>
+<span class="go">       .CCCCCCCCCCCCCi</span>
+<span class="go">          iCCCCCLCf</span>
+<span class="go">           .  C. ,</span>
+<span class="go">              :</span>
+<span class="go">INFO1(core  ):Simulation set to run from start=0 to end=10</span>
+<span class="go">INFO1(core  ):Beginning simulation</span>
+<span class="go">INFO1(tutori):Hello</span>
+<span class="go">INFO1(tutori):World!</span>
+<span class="go">INFO1(tutori):Hello</span>
+<span class="go">INFO1(tutori):World!</span>
+<span class="go">INFO1(tutori):Hello</span>
+<span class="go">INFO1(tutori):World!</span>
+<span class="go">INFO1(tutori):Hello</span>
+<span class="go">INFO1(tutori):World!</span>
+<span class="go">INFO1(tutori):Hello</span>
+<span class="go">INFO1(tutori):World!</span>
+<span class="go">INFO1(tutori):Hello</span>
+<span class="go">INFO1(tutori):World!</span>
+<span class="go">INFO1(tutori):Hello</span>
+<span class="go">INFO1(tutori):World!</span>
+<span class="go">INFO1(tutori):Hello</span>
+<span class="go">INFO1(tutori):World!</span>
+<span class="go">INFO1(tutori):Hello</span>
+<span class="go">INFO1(tutori):World!</span>
+<span class="go">INFO1(tutori):Hello</span>
+<span class="go">INFO1(tutori):World!</span>
+
+<span class="go">Status: Cyclus run successful!</span>
+<span class="go">Output location: cyclus.sqlite</span>
+<span class="go">Simulation ID: 9f15b93c-9ab2-49bb-a14f-fef872e64ce8</span>
 </pre></div>
 </div>
 </div>
@@ -163,16 +208,24 @@ is the <tt class="docutils literal"><span class="pre">develop</span></tt> branch
         </a></p><div class="sphinxlocaltoc">
     <h3><a href="../../index.html">Page contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Setup a new code repository based on Cycstub</a><ul>
-<li><a class="reference internal" href="#clone-the-cycstub-repository-to-your-local-machine">Clone the Cycstub repository to your local machine</a></li>
-<li><a class="reference internal" href="#rename-the-templates-in-the-cycstub-clone">Rename the templates in the Cycstub clone</a></li>
-<li><a class="reference internal" href="#create-a-new-repository-on-github">Create a New Repository on Github</a></li>
-<li><a class="reference internal" href="#connect-this-repository-with-your-new-github-repository">Connect this repository with your new Github repository</a></li>
-<li><a class="reference internal" href="#push-the-cycstub-repository-to-your-new-github-repository">Push the Cycstub repository to your new Github repository</a></li>
+<li><a class="reference internal" href="#">Setup a New Project Based on Cycstub</a><ul>
+<li><a class="reference internal" href="#follow-the-hello-cyclus-instructions">Follow the Hello Cyclus! Instructions</a></li>
+<li><a class="reference internal" href="#make-a-storage-facility">Make a Storage Facility</a></li>
+<li><a class="reference internal" href="#install-and-test">Install and Test</a></li>
 </ul>
 </li>
 </ul>
 
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="index.html"
+                          title="Previous page">&larr; Archetype Development Tutorial</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="state_var.html"
+                          title="Next page">&rarr; Adding State Variables</a></p>
   </div>
   <div class="sphinxlocaltoc">
   <h3>Useful Pages</h3>
@@ -247,8 +300,16 @@ is the <tt class="docutils literal"><span class="pre">develop</span></tt> branch
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="state_var.html" title="Adding State Variables"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="index.html" title="Archetype Development Tutorial"
+             >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../../index.html">Home</a> &raquo;</li>
- 
+
+          <li><a href="../index.html" ><span style="font-variant:small-caps;">Cyclus</span> Archetype Developer Guide</a> &raquo;</li>
+          <li><a href="index.html" >Archetype Development Tutorial</a> &raquo;</li> 
       </ul>
     </div>
     </div>

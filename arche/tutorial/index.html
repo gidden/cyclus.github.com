@@ -29,7 +29,10 @@
     <script type="text/javascript" src="../../_static/jquery.cookie.js"></script>
     <script type="text/javascript" src="../../_static/cloud.js"></script>
     <link rel="shortcut icon" href="../../_static/big_c.ico"/>
-    <link rel="top" title="Home" href="../../index.html" /> 
+    <link rel="top" title="Home" href="../../index.html" />
+    <link rel="up" title="Cyclus Archetype Developer Guide" href="../index.html" />
+    <link rel="next" title="Setup a New Project Based on Cycstub" href="setup.html" />
+    <link rel="prev" title="A Tour of Cycstub" href="../tour.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1"><script type="text/javascript">
 var ga_enabled = !$.cookie('disable-ga');
 if(ga_enabled){
@@ -58,8 +61,15 @@ if(ga_enabled){
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="setup.html" title="Setup a New Project Based on Cycstub"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../tour.html" title="A Tour of Cycstub"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../../index.html">Home</a> &raquo;</li>
- 
+
+          <li><a href="../index.html" accesskey="U"><span style="font-variant:small-caps;">Cyclus</span> Archetype Developer Guide</a> &raquo;</li> 
       </ul>
     </div>
     </div>
@@ -84,30 +94,25 @@ a very simple interim storage facility, named &#8220;Storage&#8221;.  Ultimately
 facility will have the following characteristics, all definable by the user:</p>
 <ul class="simple">
 <li>a fixed rate at which it can transfer material</li>
-<li>a fixed storage capacity</li>
 <li>a minimum time that material stays in storage</li>
-<li>a limit on the fraction of each material that is fissile</li>
+<li>a fixed storage capacity</li>
 </ul>
-<p>This archetype will have a custom table that records the average fraction of
-each material across its entire inventory at any point in time.</p>
 <p>This tutorial has the following steps:</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup a new code repository based on Cycstub</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hello_world.html">Making your first change by introducing Logging: &#8220;Hello World!&#8221;</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup a New Project Based on Cycstub</a></li>
 <li class="toctree-l1"><a class="reference internal" href="state_var.html">Adding State Variables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="add_buffer.html">Adding a ResourceBuffer from the Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="toolkit.html">Adding Buffers and Policies from the Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Adding a Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input_files.html">Making Input Files</a></li>
 </ul>
 </div>
-<ol class="arabic simple">
-<li>Setup a new code repository based on Cycstub</li>
-<li>Making your first change by introducing Logging: &#8220;Hello World!&#8221;</li>
-<li>Adding state variables</li>
-<li>Adding a ResourceBuffer from the Toolkit</li>
-<li>Begin accepting material from the DRE</li>
-<li>Begin offering material to the DRE</li>
-<li>Add a delay between accepting and offering material</li>
-</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you ever see an error like <tt class="docutils literal"><span class="pre">ERROR(core</span> <span class="pre">):SQL</span> <span class="pre">error</span> <span class="pre">[INSERT</span> <span class="pre">INTO</span>
+<span class="pre">AgentState...</span></tt> simply remove the output database with <tt class="docutils literal"><span class="pre">$</span> <span class="pre">rm</span>
+<span class="pre">cyclus.sqlite</span></tt> and rerun the simulation</p>
+</div>
 </div>
 </div>
 
@@ -128,6 +133,16 @@ each material across its entire inventory at any point in time.</p>
 </li>
 </ul>
 
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="../tour.html"
+                          title="Previous page">&larr; A Tour of Cycstub</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="setup.html"
+                          title="Next page">&rarr; Setup a New Project Based on Cycstub</a></p>
   </div>
   <div class="sphinxlocaltoc">
   <h3>Useful Pages</h3>
@@ -202,8 +217,15 @@ each material across its entire inventory at any point in time.</p>
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="setup.html" title="Setup a New Project Based on Cycstub"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../tour.html" title="A Tour of Cycstub"
+             >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../../index.html">Home</a> &raquo;</li>
- 
+
+          <li><a href="../index.html" ><span style="font-variant:small-caps;">Cyclus</span> Archetype Developer Guide</a> &raquo;</li> 
       </ul>
     </div>
     </div>

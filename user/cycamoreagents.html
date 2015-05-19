@@ -81,7 +81,7 @@ if(ga_enabled){
           <div class="body">
             
   <div class="section" id="cycamore-archetypes">
-<h1>Cycamore Archetypes<a class="headerlink" href="#cycamore-archetypes" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Cycamore Archetypes<a class="headerlink" href="#cycamore-archetypes" title="Permalink to this headline">¶</a></h1>
 <p>This is a collection of archetypes found in the <tt class="docutils literal"><span class="pre">cycamore</span></tt> module that comes with
 cycamore itself.</p>
 <div class="section" id="cycamore-source">
@@ -177,8 +177,8 @@ a total inventory size. The inventory size and throughput capacity
 both default to infinite. If a recipe is provided, it will request
 material with that recipe. Requests are made for any number of
 specified commodities.</div></blockquote>
-<div class="section" id="id1">
-<h3>State Variables<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>State Variables<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -218,8 +218,8 @@ specified commodities.</div></blockquote>
 </tbody>
 </table>
 </div>
-<div class="section" id="id2">
-<h3>Other Info<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>Other Info<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><strong>Full Archetype Name</strong>: cycamore::Sink</li>
 <li><strong>Simulation Entity Type</strong>: facility</li>
@@ -227,8 +227,8 @@ specified commodities.</div></blockquote>
 <li><strong>All Interfaces</strong>: [cyclus::Agent, cyclus::Facility, cyclus::Ider, cyclus::StateWrangler, cyclus::TimeListener, cyclus::Trader]</li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h3>XML Input Schema<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>XML Input Schema<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;interleave&gt;</span>
     <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">&quot;in_commods&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;oneOrMore&gt;</span>
@@ -264,8 +264,8 @@ specified commodities.</div></blockquote>
 <p>The Enrichment facility requests an input commodity and associated recipe whose quantity is its remaining inventory capacity.  All facilities trading the same input commodity (even with different recipes) will offer materials for trade.  The Enrichment facility accepts any input materials with enrichments less than its tails assay, as long as some U235 is present, and preference increases with U235 content.  If no U235 is present in the offered material, the trade preference is set to -1 and the material is not accepted.  Any material components other than U235 and U238 are sent directly to the tails buffer.</p>
 <p>The Enrichment facility will bid on any request for its output commodity up to the maximum allowed enrichment (if not specified, default is 100%) It bids on either the request quantity, or the maximum quanity allowed by its SWU constraint or natural uranium inventory, whichever is lower. If multiple output commodities with different enrichment levels are requested and the facility does not have the SWU or quantity capacity to meet all requests, the requests are fully, then partially filled in unspecified but repeatable order.</p>
 <p>Accumulated tails inventory is offered for trading as a specifiable output commodity.</p>
-<div class="section" id="id4">
-<h3>State Variables<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>State Variables<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -360,8 +360,8 @@ specified commodities.</div></blockquote>
 </tbody>
 </table>
 </div>
-<div class="section" id="id5">
-<h3>Other Info<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>Other Info<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><strong>Full Archetype Name</strong>: cycamore::Enrichment</li>
 <li><strong>Simulation Entity Type</strong>: facility</li>
@@ -370,8 +370,8 @@ specified commodities.</div></blockquote>
 <li><strong>niche</strong>: enrichment facility</li>
 </ul>
 </div>
-<div class="section" id="id6">
-<h3>XML Input Schema<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>XML Input Schema<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;interleave&gt;</span>
     <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">&quot;feed_commod&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;data</span> <span class="na">type=</span><span class="s">&quot;string&quot;</span><span class="nt">/&gt;</span>
@@ -430,8 +430,8 @@ specified commodities.</div></blockquote>
 <p>Each fuel is identified by a specific input commodity and has an associated input recipe (nuclide composition), output recipe, output commidity, and preference.  The preference identifies which input fuels are preferred when requesting.  Changes in these preferences can be specified as a function of time using the pref_change variables.  Changes in the input-output recipe compositions can also be specified as a function of time using the recipe_change variables.</p>
 <p>The reactor treats fuel as individual assemblies that are never split, combined or otherwise treated in any non-discrete way.  Fuel is requested in full-or-nothing assembly sized quanta.  If real-world assembly modeling is unnecessary, parameters can be adjusted (e.g. n_assem_core, assem_size, n_assem_batch).  At the end of every cycle, a full batch is discharged from the core consisting of n_assem_batch assemblies of assem_size kg. The reactor also has a specifiable refueling time period following the end of each cycle at the end of which it will resume operation on the next cycle <em>if</em> it has enough fuel for a full core; otherwise it waits until it has enough fresh fuel assemblies.</p>
 <p>In addition to its core, the reactor has an on-hand fresh fuel inventory and a spent fuel inventory whose capacities are specified by n_assem_fresh and n_assem_spent respectively.  Each time step the reactor will attempt to acquire enough fresh fuel to fill its fresh fuel inventory (and its core if the core isn&#8217;t currently full).  If the fresh fuel inventory has zero capacity, fuel will be ordered just-in-time after the end of each operational cycle before the next begins.  If the spent fuel inventory becomes full, the reactor will halt operation at the end of the next cycle until there is more room.  Each time step, the reactor will try to trade away as much of its spent fuel inventory as possible.</p>
-<div class="section" id="id7">
-<h3>State Variables<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h3>State Variables<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -658,8 +658,8 @@ specified commodities.</div></blockquote>
 </tbody>
 </table>
 </div>
-<div class="section" id="id8">
-<h3>Other Info<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h3>Other Info<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><strong>Full Archetype Name</strong>: cycamore::Reactor</li>
 <li><strong>Simulation Entity Type</strong>: facility</li>
@@ -668,8 +668,8 @@ specified commodities.</div></blockquote>
 <li><strong>niche</strong>: reactor</li>
 </ul>
 </div>
-<div class="section" id="id9">
-<h3>XML Input Schema<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h3>XML Input Schema<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;interleave&gt;</span>
     <span class="nt">&lt;optional&gt;</span>
         <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">&quot;power_cap&quot;</span><span class="nt">&gt;</span>
@@ -843,8 +843,8 @@ specified commodities.</div></blockquote>
 <p>Separations processes feed material into one or more streams containing specific elements and/or nuclides.  It uses mass-based efficiencies.</p>
 <p>User defined separations streams are specified as groups of component-efficiency pairs where &#8216;component&#8217; means either a particular element or a particular nuclide.  Each component&#8217;s paired efficiency represents the mass fraction of that component in the feed that is separated into that stream.  The efficiencies of a particular component across all streams must sum up to less than or equal to one.  If less than one, the remainining material is sent to a waste inventory and (potentially) traded away from there.</p>
 <p>The facility receives material into a feed inventory that it processes with a specified throughput each time step.  Each output stream has a corresponding output inventory size/limit.  If the facility is unable to reduce its stocks by trading and hits this limit for any of its output streams, further processing/separations of feed material will halt until room is again available in the output streams.</p>
-<div class="section" id="id10">
-<h3>State Variables<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h3>State Variables<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -955,8 +955,8 @@ specified commodities.</div></blockquote>
 </tbody>
 </table>
 </div>
-<div class="section" id="id11">
-<h3>Other Info<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id12">
+<h3>Other Info<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><strong>Full Archetype Name</strong>: cycamore::Separations</li>
 <li><strong>Simulation Entity Type</strong>: facility</li>
@@ -965,8 +965,8 @@ specified commodities.</div></blockquote>
 <li><strong>niche</strong>: separations</li>
 </ul>
 </div>
-<div class="section" id="id12">
-<h3>XML Input Schema<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id13">
+<h3>XML Input Schema<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;interleave&gt;</span>
     <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">&quot;throughput&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;data</span> <span class="na">type=</span><span class="s">&quot;double&quot;</span><span class="nt">/&gt;</span>
@@ -1064,8 +1064,8 @@ specified commodities.</div></blockquote>
 <p>The cross sections are from the simple cross section library in PyNE. They can be set to either a thermal or fast neutron spectrum.  A linear interpolation is performed using the weights of the fissile, filler, and target streams. The interpolation is used to compute a mixing ratio of the input streams that matches the target weight.  In the event that the target weight is higher than the fissile stream weight, the FuelFab will attempt to use the top-up and fissile input streams together instead of the fissile and filler streams.  All supplied material will always have the same weight as the requested material.</p>
 <p>The supplying of mixed material is constrained by available inventory quantities and a per time step throughput limit.  Requests for fuel material larger than the throughput can never be met.  Fissile inventory can be requested/received via one or more commodities.  The DRE request preference for each of these commodities can also optionally be specified. By default, the top-up inventory size is zero, and it is not used for mixing.</p>
 <p>[1] Baker, A. R., and R. W. Ross. &#8220;Comparison of the value of plutonium and    uranium isotopes in fast reactors.&#8221; Proceedings of the Conference on    Breeding. Economics, and Safety in Large Fast Power Reactors. 1963.</p>
-<div class="section" id="id13">
-<h3>State Variables<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id14">
+<h3>State Variables<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1195,8 +1195,8 @@ specified commodities.</div></blockquote>
 </tbody>
 </table>
 </div>
-<div class="section" id="id14">
-<h3>Other Info<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id15">
+<h3>Other Info<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><strong>Full Archetype Name</strong>: cycamore::FuelFab</li>
 <li><strong>Simulation Entity Type</strong>: facility</li>
@@ -1205,8 +1205,8 @@ specified commodities.</div></blockquote>
 <li><strong>niche</strong>: fabrication</li>
 </ul>
 </div>
-<div class="section" id="id15">
-<h3>XML Input Schema<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id16">
+<h3>XML Input Schema<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;interleave&gt;</span>
     <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">&quot;fill_commod&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;data</span> <span class="na">type=</span><span class="s">&quot;string&quot;</span><span class="nt">/&gt;</span>
@@ -1284,8 +1284,8 @@ specified commodities.</div></blockquote>
 <div class="section" id="cycamore-deployinst">
 <h2>:cycamore:<strong>DeployInst</strong><a class="headerlink" href="#cycamore-deployinst" title="Permalink to this headline">¶</a></h2>
 <p>Builds and manages agents (facilities) according to a manually specified deployment schedule. Deployed agents are automatically decommissioned at the end of their lifetime.  The user specifies a list of prototypes for each and corresponding build times, number to build, and (optionally) lifetimes.  The same prototype can be specified multiple times with any combination of the same or different build times, build number, and lifetimes.</p>
-<div class="section" id="id16">
-<h3>State Variables<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id17">
+<h3>State Variables<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1337,8 +1337,8 @@ specified commodities.</div></blockquote>
 </tbody>
 </table>
 </div>
-<div class="section" id="id17">
-<h3>Other Info<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id18">
+<h3>Other Info<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><strong>Full Archetype Name</strong>: cycamore::DeployInst</li>
 <li><strong>Simulation Entity Type</strong>: institution</li>
@@ -1346,8 +1346,8 @@ specified commodities.</div></blockquote>
 <li><strong>All Interfaces</strong>: [cyclus::Agent, cyclus::Ider, cyclus::Institution, cyclus::StateWrangler, cyclus::TimeListener]</li>
 </ul>
 </div>
-<div class="section" id="id18">
-<h3>XML Input Schema<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id19">
+<h3>XML Input Schema<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;interleave&gt;</span>
     <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">&quot;prototypes&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;oneOrMore&gt;</span>
@@ -1388,8 +1388,8 @@ specified commodities.</div></blockquote>
 <div class="section" id="cycamore-managerinst">
 <h2>:cycamore:<strong>ManagerInst</strong><a class="headerlink" href="#cycamore-managerinst" title="Permalink to this headline">¶</a></h2>
 <p>An institution that owns and operates a manually entered list of facilities in the input file</p>
-<div class="section" id="id19">
-<h3>State Variables<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id20">
+<h3>State Variables<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1408,8 +1408,8 @@ specified commodities.</div></blockquote>
 </tbody>
 </table>
 </div>
-<div class="section" id="id20">
-<h3>Other Info<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id21">
+<h3>Other Info<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><strong>Full Archetype Name</strong>: cycamore::ManagerInst</li>
 <li><strong>Simulation Entity Type</strong>: institution</li>
@@ -1417,8 +1417,8 @@ specified commodities.</div></blockquote>
 <li><strong>All Interfaces</strong>: [cyclus::Agent, cyclus::Ider, cyclus::Institution, cyclus::StateWrangler, cyclus::TimeListener, cyclus::toolkit::AgentManaged, cyclus::toolkit::Builder, cyclus::toolkit::CommodityProducerManager]</li>
 </ul>
 </div>
-<div class="section" id="id21">
-<h3>XML Input Schema<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id22">
+<h3>XML Input Schema<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;interleave&gt;</span>
     <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">&quot;prototypes&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;oneOrMore&gt;</span>
@@ -1436,8 +1436,8 @@ specified commodities.</div></blockquote>
 <div class="section" id="cycamore-growthregion">
 <h2>:cycamore:<strong>GrowthRegion</strong><a class="headerlink" href="#cycamore-growthregion" title="Permalink to this headline">¶</a></h2>
 <p>A region that governs a scenario in which there is growth in demand for a commodity.</p>
-<div class="section" id="id22">
-<h3>State Variables<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id23">
+<h3>State Variables<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1504,8 +1504,8 @@ specified commodities.</div></blockquote>
 </tbody>
 </table>
 </div>
-<div class="section" id="id23">
-<h3>Other Info<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id24">
+<h3>Other Info<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><strong>Full Archetype Name</strong>: cycamore::GrowthRegion</li>
 <li><strong>Simulation Entity Type</strong>: region</li>
@@ -1513,8 +1513,8 @@ specified commodities.</div></blockquote>
 <li><strong>All Interfaces</strong>: [cyclus::Agent, cyclus::Ider, cyclus::Region, cyclus::StateWrangler, cyclus::TimeListener]</li>
 </ul>
 </div>
-<div class="section" id="id24">
-<h3>XML Input Schema<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id25">
+<h3>XML Input Schema<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;interleave&gt;</span>
     <span class="nt">&lt;element</span> <span class="na">name=</span><span class="s">&quot;growth&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;oneOrMore&gt;</span>
@@ -1574,51 +1574,51 @@ specified commodities.</div></blockquote>
 </ul>
 </li>
 <li><a class="reference internal" href="#cycamore-sink">:cycamore:<strong>Sink</strong></a><ul>
-<li><a class="reference internal" href="#id1">State Variables</a></li>
-<li><a class="reference internal" href="#id2">Other Info</a></li>
-<li><a class="reference internal" href="#id3">XML Input Schema</a></li>
+<li><a class="reference internal" href="#id2">State Variables</a></li>
+<li><a class="reference internal" href="#id3">Other Info</a></li>
+<li><a class="reference internal" href="#id4">XML Input Schema</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#cycamore-enrichment">:cycamore:<strong>Enrichment</strong></a><ul>
-<li><a class="reference internal" href="#id4">State Variables</a></li>
-<li><a class="reference internal" href="#id5">Other Info</a></li>
-<li><a class="reference internal" href="#id6">XML Input Schema</a></li>
+<li><a class="reference internal" href="#id5">State Variables</a></li>
+<li><a class="reference internal" href="#id6">Other Info</a></li>
+<li><a class="reference internal" href="#id7">XML Input Schema</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#cycamore-reactor">:cycamore:<strong>Reactor</strong></a><ul>
-<li><a class="reference internal" href="#id7">State Variables</a></li>
-<li><a class="reference internal" href="#id8">Other Info</a></li>
-<li><a class="reference internal" href="#id9">XML Input Schema</a></li>
+<li><a class="reference internal" href="#id8">State Variables</a></li>
+<li><a class="reference internal" href="#id9">Other Info</a></li>
+<li><a class="reference internal" href="#id10">XML Input Schema</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#cycamore-separations">:cycamore:<strong>Separations</strong></a><ul>
-<li><a class="reference internal" href="#id10">State Variables</a></li>
-<li><a class="reference internal" href="#id11">Other Info</a></li>
-<li><a class="reference internal" href="#id12">XML Input Schema</a></li>
+<li><a class="reference internal" href="#id11">State Variables</a></li>
+<li><a class="reference internal" href="#id12">Other Info</a></li>
+<li><a class="reference internal" href="#id13">XML Input Schema</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#cycamore-fuelfab">:cycamore:<strong>FuelFab</strong></a><ul>
-<li><a class="reference internal" href="#id13">State Variables</a></li>
-<li><a class="reference internal" href="#id14">Other Info</a></li>
-<li><a class="reference internal" href="#id15">XML Input Schema</a></li>
+<li><a class="reference internal" href="#id14">State Variables</a></li>
+<li><a class="reference internal" href="#id15">Other Info</a></li>
+<li><a class="reference internal" href="#id16">XML Input Schema</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#cycamore-deployinst">:cycamore:<strong>DeployInst</strong></a><ul>
-<li><a class="reference internal" href="#id16">State Variables</a></li>
-<li><a class="reference internal" href="#id17">Other Info</a></li>
-<li><a class="reference internal" href="#id18">XML Input Schema</a></li>
+<li><a class="reference internal" href="#id17">State Variables</a></li>
+<li><a class="reference internal" href="#id18">Other Info</a></li>
+<li><a class="reference internal" href="#id19">XML Input Schema</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#cycamore-managerinst">:cycamore:<strong>ManagerInst</strong></a><ul>
-<li><a class="reference internal" href="#id19">State Variables</a></li>
-<li><a class="reference internal" href="#id20">Other Info</a></li>
-<li><a class="reference internal" href="#id21">XML Input Schema</a></li>
+<li><a class="reference internal" href="#id20">State Variables</a></li>
+<li><a class="reference internal" href="#id21">Other Info</a></li>
+<li><a class="reference internal" href="#id22">XML Input Schema</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#cycamore-growthregion">:cycamore:<strong>GrowthRegion</strong></a><ul>
-<li><a class="reference internal" href="#id22">State Variables</a></li>
-<li><a class="reference internal" href="#id23">Other Info</a></li>
-<li><a class="reference internal" href="#id24">XML Input Schema</a></li>
+<li><a class="reference internal" href="#id23">State Variables</a></li>
+<li><a class="reference internal" href="#id24">Other Info</a></li>
+<li><a class="reference internal" href="#id25">XML Input Schema</a></li>
 </ul>
 </li>
 </ul>
@@ -1629,7 +1629,7 @@ specified commodities.</div></blockquote>
   <div class="sphinxprev">
     <h4>Previous page</h4>
     <p class="topless"><a href="cyclusagents.html"
-                          title="Previous page">&larr; <span style="font-variant:small-caps;">Cyclus</span> Archetypes</a></p>
+                          title="Previous page">&larr; Cyclus Archetypes</a></p>
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
