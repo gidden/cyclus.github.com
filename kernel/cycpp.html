@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '(1.2.0-332-g1845a13)',
+        VERSION:     '(1.3.0-rc5-32-g5ecfc06)',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -49,10 +49,10 @@ if(ga_enabled){
 }
 </script>
   </head>
-  <body role="document">
+  <body>
     <div class="relbar-top">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -69,7 +69,7 @@ if(ga_enabled){
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">Home</a> &raquo;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U"><span style="font-variant:small-caps;">Cyclus</span> Kernel Developer Guide</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U"><span style="font-variant:small-caps;">Cyclus</span> Kernel Developer Guide</a> &raquo;</li> 
       </ul>
     </div>
     </div>
@@ -78,7 +78,7 @@ if(ga_enabled){
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="module-cycpp">
 <span id="cycpp"></span><h1>cycpp<a class="headerlink" href="#module-cycpp" title="Permalink to this headline">¶</a></h1>
@@ -99,8 +99,8 @@ are skipped - by definition - by the C preprocessor and the C/C++ compiler.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">#pragma cyclus &lt;decorator name&gt; [args]</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal"><span class="pre">#pragma</span> <span class="pre">cyclus</span></code> portion is a flag so that <em>only</em> cycpp consumes this
-#directive. This is followed by the actual <code class="docutils literal"><span class="pre">&lt;decorator</span> <span class="pre">name&gt;</span></code> which tells
+<p>The <tt class="docutils literal"><span class="pre">#pragma</span> <span class="pre">cyclus</span></tt> portion is a flag so that <em>only</em> cycpp consumes this
+#directive. This is followed by the actual <tt class="docutils literal"><span class="pre">&lt;decorator</span> <span class="pre">name&gt;</span></tt> which tells
 cycpp what to do with this pragma. Lastly, optional arguments may be passed to
 this decorator but all options <em>must</em> be on the same logical line as the
 directive.  How the arguments are interpreted is a function of the decorators
@@ -131,19 +131,19 @@ current class level annotations. Enrties here overwrite previous entries.</td>
 library. It requires Python 2.7+ or Python 3.3+ to run.</p>
 <dl class="function">
 <dt id="cycpp.escape_xml">
-<code class="descclassname">cycpp.</code><code class="descname">escape_xml</code><span class="sig-paren">(</span><em>s</em>, <em>ind='    '</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.escape_xml" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">cycpp.</tt><tt class="descname">escape_xml</tt><big>(</big><em>s</em>, <em>ind='    '</em><big>)</big><a class="headerlink" href="#cycpp.escape_xml" title="Permalink to this definition">¶</a></dt>
 <dd><p>Escapes xml string s, prettifies it and puts in c++ string lit form.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="cycpp.prepare_type">
-<code class="descclassname">cycpp.</code><code class="descname">prepare_type</code><span class="sig-paren">(</span><em>cpptype</em>, <em>othertype</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.prepare_type" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">cycpp.</tt><tt class="descname">prepare_type</tt><big>(</big><em>cpptype</em>, <em>othertype</em><big>)</big><a class="headerlink" href="#cycpp.prepare_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Updates othertype to conform to the length of cpptype using None&#8217;s.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="cycpp.preprocess_file">
-<code class="descclassname">cycpp.</code><code class="descname">preprocess_file</code><span class="sig-paren">(</span><em>filename</em>, <em>includes=()</em>, <em>cpp_path='cpp'</em>, <em>cpp_args=('-xc++'</em>, <em>'-pipe'</em>, <em>'-E'</em>, <em>'-DCYCPP')</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.preprocess_file" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">cycpp.</tt><tt class="descname">preprocess_file</tt><big>(</big><em>filename</em>, <em>includes=()</em>, <em>cpp_path='cpp'</em>, <em>cpp_args=('-xc++'</em>, <em>'-pipe'</em>, <em>'-E'</em>, <em>'-DCYCPP')</em><big>)</big><a class="headerlink" href="#cycpp.preprocess_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Preprocess a file using cpp.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -173,23 +173,23 @@ arguments.</p>
 
 <dl class="class">
 <dt id="cycpp.Filter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">Filter</code><span class="sig-paren">(</span><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.Filter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">Filter</tt><big>(</big><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.Filter" title="Permalink to this definition">¶</a></dt>
 <dd><p>A basic, no-op filter.</p>
 <dl class="method">
 <dt id="cycpp.Filter.isvalid">
-<code class="descname">isvalid</code><span class="sig-paren">(</span><em>statement</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.Filter.isvalid" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">isvalid</tt><big>(</big><em>statement</em><big>)</big><a class="headerlink" href="#cycpp.Filter.isvalid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if a statement is valid for this fliter.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cycpp.Filter.transform">
-<code class="descname">transform</code><span class="sig-paren">(</span><em>statement</em>, <em>sep</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.Filter.transform" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">transform</tt><big>(</big><em>statement</em>, <em>sep</em><big>)</big><a class="headerlink" href="#cycpp.Filter.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs a transformation given this.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cycpp.Filter.revert">
-<code class="descname">revert</code><span class="sig-paren">(</span><em>statement</em>, <em>sep</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.Filter.revert" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">revert</tt><big>(</big><em>statement</em>, <em>sep</em><big>)</big><a class="headerlink" href="#cycpp.Filter.revert" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reverts state transformation.</p>
 </dd></dl>
 
@@ -197,7 +197,7 @@ arguments.</p>
 
 <dl class="class">
 <dt id="cycpp.LinemarkerFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">LinemarkerFilter</code><span class="sig-paren">(</span><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.LinemarkerFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">LinemarkerFilter</tt><big>(</big><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.LinemarkerFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter for computing the current source code line
 from preprocessor line marker directives.</p>
 <blockquote>
@@ -208,66 +208,66 @@ from preprocessor line marker directives.</p>
 
 <dl class="class">
 <dt id="cycpp.AliasFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">AliasFilter</code><span class="sig-paren">(</span><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.AliasFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">AliasFilter</tt><big>(</big><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.AliasFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter for managing alias (de-)scoping.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cycpp.TypedefFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">TypedefFilter</code><span class="sig-paren">(</span><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.TypedefFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">TypedefFilter</tt><big>(</big><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.TypedefFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter for handling typedef as aliases. Note that in-line compound
 typedefs of structs and unions are not supported.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cycpp.UsingFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">UsingFilter</code><span class="sig-paren">(</span><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.UsingFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">UsingFilter</tt><big>(</big><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.UsingFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter for accumumating using aliases.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cycpp.NamespaceFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">NamespaceFilter</code><span class="sig-paren">(</span><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.NamespaceFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">NamespaceFilter</tt><big>(</big><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.NamespaceFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter for accumumating namespace encapsulations.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cycpp.UsingNamespaceFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">UsingNamespaceFilter</code><span class="sig-paren">(</span><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.UsingNamespaceFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">UsingNamespaceFilter</tt><big>(</big><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.UsingNamespaceFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter for accumumating using namespace statement.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cycpp.NamespaceAliasFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">NamespaceAliasFilter</code><span class="sig-paren">(</span><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.NamespaceAliasFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">NamespaceAliasFilter</tt><big>(</big><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.NamespaceAliasFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter for accumumating namespace renames.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cycpp.ClassFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">ClassFilter</code><span class="sig-paren">(</span><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.ClassFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">ClassFilter</tt><big>(</big><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.ClassFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter for picking out class names.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cycpp.ClassAndSuperclassFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">ClassAndSuperclassFilter</code><span class="sig-paren">(</span><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.ClassAndSuperclassFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">ClassAndSuperclassFilter</tt><big>(</big><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.ClassAndSuperclassFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>This accumulates superclass information as well as class information.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cycpp.AccessFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">AccessFilter</code><span class="sig-paren">(</span><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.AccessFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">AccessFilter</tt><big>(</big><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.AccessFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter for setting the current access control flag.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cycpp.PragmaCyclusErrorFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">PragmaCyclusErrorFilter</code><span class="sig-paren">(</span><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.PragmaCyclusErrorFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">PragmaCyclusErrorFilter</tt><big>(</big><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.PragmaCyclusErrorFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter for handling invalid #pragma cyclus. This should be the last filter.</p>
 <dl class="method">
 <dt id="cycpp.PragmaCyclusErrorFilter.isvalid">
-<code class="descname">isvalid</code><span class="sig-paren">(</span><em>statement</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.PragmaCyclusErrorFilter.isvalid" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">isvalid</tt><big>(</big><em>statement</em><big>)</big><a class="headerlink" href="#cycpp.PragmaCyclusErrorFilter.isvalid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if a statement is valid for this fliter.</p>
 </dd></dl>
 
@@ -275,13 +275,13 @@ typedefs of structs and unions are not supported.</p>
 
 <dl class="class">
 <dt id="cycpp.DecorationFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">DecorationFilter</code><span class="sig-paren">(</span><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.DecorationFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">DecorationFilter</tt><big>(</big><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.DecorationFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Abstract class for annotation accumulation.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cycpp.VarDecorationFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">VarDecorationFilter</code><span class="sig-paren">(</span><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.VarDecorationFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">VarDecorationFilter</tt><big>(</big><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.VarDecorationFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter for handling state variable decoration of the form:</p>
 <blockquote>
 <div>#pragma cyclus var &lt;dict&gt;</div></blockquote>
@@ -291,14 +291,35 @@ consumed by the next match with VarDeclarationFilter.</p>
 
 <dl class="class">
 <dt id="cycpp.VarDeclarationFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">VarDeclarationFilter</code><span class="sig-paren">(</span><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.VarDeclarationFilter" title="Permalink to this definition">¶</a></dt>
-<dd><p>State varible declaration.  Only oeprates if state.var_annotations is
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">VarDeclarationFilter</tt><big>(</big><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.VarDeclarationFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>State varible declaration.  Only operates if state.var_annotations is
 not None. Access for member variable must be public.</p>
+<dl class="method">
+<dt id="cycpp.VarDeclarationFilter.canonize_alias">
+<tt class="descname">canonize_alias</tt><big>(</big><em>t</em>, <em>name</em>, <em>alias=None</em><big>)</big><a class="headerlink" href="#cycpp.VarDeclarationFilter.canonize_alias" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the default alias structure for a C++ type for with the given state
+variable name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cycpp.VarDeclarationFilter.canonize_tooltip">
+<tt class="descname">canonize_tooltip</tt><big>(</big><em>t</em>, <em>name</em>, <em>tooltip=None</em><big>)</big><a class="headerlink" href="#cycpp.VarDeclarationFilter.canonize_tooltip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the default tooltip structure for a C++ type for with the given state
+variable name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cycpp.VarDeclarationFilter.canonize_uilabel">
+<tt class="descname">canonize_uilabel</tt><big>(</big><em>t</em>, <em>name</em>, <em>uilabel=None</em><big>)</big><a class="headerlink" href="#cycpp.VarDeclarationFilter.canonize_uilabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the default uilabel structure for a C++ type for with the given state
+variable name.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="cycpp.ExecFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">ExecFilter</code><span class="sig-paren">(</span><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.ExecFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">ExecFilter</tt><big>(</big><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.ExecFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter for executing arbitrary python code in the exec pragma and
 adding the results to the context.  This pragma has the form:</p>
 <blockquote>
@@ -309,7 +330,7 @@ careful when using this pragma :).</p>
 
 <dl class="class">
 <dt id="cycpp.NoteDecorationFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">NoteDecorationFilter</code><span class="sig-paren">(</span><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.NoteDecorationFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">NoteDecorationFilter</tt><big>(</big><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.NoteDecorationFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter for handling annotation decoration of the form:</p>
 <blockquote>
 <div>#pragma cyclus note &lt;dict&gt;</div></blockquote>
@@ -317,7 +338,7 @@ careful when using this pragma :).</p>
 annotations dict.</p>
 <dl class="method">
 <dt id="cycpp.NoteDecorationFilter.update">
-<code class="descname">update</code><span class="sig-paren">(</span><em>old</em>, <em>new</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.NoteDecorationFilter.update" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">update</tt><big>(</big><em>old</em>, <em>new</em><big>)</big><a class="headerlink" href="#cycpp.NoteDecorationFilter.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Updates the new annotations dictionary into the old one in-place recursively.</p>
 </dd></dl>
 
@@ -325,7 +346,7 @@ annotations dict.</p>
 
 <dl class="class">
 <dt id="cycpp.StateAccumulator">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">StateAccumulator</code><a class="headerlink" href="#cycpp.StateAccumulator" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">StateAccumulator</tt><a class="headerlink" href="#cycpp.StateAccumulator" title="Permalink to this definition">¶</a></dt>
 <dd><p>The StateAccumulator class is the pass 2 state machine.</p>
 <p>This represents the state of the file as it is being traversed.
 At the end of the traversal this will have acquired all of the information
@@ -335,32 +356,32 @@ filters, and builds up or destroys context as it goes.</p>
 <p>This class also functions as a typesystem for the types it sees.</p>
 <dl class="method">
 <dt id="cycpp.StateAccumulator.classname">
-<code class="descname">classname</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.StateAccumulator.classname" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">classname</tt><big>(</big><big>)</big><a class="headerlink" href="#cycpp.StateAccumulator.classname" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the current, fully-expanded class name.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cycpp.StateAccumulator.ensure_class_context">
-<code class="descname">ensure_class_context</code><span class="sig-paren">(</span><em>classname</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.StateAccumulator.ensure_class_context" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">ensure_class_context</tt><big>(</big><em>classname</em><big>)</big><a class="headerlink" href="#cycpp.StateAccumulator.ensure_class_context" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ensures that the context for the class at heand is well-formed.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cycpp.StateAccumulator.accumulate">
-<code class="descname">accumulate</code><span class="sig-paren">(</span><em>statement</em>, <em>sep</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.StateAccumulator.accumulate" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">accumulate</tt><big>(</big><em>statement</em>, <em>sep</em><big>)</big><a class="headerlink" href="#cycpp.StateAccumulator.accumulate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modify the existing state by incoprorating the statement, which is
 partitioned from the next statement by sep.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cycpp.StateAccumulator.includeloc">
-<code class="descname">includeloc</code><span class="sig-paren">(</span><em>statement=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.StateAccumulator.includeloc" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">includeloc</tt><big>(</big><em>statement=None</em><big>)</big><a class="headerlink" href="#cycpp.StateAccumulator.includeloc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Current location of the file from includes as a string.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cycpp.StateAccumulator.canonize_type">
-<code class="descname">canonize_type</code><span class="sig-paren">(</span><em>t</em>, <em>name='&lt;member variable&gt;'</em>, <em>statement=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.StateAccumulator.canonize_type" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">canonize_type</tt><big>(</big><em>t</em>, <em>name='&lt;member variable&gt;'</em>, <em>statement=None</em><big>)</big><a class="headerlink" href="#cycpp.StateAccumulator.canonize_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the canonical form for a type given the current state.
 This should not be called for types other than state variables.
 The name argument here is provided for debugging &amp; reporting purposes.</p>
@@ -368,7 +389,7 @@ The name argument here is provided for debugging &amp; reporting purposes.</p>
 
 <dl class="method">
 <dt id="cycpp.StateAccumulator.canonize_class">
-<code class="descname">canonize_class</code><span class="sig-paren">(</span><em>cls</em>, <em>_usens=True</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.StateAccumulator.canonize_class" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">canonize_class</tt><big>(</big><em>cls</em>, <em>_usens=True</em><big>)</big><a class="headerlink" href="#cycpp.StateAccumulator.canonize_class" title="Permalink to this definition">¶</a></dt>
 <dd><p>This canonizes a classname.  The class name need not be the current
 class whose scope we are in, but may be any class whatsoever. Returns
 None if the class could not be canonized.</p>
@@ -378,28 +399,28 @@ None if the class could not be canonized.</p>
 
 <dl class="function">
 <dt id="cycpp.accumulate_state">
-<code class="descclassname">cycpp.</code><code class="descname">accumulate_state</code><span class="sig-paren">(</span><em>canon</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.accumulate_state" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">cycpp.</tt><tt class="descname">accumulate_state</tt><big>(</big><em>canon</em><big>)</big><a class="headerlink" href="#cycpp.accumulate_state" title="Permalink to this definition">¶</a></dt>
 <dd><p>Takes a canonical C++ source file and separates it out into statements
 which are fed into a state accumulator. The state is returned.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cycpp.CloneFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">CloneFilter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.CloneFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">CloneFilter</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.CloneFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter for handling Clone() code generation:
 #pragma cyclus [def|decl|impl] clone [classname]</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cycpp.InitFromCopyFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">InitFromCopyFilter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.InitFromCopyFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">InitFromCopyFilter</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.InitFromCopyFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter for handling copy-constructor-like InitFrom() code generation:
 #pragma cyclus [def|decl|impl] initfromcopy [classname]</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cycpp.InitFromDbFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">InitFromDbFilter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.InitFromDbFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">InitFromDbFilter</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.InitFromDbFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter for handling db-constructor-like InitFrom() code
 generation:
 #pragma cyclus [def|decl|impl] initfromdb [classname]</p>
@@ -407,56 +428,56 @@ generation:
 
 <dl class="class">
 <dt id="cycpp.InfileToDbFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">InfileToDbFilter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.InfileToDbFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">InfileToDbFilter</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.InfileToDbFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter for handling InfileToDb() code generation:
 #pragma cyclus [def|decl|impl] infiletodb [classname]</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cycpp.SchemaFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">SchemaFilter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.SchemaFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">SchemaFilter</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.SchemaFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter for handling schema() code generation:
 #pragma cyclus [def|decl|impl] schema [classname]</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cycpp.AnnotationsFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">AnnotationsFilter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.AnnotationsFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">AnnotationsFilter</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.AnnotationsFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter for handling annotations() code generation:
 #pragma cyclus [def|decl|impl] annotations [classname]</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cycpp.SnapshotFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">SnapshotFilter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.SnapshotFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">SnapshotFilter</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.SnapshotFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter for handling copy-constructor-like InitFrom() code generation:
 #pragma cyclus [def|decl|impl] snapshot [classname]</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cycpp.SnapshotInvFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">SnapshotInvFilter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.SnapshotInvFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">SnapshotInvFilter</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.SnapshotInvFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter for handling SnapshotInv() code generation:
 #pragma cyclus [def|decl|impl] snapshotinv [classname]</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cycpp.InitInvFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">InitInvFilter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.InitInvFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">InitInvFilter</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.InitInvFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter for handling InitInv() code generation:
 #pragma cyclus [def|decl|impl] initinv [classname]</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cycpp.DefaultPragmaFilter">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">DefaultPragmaFilter</code><span class="sig-paren">(</span><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.DefaultPragmaFilter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">DefaultPragmaFilter</tt><big>(</big><em>machine=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cycpp.DefaultPragmaFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filter for handling default pragma code generation:
 #pragma cyclus [def|decl|impl]</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cycpp.CodeGenerator">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">CodeGenerator</code><span class="sig-paren">(</span><em>context</em>, <em>superclasses</em>, <em>filename=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.CodeGenerator" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">CodeGenerator</tt><big>(</big><em>context</em>, <em>superclasses</em>, <em>filename=None</em><big>)</big><a class="headerlink" href="#cycpp.CodeGenerator" title="Permalink to this definition">¶</a></dt>
 <dd><p>The CodeGenerator class is the pass 3 state machine.</p>
 <p>This represents the file as code is being injected into it.  At the end of
 the traversal this final stage it will built up a brand new file for pass
@@ -466,25 +487,25 @@ a sequence of filters, and injects code based on the directive and the
 state.</p>
 <dl class="method">
 <dt id="cycpp.CodeGenerator.classname">
-<code class="descname">classname</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.CodeGenerator.classname" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">classname</tt><big>(</big><big>)</big><a class="headerlink" href="#cycpp.CodeGenerator.classname" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the current, fully-expanded class name.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cycpp.CodeGenerator.ensure_class_context">
-<code class="descname">ensure_class_context</code><span class="sig-paren">(</span><em>classname</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.CodeGenerator.ensure_class_context" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">ensure_class_context</tt><big>(</big><em>classname</em><big>)</big><a class="headerlink" href="#cycpp.CodeGenerator.ensure_class_context" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ensures that the context for the class at heand is well-formed.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cycpp.CodeGenerator.includeloc">
-<code class="descname">includeloc</code><span class="sig-paren">(</span><em>statement=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.CodeGenerator.includeloc" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">includeloc</tt><big>(</big><em>statement=None</em><big>)</big><a class="headerlink" href="#cycpp.CodeGenerator.includeloc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Current location of the file from includes as a string.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="cycpp.CodeGenerator.generate">
-<code class="descname">generate</code><span class="sig-paren">(</span><em>statement</em>, <em>sep</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.CodeGenerator.generate" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">generate</tt><big>(</big><em>statement</em>, <em>sep</em><big>)</big><a class="headerlink" href="#cycpp.CodeGenerator.generate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modify the existing statements list by incoprorating, modifying, or
 ignoring this statement, which is partitioned from the next statement by
 sep.</p>
@@ -494,26 +515,26 @@ sep.</p>
 
 <dl class="function">
 <dt id="cycpp.generate_code">
-<code class="descclassname">cycpp.</code><code class="descname">generate_code</code><span class="sig-paren">(</span><em>orig</em>, <em>context</em>, <em>superclasses</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.generate_code" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">cycpp.</tt><tt class="descname">generate_code</tt><big>(</big><em>orig</em>, <em>context</em>, <em>superclasses</em><big>)</big><a class="headerlink" href="#cycpp.generate_code" title="Permalink to this definition">¶</a></dt>
 <dd><p>Takes a canonical C++ source file and separates it out into statements
 which are fed into a code generator. The new file is returned.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cycpp.Proxy">
-<em class="property">class </em><code class="descclassname">cycpp.</code><code class="descname">Proxy</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.Proxy" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cycpp.</tt><tt class="descname">Proxy</tt><big>(</big><em>d</em><big>)</big><a class="headerlink" href="#cycpp.Proxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>A proxy object for scoping purposes.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="cycpp.outter_split">
-<code class="descclassname">cycpp.</code><code class="descname">outter_split</code><span class="sig-paren">(</span><em>s</em>, <em>open_brace='('</em>, <em>close_brace=')'</em>, <em>separator='</em>, <em>'</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.outter_split" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">cycpp.</tt><tt class="descname">outter_split</tt><big>(</big><em>s</em>, <em>open_brace='('</em>, <em>close_brace=')'</em>, <em>separator='</em>, <em>'</em><big>)</big><a class="headerlink" href="#cycpp.outter_split" title="Permalink to this definition">¶</a></dt>
 <dd><p>Takes a string and only split the outter most level.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="cycpp.parse_template">
-<code class="descclassname">cycpp.</code><code class="descname">parse_template</code><span class="sig-paren">(</span><em>s</em>, <em>open_brace='&lt;'</em>, <em>close_brace='&gt;'</em>, <em>separator='</em>, <em>'</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.parse_template" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">cycpp.</tt><tt class="descname">parse_template</tt><big>(</big><em>s</em>, <em>open_brace='&lt;'</em>, <em>close_brace='&gt;'</em>, <em>separator='</em>, <em>'</em><big>)</big><a class="headerlink" href="#cycpp.parse_template" title="Permalink to this definition">¶</a></dt>
 <dd><p>Takes a string &#8211; which may represent a template specialization &#8211; and
 returns the corresponding type.</p>
 <p>It calls parse_arg to return the type(s) for any template arguments the
@@ -528,7 +549,7 @@ type may have. For example:</p>
 
 <dl class="function">
 <dt id="cycpp.parse_arg">
-<code class="descclassname">cycpp.</code><code class="descname">parse_arg</code><span class="sig-paren">(</span><em>s</em>, <em>open_brace='&lt;'</em>, <em>close_brace='&gt;'</em>, <em>separator='</em>, <em>'</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.parse_arg" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">cycpp.</tt><tt class="descname">parse_arg</tt><big>(</big><em>s</em>, <em>open_brace='&lt;'</em>, <em>close_brace='&gt;'</em>, <em>separator='</em>, <em>'</em><big>)</big><a class="headerlink" href="#cycpp.parse_arg" title="Permalink to this definition">¶</a></dt>
 <dd><p>Takes a string containing one or more c++ template args and returns a
 list of the argument types as strings.</p>
 <p>This is called by parse_template to handle the inner portion of the
@@ -545,14 +566,14 @@ template braces.  For example:</p>
 
 <dl class="function">
 <dt id="cycpp.parent_intersection">
-<code class="descclassname">cycpp.</code><code class="descname">parent_intersection</code><span class="sig-paren">(</span><em>classname</em>, <em>queryset</em>, <em>superclasses</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.parent_intersection" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">cycpp.</tt><tt class="descname">parent_intersection</tt><big>(</big><em>classname</em>, <em>queryset</em>, <em>superclasses</em><big>)</big><a class="headerlink" href="#cycpp.parent_intersection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns all elements in query_set which are parents of classname and not
 parents of any other class in query_set</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="cycpp.insert_line_directives">
-<code class="descclassname">cycpp.</code><code class="descname">insert_line_directives</code><span class="sig-paren">(</span><em>newfile</em>, <em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#cycpp.insert_line_directives" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">cycpp.</tt><tt class="descname">insert_line_directives</tt><big>(</big><em>newfile</em>, <em>filename</em><big>)</big><a class="headerlink" href="#cycpp.insert_line_directives" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inserts line directives based on diff of original file.</p>
 </dd></dl>
 
@@ -562,7 +583,7 @@ parents of any other class in query_set</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="../index.html" title="index">
           <img class="logo" src="../_static/big_c.png" alt="Logo"/>
@@ -592,7 +613,7 @@ parents of any other class in query_set</p>
     </ul></li></ul>
   </div>
     
-<div id="searchbox" style="display: none" role="search">
+<div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -641,7 +662,7 @@ parents of any other class in query_set</p>
     </div>
     <div class="relbar-bottom">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -658,14 +679,14 @@ parents of any other class in query_set</p>
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">Home</a> &raquo;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" ><span style="font-variant:small-caps;">Cyclus</span> Kernel Developer Guide</a> &raquo;</li> 
+          <li><a href="index.html" ><span style="font-variant:small-caps;">Cyclus</span> Kernel Developer Guide</a> &raquo;</li> 
       </ul>
     </div>
     </div>
 
-    <div class="footer" role="contentinfo">
+    <div class="footer">
         &copy; Copyright 2012-2014, University of Wisconsin Computational Nuclear Engineering Research Group.
-      Last updated on May 06, 2015.
+      Last updated on May 19, 2015.
     </div><script type="text/javascript">
     if(ga_enabled){
         document.write("<div class=\"footer\">This page uses <a href=\"http://analytics.google.com\">Google Analytics</a> to collect statistics. ");

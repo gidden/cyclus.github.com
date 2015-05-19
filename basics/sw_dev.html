@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '(1.2.0-332-g1845a13)',
+        VERSION:     '(1.3.0-rc5-32-g5ecfc06)',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -49,10 +49,10 @@ if(ga_enabled){
 }
 </script>
   </head>
-  <body role="document">
+  <body>
     <div class="relbar-top">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -69,7 +69,7 @@ if(ga_enabled){
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">Home</a> &raquo;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U"><span style="font-variant:small-caps;">Cyclus</span> Introduction</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U"><span style="font-variant:small-caps;">Cyclus</span> Introduction</a> &raquo;</li> 
       </ul>
     </div>
     </div>
@@ -78,7 +78,7 @@ if(ga_enabled){
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="software-process-architecture">
 <h1>Software Process &amp; Architecture<a class="headerlink" href="#software-process-architecture" title="Permalink to this headline">¶</a></h1>
@@ -89,16 +89,16 @@ a simultaneously robust and flexible analysis platform.</p>
 <p>The <span style="font-variant:small-caps;">Cyclus</span> development framework employs a modern, open source philosophy
 that ensures transparency, attracts contributions from a varied community of
 collaborators, and guarantees institution-independent access to all potential
-<a class="reference internal" href="glossary.html#term-user"><span class="xref std std-term">users</span></a>. (<a class="reference external" href="https://github.com/cyclus/cyclus/blob/develop/LICENSE.rst">BSD 3-Clause License</a>)
+<a class="reference internal" href="glossary.html#term-user"><em class="xref std std-term">users</em></a>. (<a class="reference external" href="https://github.com/cyclus/cyclus/blob/develop/LICENSE.rst">BSD 3-Clause License</a>)
 In this development path, a public source code repository provides
 unhindered access to the <a class="reference external" href="http://github.com/cyclus/cyclys">fundamental simulation framework</a> and <a class="reference external" href="http://github.com/cyclus/cycamore">additional agent archetypes</a> volunteered by developers.  Granting
 unfettered access only to the <span style="font-variant:small-caps;">Cyclus</span> engine allows for compartmentalization
-of the code and its input data. Thus, secure and proprietary <a class="reference internal" href="glossary.html#term-archetype-developer"><span class="xref std std-term">archetype
-developers</span></a> can be similarly encouraged to utilize the <span style="font-variant:small-caps;">Cyclus</span> framework.
+of the code and its input data. Thus, secure and proprietary <a class="reference internal" href="glossary.html#term-archetype-developer"><em class="xref std std-term">archetype
+developers</em></a> can be similarly encouraged to utilize the <span style="font-variant:small-caps;">Cyclus</span> framework.
 This modern development model passively distributes specialized content to
 interested research groups, and facilitates parallel archetype development
 efforts by institutions with complimentary goals.  The transparency inherent
-in this type of <a class="reference internal" href="glossary.html#term-open-development-process"><span class="xref std std-term">open development process</span></a> also facilitates code review by
+in this type of <a class="reference internal" href="glossary.html#term-open-development-process"><em class="xref std std-term">open development process</em></a> also facilitates code review by
 exposing available content to verification and validation by collaborators
 with diverse areas of specialization and levels of expertise.</p>
 <p>Another aspect of this development process is a preference for open source
@@ -110,8 +110,8 @@ integer programming for network flow optimization.</p>
 <div class="section" id="dynamically-loadable-modules">
 <h2>Dynamically Loadable Modules<a class="headerlink" href="#dynamically-loadable-modules" title="Permalink to this headline">¶</a></h2>
 <p>Dynamically loadable modules are the primary mechanism for extending <span style="font-variant:small-caps;">Cyclus</span>
-with new underlying <a class="reference internal" href="glossary.html#term-archetype"><span class="xref std std-term">archetypes</span></a>.  The primary benefit of this
-approach is encapsulation: the <a class="reference internal" href="glossary.html#term-cyclus-kernel"><span class="xref std std-term">cyclus kernel</span></a> is completely independent
+with new underlying <a class="reference internal" href="glossary.html#term-archetype"><em class="xref std std-term">archetypes</em></a>.  The primary benefit of this
+approach is encapsulation: the <a class="reference internal" href="glossary.html#term-cyclus-kernel"><em class="xref std std-term">cyclus kernel</em></a> is completely independent
 of the individual archetypes and all customization and extension is
 implemented only in the loadable module.  A secondary benefit of this
 encapsulation is the ability for contributors to choose different distribution
@@ -139,7 +139,7 @@ provide context to a variety of users.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="../index.html" title="index">
           <img class="logo" src="../_static/big_c.png" alt="Logo"/>
@@ -180,7 +180,7 @@ provide context to a variety of users.</p>
     </ul></li></ul>
   </div>
     
-<div id="searchbox" style="display: none" role="search">
+<div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -229,7 +229,7 @@ provide context to a variety of users.</p>
     </div>
     <div class="relbar-bottom">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -246,14 +246,14 @@ provide context to a variety of users.</p>
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">Home</a> &raquo;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" ><span style="font-variant:small-caps;">Cyclus</span> Introduction</a> &raquo;</li> 
+          <li><a href="index.html" ><span style="font-variant:small-caps;">Cyclus</span> Introduction</a> &raquo;</li> 
       </ul>
     </div>
     </div>
 
-    <div class="footer" role="contentinfo">
+    <div class="footer">
         &copy; Copyright 2012-2014, University of Wisconsin Computational Nuclear Engineering Research Group.
-      Last updated on May 06, 2015.
+      Last updated on May 19, 2015.
     </div><script type="text/javascript">
     if(ga_enabled){
         document.write("<div class=\"footer\">This page uses <a href=\"http://analytics.google.com\">Google Analytics</a> to collect statistics. ");

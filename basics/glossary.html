@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '(1.2.0-332-g1845a13)',
+        VERSION:     '(1.3.0-rc5-32-g5ecfc06)',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -49,10 +49,10 @@ if(ga_enabled){
 }
 </script>
   </head>
-  <body role="document">
+  <body>
     <div class="relbar-top">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -69,7 +69,7 @@ if(ga_enabled){
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">Home</a> &raquo;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U"><span style="font-variant:small-caps;">Cyclus</span> Introduction</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U"><span style="font-variant:small-caps;">Cyclus</span> Introduction</a> &raquo;</li> 
       </ul>
     </div>
     </div>
@@ -78,39 +78,39 @@ if(ga_enabled){
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="glossary-of-cyclus-terms">
 <h1>Glossary of Cyclus Terms<a class="headerlink" href="#glossary-of-cyclus-terms" title="Permalink to this headline">¶</a></h1>
 <dl class="glossary docutils">
 <dt id="term-agent">agent</dt>
 <dd>An entity that acts in a <span style="font-variant:small-caps;">Cyclus</span> simulation. Agents enter the simulation
-after having been cloned from a <a class="reference internal" href="#term-prototype"><span class="xref std std-term">prototype</span></a>. An agent&#8217;s internal logic
-and behavior is determined by its <a class="reference internal" href="#term-archetype"><span class="xref std std-term">archetype</span></a>.</dd>
+after having been cloned from a <a class="reference internal" href="#term-prototype"><em class="xref std std-term">prototype</em></a>. An agent&#8217;s internal logic
+and behavior is determined by its <a class="reference internal" href="#term-archetype"><em class="xref std std-term">archetype</em></a>.</dd>
 <dt id="term-agent-phase">agent phase</dt>
-<dd>A phase during a simulation time step in which <a class="reference internal" href="#term-agent"><span class="xref std std-term">agents</span></a> are
+<dd>A phase during a simulation time step in which <a class="reference internal" href="#term-agent"><em class="xref std std-term">agents</em></a> are
 allowed to query the simulation environment and perform general actions.</dd>
 <dt id="term-archetype">archetype</dt>
 <dd>A collection of logic and behavior which can be configured into a
-<a class="reference internal" href="#term-prototype"><span class="xref std std-term">prototype</span></a> which can then be instantiated in simulation as a
-<a class="reference internal" href="#term-agent"><span class="xref std std-term">agent</span></a>. Archetypes are represented as C++ classes that inherit from
-the base <code class="docutils literal"><span class="pre">cyclus::Agent</span></code> class.</dd>
+<a class="reference internal" href="#term-prototype"><em class="xref std std-term">prototype</em></a> which can then be instantiated in simulation as a
+<a class="reference internal" href="#term-agent"><em class="xref std std-term">agent</em></a>. Archetypes are represented as C++ classes that inherit from
+the base <tt class="docutils literal"><span class="pre">cyclus::Agent</span></tt> class.</dd>
 <dt id="term-archetype-developer">archetype developer</dt>
 <dd>An individual from science, academia, government, or the general public
-interested in contributing to the ecosystem of <a class="reference internal" href="#term-archetype"><span class="xref std std-term">archetypes</span></a>
+interested in contributing to the ecosystem of <a class="reference internal" href="#term-archetype"><em class="xref std std-term">archetypes</em></a>
 available for use with the simulator.</dd>
 <dt id="term-closed-development-platform">closed development platform</dt>
 <dd>A code repository or server that is kept private during development to
 secure proprietary or sensitive work.</dd>
 <dt id="term-closed-development-process">closed development process</dt>
-<dd>A software development workflow, usually on a <a class="reference internal" href="#term-closed-development-platform"><span class="xref std std-term">closed development
-platform</span></a>, that is not transparent to the public as authorization is
+<dd>A software development workflow, usually on a <a class="reference internal" href="#term-closed-development-platform"><em class="xref std std-term">closed development
+platform</em></a>, that is not transparent to the public as authorization is
 required before development access to the codebase is granted. This is used
 for secure proprietary or sensitive work.</dd>
 <dt id="term-commodity">commodity</dt>
 <dd>A name assigned to a class of resources. <span style="font-variant:small-caps;">Cyclus</span> determines the flow of
 resources during a time step based on the supply of and demand for
-commodities based on <a class="reference internal" href="#term-agent"><span class="xref std std-term">agent&#8217;s</span></a> requests and bids for those
+commodities based on <a class="reference internal" href="#term-agent"><em class="xref std std-term">agent&#8217;s</em></a> requests and bids for those
 commodities.</dd>
 <dt id="term-composition">composition</dt>
 <dd>A list of nuclides and their relative quantity.</dd>
@@ -118,12 +118,12 @@ commodities.</dd>
 <dd>The queryable environment of a <span style="font-variant:small-caps;">Cyclus</span> simulation.</dd>
 <dt id="term-core-developer">core developer</dt>
 <dd>An advanced developer tasked with developing and maintaining the
-<a class="reference internal" href="#term-cyclus-kernel"><span class="xref std std-term">cyclus kernel</span></a> and related code.</dd>
+<a class="reference internal" href="#term-cyclus-kernel"><em class="xref std std-term">cyclus kernel</em></a> and related code.</dd>
 <dt id="term-cyclus-core">cyclus core</dt>
 <dd>The repository at github.com/cyclus/cyclus and primary focus of the core
 developers of the cyclus project.</dd>
 <dt id="term-cyclus-kernel">cyclus kernel</dt>
-<dd>The simulation engine housed in <a class="reference internal" href="#term-cyclus-core"><span class="xref std std-term">cyclus core</span></a>. <a class="reference internal" href="#term-archetype"><span class="xref std std-term">Archetypes</span></a> defined in <a class="reference internal" href="#term-module"><span class="xref std std-term">modules</span></a> are linked dynamically to the
+<dd>The simulation engine housed in <a class="reference internal" href="#term-cyclus-core"><em class="xref std std-term">cyclus core</em></a>. <a class="reference internal" href="#term-archetype"><em class="xref std std-term">Archetypes</em></a> defined in <a class="reference internal" href="#term-module"><em class="xref std std-term">modules</em></a> are linked dynamically to the
 kernel at the beginning of every simulation.</dd>
 <dt id="term-dynamic-resource-exchange">dynamic resource exchange</dt>
 <dd>the methodology that governs time step behavior in <span style="font-variant:small-caps;">Cyclus</span> &#8211; see
@@ -131,19 +131,19 @@ kernel at the beginning of every simulation.</dd>
 <dt id="term-entity">entity</dt>
 <dd>The kind of the archetype. Usually this is either region, institution,
 or facility. For agents that are not specifically one of these kinds
-still inherit from the <code class="docutils literal"><span class="pre">Agent</span></code> class the term archetype is used.
+still inherit from the <tt class="docutils literal"><span class="pre">Agent</span></tt> class the term archetype is used.
 Otherwise the entity is unknown.</dd>
 <dt id="term-fuel-cycle-simulator">fuel cycle simulator</dt>
 <dd>A computational framework for modeling nuclear fuel cycles.</dd>
 <dt id="term-kernel-phase">kernel phase</dt>
-<dd>A phase during a simulation time step that is managed by the <a class="reference internal" href="#term-cyclus-kernel"><span class="xref std std-term">cyclus
-kernel</span></a>.</dd>
+<dd>A phase during a simulation time step that is managed by the <a class="reference internal" href="#term-cyclus-kernel"><em class="xref std std-term">cyclus
+kernel</em></a>.</dd>
 <dt id="term-material">material</dt>
-<dd>A particular kind of resource that combines a <a class="reference internal" href="#term-composition"><span class="xref std std-term">composition</span></a> and a
+<dd>A particular kind of resource that combines a <a class="reference internal" href="#term-composition"><em class="xref std std-term">composition</em></a> and a
 mass to be exchanged</dd>
 <dt id="term-module">module</dt>
-<dd>A shared-object library that houses implementations of <a class="reference internal" href="#term-archetype"><span class="xref std std-term">archetypes</span></a> and related tools that is dynamically linked to the <a class="reference internal" href="#term-cyclus-kernel"><span class="xref std std-term">cyclus
-kernel</span></a> at runtime if one of its <a class="reference internal" href="#term-archetype"><span class="xref std std-term">archetype</span></a> is used in a simulation.</dd>
+<dd>A shared-object library that houses implementations of <a class="reference internal" href="#term-archetype"><em class="xref std std-term">archetypes</em></a> and related tools that is dynamically linked to the <a class="reference internal" href="#term-cyclus-kernel"><em class="xref std std-term">cyclus
+kernel</em></a> at runtime if one of its <a class="reference internal" href="#term-archetype"><em class="xref std std-term">archetype</em></a> is used in a simulation.</dd>
 <dt id="term-nuclear-fuel-cycle">nuclear fuel cycle</dt>
 <dd>The progression of nuclear fuel through the collection of facilities and
 process stages from mining to disposal that are necessary to generate
@@ -153,23 +153,23 @@ fuel.</dd>
 <dd>A code repository or server that is publicly viewable and downloadable,
 though not necessarily modifiable.</dd>
 <dt id="term-open-development-process">open development process</dt>
-<dd>A software development workflow, usually on an <a class="reference internal" href="#term-open-development-platform"><span class="xref std std-term">open development
-platform</span></a>, that is transparent to the public. Hallmarks include public bug
+<dd>A software development workflow, usually on an <a class="reference internal" href="#term-open-development-platform"><em class="xref std std-term">open development
+platform</em></a>, that is transparent to the public. Hallmarks include public bug
 reports, source code access, and code contribution.</dd>
 <dt id="term-parent-agent">parent agent</dt>
-<dd>An <a class="reference internal" href="#term-agent"><span class="xref std std-term">agent</span></a> that manages (is in charge of) some number of child agents.</dd>
+<dd>An <a class="reference internal" href="#term-agent"><em class="xref std std-term">agent</em></a> that manages (is in charge of) some number of child agents.</dd>
 <dt id="term-plug-in">plug-in</dt>
-<dd>See <a class="reference internal" href="#term-module"><span class="xref std std-term">module</span></a>.</dd>
+<dd>See <a class="reference internal" href="#term-module"><em class="xref std std-term">module</em></a>.</dd>
 <dt id="term-prototype">prototype</dt>
-<dd>A configured <a class="reference internal" href="#term-archetype"><span class="xref std std-term">archetype</span></a> with initial state and conditions.
-<a class="reference internal" href="#term-agent"><span class="xref std std-term">Agents</span></a> that do act in the simulation are cloned (copied) from
+<dd>A configured <a class="reference internal" href="#term-archetype"><em class="xref std std-term">archetype</em></a> with initial state and conditions.
+<a class="reference internal" href="#term-agent"><em class="xref std std-term">Agents</em></a> that do act in the simulation are cloned (copied) from
 prototypes.</dd>
 <dt id="term-tick">tick</dt>
-<dd>An <a class="reference internal" href="#term-agent-phase"><span class="xref std std-term">agent phase</span></a> that occurs before the <a class="reference internal" href="#term-dynamic-resource-exchange"><span class="xref std std-term">dynamic resource
-exchange</span></a> every time step</dd>
+<dd>An <a class="reference internal" href="#term-agent-phase"><em class="xref std std-term">agent phase</em></a> that occurs before the <a class="reference internal" href="#term-dynamic-resource-exchange"><em class="xref std std-term">dynamic resource
+exchange</em></a> every time step</dd>
 <dt id="term-tock">tock</dt>
-<dd>An <a class="reference internal" href="#term-agent-phase"><span class="xref std std-term">agent phase</span></a> that occurs after the <a class="reference internal" href="#term-dynamic-resource-exchange"><span class="xref std std-term">dynamic resource
-exchange</span></a> every time step</dd>
+<dd>An <a class="reference internal" href="#term-agent-phase"><em class="xref std std-term">agent phase</em></a> that occurs after the <a class="reference internal" href="#term-dynamic-resource-exchange"><em class="xref std std-term">dynamic resource
+exchange</em></a> every time step</dd>
 <dt id="term-user">user</dt>
 <dd>A member of the public, government, or academia who use <span style="font-variant:small-caps;">Cyclus</span> to run
 simulations.</dd>
@@ -180,7 +180,7 @@ simulations.</dd>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="../index.html" title="index">
           <img class="logo" src="../_static/big_c.png" alt="Logo"/>
@@ -210,7 +210,7 @@ simulations.</dd>
     </ul></li></ul>
   </div>
     
-<div id="searchbox" style="display: none" role="search">
+<div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -259,7 +259,7 @@ simulations.</dd>
     </div>
     <div class="relbar-bottom">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -276,14 +276,14 @@ simulations.</dd>
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">Home</a> &raquo;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" ><span style="font-variant:small-caps;">Cyclus</span> Introduction</a> &raquo;</li> 
+          <li><a href="index.html" ><span style="font-variant:small-caps;">Cyclus</span> Introduction</a> &raquo;</li> 
       </ul>
     </div>
     </div>
 
-    <div class="footer" role="contentinfo">
+    <div class="footer">
         &copy; Copyright 2012-2014, University of Wisconsin Computational Nuclear Engineering Research Group.
-      Last updated on May 06, 2015.
+      Last updated on May 19, 2015.
     </div><script type="text/javascript">
     if(ga_enabled){
         document.write("<div class=\"footer\">This page uses <a href=\"http://analytics.google.com\">Google Analytics</a> to collect statistics. ");

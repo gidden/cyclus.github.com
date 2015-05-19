@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '(1.2.0-332-g1845a13)',
+        VERSION:     '(1.3.0-rc5-32-g5ecfc06)',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -49,10 +49,10 @@ if(ga_enabled){
 }
 </script>
   </head>
-  <body role="document">
+  <body>
     <div class="relbar-top">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -69,7 +69,7 @@ if(ga_enabled){
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">Home</a> &raquo;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U"><span style="font-variant:small-caps;">Cyclus</span> User Guide</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U"><span style="font-variant:small-caps;">Cyclus</span> User Guide</a> &raquo;</li> 
       </ul>
     </div>
     </div>
@@ -78,78 +78,69 @@ if(ga_enabled){
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="stub-archetypes">
 <h1>Stub Archetypes<a class="headerlink" href="#stub-archetypes" title="Permalink to this headline">¶</a></h1>
-<p>This is a collection of archetypes found in the <code class="docutils literal"><span class="pre">stubs</span></code> path that comes with
+<p>This is a collection of archetypes found in the <tt class="docutils literal"><span class="pre">stubs</span></tt> path that comes with
 <span style="font-variant:small-caps;">Cyclus</span>.</p>
 <div class="section" id="stubs-stubregion-stubregion">
 <h2>stubs:StubRegion:<strong>StubRegion</strong><a class="headerlink" href="#stubs-stubregion-stubregion" title="Permalink to this headline">¶</a></h2>
 <p>A stub region is provided as a skeleton for the design of new region agents.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">entity:</th><td class="field-body">region</td>
-</tr>
-<tr class="field-even field"><th class="field-name">parents:</th><td class="field-body">[cyclus::Region]</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">all_parents:</th><td class="field-body">[cyclus::Agent, cyclus::Ider, cyclus::Region, cyclus::StateWrangler, cyclus::TimeListener]</td>
-</tr>
-<tr class="field-even field"><th class="field-name">name:</th><td class="field-body">stubs::StubRegion</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Schema:</strong></p>
+<div class="section" id="other-info">
+<h3>Other Info<a class="headerlink" href="#other-info" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Full Archetype Name</strong>: stubs::StubRegion</li>
+<li><strong>Simulation Entity Type</strong>: region</li>
+<li><strong>Interfaces</strong>: [cyclus::Region]</li>
+<li><strong>All Interfaces</strong>: [cyclus::Agent, cyclus::Ider, cyclus::Region, cyclus::StateWrangler, cyclus::TimeListener]</li>
+</ul>
+</div>
+<div class="section" id="xml-input-schema">
+<h3>XML Input Schema<a class="headerlink" href="#xml-input-schema" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;text/&gt;</span>
 </pre></div>
+</div>
 </div>
 </div>
 <hr class="docutils" />
 <div class="section" id="stubs-stubinst-stubinst">
 <h2>stubs:StubInst:<strong>StubInst</strong><a class="headerlink" href="#stubs-stubinst-stubinst" title="Permalink to this headline">¶</a></h2>
 <p>A stub institution is provided as a skeleton for the design of new institution agents.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">entity:</th><td class="field-body">institution</td>
-</tr>
-<tr class="field-even field"><th class="field-name">parents:</th><td class="field-body">[cyclus::Institution]</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">all_parents:</th><td class="field-body">[cyclus::Agent, cyclus::Ider, cyclus::Institution, cyclus::StateWrangler, cyclus::TimeListener]</td>
-</tr>
-<tr class="field-even field"><th class="field-name">name:</th><td class="field-body">stubs::StubInst</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Schema:</strong></p>
+<div class="section" id="id1">
+<h3>Other Info<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Full Archetype Name</strong>: stubs::StubInst</li>
+<li><strong>Simulation Entity Type</strong>: institution</li>
+<li><strong>Interfaces</strong>: [cyclus::Institution]</li>
+<li><strong>All Interfaces</strong>: [cyclus::Agent, cyclus::Ider, cyclus::Institution, cyclus::StateWrangler, cyclus::TimeListener]</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>XML Input Schema<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;text/&gt;</span>
 </pre></div>
+</div>
 </div>
 </div>
 <hr class="docutils" />
 <div class="section" id="stubs-stubfacility-stubfacility">
 <h2>stubs:StubFacility:<strong>StubFacility</strong><a class="headerlink" href="#stubs-stubfacility-stubfacility" title="Permalink to this headline">¶</a></h2>
 <p>A stub facility is provided as a skeleton for the design of new facility agents.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">entity:</th><td class="field-body">facility</td>
-</tr>
-<tr class="field-even field"><th class="field-name">parents:</th><td class="field-body">[cyclus::Facility]</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">all_parents:</th><td class="field-body">[cyclus::Agent, cyclus::Facility, cyclus::Ider, cyclus::StateWrangler, cyclus::TimeListener, cyclus::Trader]</td>
-</tr>
-<tr class="field-even field"><th class="field-name">name:</th><td class="field-body">stubs::StubFacility</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Schema:</strong></p>
+<div class="section" id="id3">
+<h3>Other Info<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Full Archetype Name</strong>: stubs::StubFacility</li>
+<li><strong>Simulation Entity Type</strong>: facility</li>
+<li><strong>Interfaces</strong>: [cyclus::Facility]</li>
+<li><strong>All Interfaces</strong>: [cyclus::Agent, cyclus::Facility, cyclus::Ider, cyclus::StateWrangler, cyclus::TimeListener, cyclus::Trader]</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>XML Input Schema<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;text/&gt;</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -158,7 +149,7 @@ if(ga_enabled){
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="../index.html" title="index">
           <img class="logo" src="../_static/big_c.png" alt="Logo"/>
@@ -166,9 +157,21 @@ if(ga_enabled){
     <h3><a href="../index.html">Page contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">Stub Archetypes</a><ul>
-<li><a class="reference internal" href="#stubs-stubregion-stubregion">stubs:StubRegion:<strong>StubRegion</strong></a></li>
-<li><a class="reference internal" href="#stubs-stubinst-stubinst">stubs:StubInst:<strong>StubInst</strong></a></li>
-<li><a class="reference internal" href="#stubs-stubfacility-stubfacility">stubs:StubFacility:<strong>StubFacility</strong></a></li>
+<li><a class="reference internal" href="#stubs-stubregion-stubregion">stubs:StubRegion:<strong>StubRegion</strong></a><ul>
+<li><a class="reference internal" href="#other-info">Other Info</a></li>
+<li><a class="reference internal" href="#xml-input-schema">XML Input Schema</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#stubs-stubinst-stubinst">stubs:StubInst:<strong>StubInst</strong></a><ul>
+<li><a class="reference internal" href="#id1">Other Info</a></li>
+<li><a class="reference internal" href="#id2">XML Input Schema</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#stubs-stubfacility-stubfacility">stubs:StubFacility:<strong>StubFacility</strong></a><ul>
+<li><a class="reference internal" href="#id3">Other Info</a></li>
+<li><a class="reference internal" href="#id4">XML Input Schema</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -199,7 +202,7 @@ if(ga_enabled){
     </ul></li></ul>
   </div>
     
-<div id="searchbox" style="display: none" role="search">
+<div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -248,7 +251,7 @@ if(ga_enabled){
     </div>
     <div class="relbar-bottom">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -265,14 +268,14 @@ if(ga_enabled){
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">Home</a> &raquo;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" ><span style="font-variant:small-caps;">Cyclus</span> User Guide</a> &raquo;</li> 
+          <li><a href="index.html" ><span style="font-variant:small-caps;">Cyclus</span> User Guide</a> &raquo;</li> 
       </ul>
     </div>
     </div>
 
-    <div class="footer" role="contentinfo">
+    <div class="footer">
         &copy; Copyright 2012-2014, University of Wisconsin Computational Nuclear Engineering Research Group.
-      Last updated on May 06, 2015.
+      Last updated on May 19, 2015.
     </div><script type="text/javascript">
     if(ga_enabled){
         document.write("<div class=\"footer\">This page uses <a href=\"http://analytics.google.com\">Google Analytics</a> to collect statistics. ");

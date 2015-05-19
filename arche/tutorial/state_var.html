@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '(1.2.0-332-g1845a13)',
+        VERSION:     '(1.3.0-rc5-32-g5ecfc06)',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -46,10 +46,10 @@ if(ga_enabled){
 }
 </script>
   </head>
-  <body role="document">
+  <body>
     <div class="relbar-top">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -68,12 +68,12 @@ if(ga_enabled){
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="adding-state-variables">
 <h1>Adding State Variables<a class="headerlink" href="#adding-state-variables" title="Permalink to this headline">¶</a></h1>
 <p>In this lesson, we will add the state variables that will define this
-facility.  We will make use of the Cyclus <code class="docutils literal"><span class="pre">#pragma</span></code> directives so that these
+facility.  We will make use of the Cyclus <tt class="docutils literal"><span class="pre">#pragma</span></tt> directives so that these
 state variables are available in the Cycic user interface as well as being
 logged in the output.</p>
 <p>We will take the following steps:</p>
@@ -84,11 +84,11 @@ logged in the output.</p>
 </ol>
 <div class="section" id="adding-state-variables-with-cyclus-pragma">
 <h2>Adding State Variables with Cyclus #pragma<a class="headerlink" href="#adding-state-variables-with-cyclus-pragma" title="Permalink to this headline">¶</a></h2>
-<p>The Cyclus preprocessor provides a <code class="docutils literal"><span class="pre">#pragma</span></code> that includes a variable in the
+<p>The Cyclus preprocessor provides a <tt class="docutils literal"><span class="pre">#pragma</span></tt> that includes a variable in the
 set of state variables and allows convenient annotations.</p>
-<p>First, we&#8217;ll add the maximum monthly transfer capacity, called <code class="docutils literal"><span class="pre">throughput</span></code>.
-Open the file <code class="docutils literal"><span class="pre">src/tutorial_storage_facility.h</span></code> in your text editor.</p>
-<p>Immediately after the declaration of <code class="docutils literal"><span class="pre">Tock()</span></code>, add the following:</p>
+<p>First, we&#8217;ll add the maximum monthly transfer capacity, called <tt class="docutils literal"><span class="pre">throughput</span></tt>.
+Open the file <tt class="docutils literal"><span class="pre">src/tutorial_storage_facility.h</span></tt> in your text editor.</p>
+<p>Immediately after the declaration of <tt class="docutils literal"><span class="pre">Tock()</span></tt>, add the following:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="cp">#pragma cyclus var {&#39;doc&#39;: &#39;Maximum amount of material that can be transfered in or out each time step&#39;, \</span>
 <span class="cp">                    &#39;tooltip&#39;: &#39;Maximum amount of material that can be transfered in or out each time step&#39;, \</span>
 <span class="cp">                    &#39;units&#39;: &#39;kg&#39;, \</span>
@@ -120,29 +120,29 @@ stored, and the maximum fissle content of a new shipment.</p>
 <p>If you try to run the same input file with your modified module, you will get
 errors because the sample input file no longer includes the necessary pieces
 to define your module.  It is missing the new variables.  Try it:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cyclus -v <span class="m">2</span> input/example.xml
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cyclus -v 2 input/example.xml
               :
           .CL:CC CC             _Q     _Q  _Q_Q    _Q    _Q              _Q
-        CC<span class="p">;</span>CCCCCCCC:C<span class="p">;</span>         /_<span class="se">\)</span>   /_<span class="se">\)</span>/_/<span class="se">\\</span><span class="o">)</span>  /_<span class="se">\)</span>  /_<span class="se">\)</span>            /_<span class="se">\)</span>
-        CCCCCCCCCCCCCl       __O<span class="p">|</span>/O___O<span class="p">|</span>/O_OO<span class="p">|</span>/O__O<span class="p">|</span>/O__O<span class="p">|</span>/O____________O<span class="p">|</span>/O__
+        CC;CCCCCCCC:C;         /_<span class="se">\)</span>   /_<span class="se">\)</span>/_/<span class="se">\\</span><span class="o">)</span>  /_<span class="se">\)</span>  /_<span class="se">\)</span>            /_<span class="se">\)</span>
+        CCCCCCCCCCCCCl       __O|/O___O|/O_OO|/O__O|/O__O|/O____________O|/O__
      CCCCCCf     iCCCLCC     /////////////////////////////////////////////////
-     iCCCt  <span class="p">;;;;;</span>.  CCCC
-    CCCC  <span class="p">;;;;;;;;;</span>. CClL.                          c
-   CCCC ,<span class="p">;;</span>       <span class="p">;;</span>: CCCC  <span class="p">;</span>                   : CCCCi
-    CCC <span class="p">;;</span>         <span class="p">;;</span>  CC   <span class="p">;;</span>:                CCC<span class="sb">`</span>   <span class="sb">`</span>C<span class="p">;</span>
-  lCCC <span class="p">;;</span>              CCCC  <span class="p">;;;</span>:             :CC .<span class="p">;;</span>. C<span class="p">;</span>   <span class="p">;</span>    :   <span class="p">;</span>  :<span class="p">;;</span>
-  CCCC <span class="p">;</span>.              CCCC    <span class="p">;;;</span>,           CC <span class="p">;</span>    <span class="p">;</span> Ci  <span class="p">;</span>    :   <span class="p">;</span>  :  <span class="p">;</span>
-   iCC :<span class="p">;</span>               CC       <span class="p">;;;</span>,        <span class="p">;</span>C <span class="p">;</span>       CC  <span class="p">;</span>    :   <span class="p">;</span> .
-  CCCi <span class="p">;;</span>               CCC        <span class="p">;;;</span>.      .C <span class="p">;</span>       tf  <span class="p">;</span>    :   <span class="p">;</span>  <span class="p">;</span>.
-  CCC  <span class="p">;;</span>               CCC          <span class="p">;;;;;;;</span> fC :       lC  <span class="p">;</span>    :   <span class="p">;</span>    <span class="p">;</span>:
-   iCf <span class="p">;;</span>               CC         :<span class="p">;;</span>:      tC <span class="p">;</span>       CC  <span class="p">;</span>    :   <span class="p">;</span>     <span class="p">;</span>
-  fCCC :<span class="p">;</span>              LCCf      <span class="p">;;;</span>:         LC :.  ,: C   <span class="p">;</span>    <span class="p">;</span>   <span class="p">;</span> <span class="p">;</span>   <span class="p">;</span>
-  CCCC  <span class="p">;;</span>             CCCC    <span class="p">;;;</span>:           CCi <span class="sb">`</span><span class="p">;;</span><span class="sb">`</span> CC.  <span class="p">;;;;</span> :<span class="p">;</span>.<span class="p">;</span>.  <span class="p">;</span> ,<span class="p">;</span>
-    CCl <span class="p">;;</span>             CC    <span class="p">;;;;</span>              CCC    CCL
-   tCCC  <span class="p">;;</span>        <span class="p">;;</span> CCCL  <span class="p">;;;</span>                  tCCCCC.
-    CCCC  <span class="p">;;</span>     :<span class="p">;;</span> CCCCf  <span class="p">;</span>                     ,L
-     lCCC   <span class="p">;;;;;;</span>  CCCL
-     CCCCCC  :<span class="p">;;</span>  fCCCCC
+     iCCCt  ;;;;;.  CCCC
+    CCCC  ;;;;;;;;;. CClL.                          c
+   CCCC ,;;       ;;: CCCC  ;                   : CCCCi
+    CCC ;;         ;;  CC   ;;:                CCC<span class="sb">`</span>   <span class="sb">`</span>C;
+  lCCC ;;              CCCC  ;;;:             :CC .;;. C;   ;    :   ;  :;;
+  CCCC ;.              CCCC    ;;;,           CC ;    ; Ci  ;    :   ;  :  ;
+   iCC :;               CC       ;;;,        ;C ;       CC  ;    :   ; .
+  CCCi ;;               CCC        ;;;.      .C ;       tf  ;    :   ;  ;.
+  CCC  ;;               CCC          ;;;;;;; fC :       lC  ;    :   ;    ;:
+   iCf ;;               CC         :;;:      tC ;       CC  ;    :   ;     ;
+  fCCC :;              LCCf      ;;;:         LC :.  ,: C   ;    ;   ; ;   ;
+  CCCC  ;;             CCCC    ;;;:           CCi <span class="sb">`</span>;;<span class="sb">`</span> CC.  ;;;; :;.;.  ; ,;
+    CCl ;;             CC    ;;;;              CCC    CCL
+   tCCC  ;;        ;; CCCL  ;;;                  tCCCCC.
+    CCCC  ;;     :;; CCCCf  ;                     ,L
+     lCCC   ;;;;;;  CCCL
+     CCCCCC  :;;  fCCCCC
       . CCCC     CCCC .
        .CCCCCCCCCCCCCi
           iCCCCCLCf
@@ -154,8 +154,8 @@ Entity: line 17: element Tutorial_storageFacility: Relax-NG validity error : Ele
  ERROR<span class="o">(</span>core  <span class="o">)</span>:Document failed schema validation
 </pre></div>
 </div>
-<p>Notice that you were able to take advantage of the input file validation simply by using the <code class="docutils literal"><span class="pre">#pragma</span></code>.</p>
-<p>Now, we&#8217;ll change that input file.  Open the file <code class="docutils literal"><span class="pre">input/example.xml</span></code> in
+<p>Notice that you were able to take advantage of the input file validation simply by using the <tt class="docutils literal"><span class="pre">#pragma</span></tt>.</p>
+<p>Now, we&#8217;ll change that input file.  Open the file <tt class="docutils literal"><span class="pre">input/example.xml</span></tt> in
 your text editor, and find the prototype configuration for the single facility
 named &#8220;OneFacility&#8221; that looks like this.</p>
 <div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;facility&gt;</span>
@@ -166,7 +166,7 @@ named &#8220;OneFacility&#8221; that looks like this.</p>
 <span class="nt">&lt;/facility&gt;</span>
 </pre></div>
 </div>
-<p>We need to replace the <code class="docutils literal"><span class="pre">&lt;config&gt;</span></code> element with this:</p>
+<p>We need to replace the <tt class="docutils literal"><span class="pre">&lt;config&gt;</span></tt> element with this:</p>
 <div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;config&gt;</span>
   <span class="nt">&lt;Tutorial_storageFacility&gt;</span>
     <span class="nt">&lt;throughput&gt;</span>100<span class="nt">&lt;/throughput&gt;</span>
@@ -177,29 +177,29 @@ named &#8220;OneFacility&#8221; that looks like this.</p>
 </pre></div>
 </div>
 <p>Now we can try it again:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cyclus -v <span class="m">2</span> input/example.xml
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cyclus -v 2 input/example.xml
               :
           .CL:CC CC             _Q     _Q  _Q_Q    _Q    _Q              _Q
-        CC<span class="p">;</span>CCCCCCCC:C<span class="p">;</span>         /_<span class="se">\)</span>   /_<span class="se">\)</span>/_/<span class="se">\\</span><span class="o">)</span>  /_<span class="se">\)</span>  /_<span class="se">\)</span>            /_<span class="se">\)</span>
-        CCCCCCCCCCCCCl       __O<span class="p">|</span>/O___O<span class="p">|</span>/O_OO<span class="p">|</span>/O__O<span class="p">|</span>/O__O<span class="p">|</span>/O____________O<span class="p">|</span>/O__
+        CC;CCCCCCCC:C;         /_<span class="se">\)</span>   /_<span class="se">\)</span>/_/<span class="se">\\</span><span class="o">)</span>  /_<span class="se">\)</span>  /_<span class="se">\)</span>            /_<span class="se">\)</span>
+        CCCCCCCCCCCCCl       __O|/O___O|/O_OO|/O__O|/O__O|/O____________O|/O__
      CCCCCCf     iCCCLCC     /////////////////////////////////////////////////
-     iCCCt  <span class="p">;;;;;</span>.  CCCC
-    CCCC  <span class="p">;;;;;;;;;</span>. CClL.                          c
-   CCCC ,<span class="p">;;</span>       <span class="p">;;</span>: CCCC  <span class="p">;</span>                   : CCCCi
-    CCC <span class="p">;;</span>         <span class="p">;;</span>  CC   <span class="p">;;</span>:                CCC<span class="sb">`</span>   <span class="sb">`</span>C<span class="p">;</span>
-  lCCC <span class="p">;;</span>              CCCC  <span class="p">;;;</span>:             :CC .<span class="p">;;</span>. C<span class="p">;</span>   <span class="p">;</span>    :   <span class="p">;</span>  :<span class="p">;;</span>
-  CCCC <span class="p">;</span>.              CCCC    <span class="p">;;;</span>,           CC <span class="p">;</span>    <span class="p">;</span> Ci  <span class="p">;</span>    :   <span class="p">;</span>  :  <span class="p">;</span>
-   iCC :<span class="p">;</span>               CC       <span class="p">;;;</span>,        <span class="p">;</span>C <span class="p">;</span>       CC  <span class="p">;</span>    :   <span class="p">;</span> .
-  CCCi <span class="p">;;</span>               CCC        <span class="p">;;;</span>.      .C <span class="p">;</span>       tf  <span class="p">;</span>    :   <span class="p">;</span>  <span class="p">;</span>.
-  CCC  <span class="p">;;</span>               CCC          <span class="p">;;;;;;;</span> fC :       lC  <span class="p">;</span>    :   <span class="p">;</span>    <span class="p">;</span>:
-   iCf <span class="p">;;</span>               CC         :<span class="p">;;</span>:      tC <span class="p">;</span>       CC  <span class="p">;</span>    :   <span class="p">;</span>     <span class="p">;</span>
-  fCCC :<span class="p">;</span>              LCCf      <span class="p">;;;</span>:         LC :.  ,: C   <span class="p">;</span>    <span class="p">;</span>   <span class="p">;</span> <span class="p">;</span>   <span class="p">;</span>
-  CCCC  <span class="p">;;</span>             CCCC    <span class="p">;;;</span>:           CCi <span class="sb">`</span><span class="p">;;</span><span class="sb">`</span> CC.  <span class="p">;;;;</span> :<span class="p">;</span>.<span class="p">;</span>.  <span class="p">;</span> ,<span class="p">;</span>
-    CCl <span class="p">;;</span>             CC    <span class="p">;;;;</span>              CCC    CCL
-   tCCC  <span class="p">;;</span>        <span class="p">;;</span> CCCL  <span class="p">;;;</span>                  tCCCCC.
-    CCCC  <span class="p">;;</span>     :<span class="p">;;</span> CCCCf  <span class="p">;</span>                     ,L
-     lCCC   <span class="p">;;;;;;</span>  CCCL
-     CCCCCC  :<span class="p">;;</span>  fCCCCC
+     iCCCt  ;;;;;.  CCCC
+    CCCC  ;;;;;;;;;. CClL.                          c
+   CCCC ,;;       ;;: CCCC  ;                   : CCCCi
+    CCC ;;         ;;  CC   ;;:                CCC<span class="sb">`</span>   <span class="sb">`</span>C;
+  lCCC ;;              CCCC  ;;;:             :CC .;;. C;   ;    :   ;  :;;
+  CCCC ;.              CCCC    ;;;,           CC ;    ; Ci  ;    :   ;  :  ;
+   iCC :;               CC       ;;;,        ;C ;       CC  ;    :   ; .
+  CCCi ;;               CCC        ;;;.      .C ;       tf  ;    :   ;  ;.
+  CCC  ;;               CCC          ;;;;;;; fC :       lC  ;    :   ;    ;:
+   iCf ;;               CC         :;;:      tC ;       CC  ;    :   ;     ;
+  fCCC :;              LCCf      ;;;:         LC :.  ,: C   ;    ;   ; ;   ;
+  CCCC  ;;             CCCC    ;;;:           CCi <span class="sb">`</span>;;<span class="sb">`</span> CC.  ;;;; :;.;.  ; ,;
+    CCl ;;             CC    ;;;;              CCC    CCL
+   tCCC  ;;        ;; CCCL  ;;;                  tCCCCC.
+    CCCC  ;;     :;; CCCCf  ;                     ,L
+     lCCC   ;;;;;;  CCCL
+     CCCCCC  :;;  fCCCCC
       . CCCC     CCCC .
        .CCCCCCCCCCCCCi
           iCCCCCLCf
@@ -207,29 +207,29 @@ named &#8220;OneFacility&#8221; that looks like this.</p>
               :
 </pre></div>
 </div>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cyclus -v <span class="m">2</span> input/example.xml
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cyclus -v 2 input/example.xml
               :
           .CL:CC CC             _Q     _Q  _Q_Q    _Q    _Q              _Q
-        CC<span class="p">;</span>CCCCCCCC:C<span class="p">;</span>         /_<span class="se">\)</span>   /_<span class="se">\)</span>/_/<span class="se">\\</span><span class="o">)</span>  /_<span class="se">\)</span>  /_<span class="se">\)</span>            /_<span class="se">\)</span>
-        CCCCCCCCCCCCCl       __O<span class="p">|</span>/O___O<span class="p">|</span>/O_OO<span class="p">|</span>/O__O<span class="p">|</span>/O__O<span class="p">|</span>/O____________O<span class="p">|</span>/O__
+        CC;CCCCCCCC:C;         /_<span class="se">\)</span>   /_<span class="se">\)</span>/_/<span class="se">\\</span><span class="o">)</span>  /_<span class="se">\)</span>  /_<span class="se">\)</span>            /_<span class="se">\)</span>
+        CCCCCCCCCCCCCl       __O|/O___O|/O_OO|/O__O|/O__O|/O____________O|/O__
      CCCCCCf     iCCCLCC     /////////////////////////////////////////////////
-     iCCCt  <span class="p">;;;;;</span>.  CCCC
-    CCCC  <span class="p">;;;;;;;;;</span>. CClL.                          c
-   CCCC ,<span class="p">;;</span>       <span class="p">;;</span>: CCCC  <span class="p">;</span>                   : CCCCi
-    CCC <span class="p">;;</span>         <span class="p">;;</span>  CC   <span class="p">;;</span>:                CCC<span class="sb">`</span>   <span class="sb">`</span>C<span class="p">;</span>
-  lCCC <span class="p">;;</span>              CCCC  <span class="p">;;;</span>:             :CC .<span class="p">;;</span>. C<span class="p">;</span>   <span class="p">;</span>    :   <span class="p">;</span>  :<span class="p">;;</span>
-  CCCC <span class="p">;</span>.              CCCC    <span class="p">;;;</span>,           CC <span class="p">;</span>    <span class="p">;</span> Ci  <span class="p">;</span>    :   <span class="p">;</span>  :  <span class="p">;</span>
-   iCC :<span class="p">;</span>               CC       <span class="p">;;;</span>,        <span class="p">;</span>C <span class="p">;</span>       CC  <span class="p">;</span>    :   <span class="p">;</span> .
-  CCCi <span class="p">;;</span>               CCC        <span class="p">;;;</span>.      .C <span class="p">;</span>       tf  <span class="p">;</span>    :   <span class="p">;</span>  <span class="p">;</span>.
-  CCC  <span class="p">;;</span>               CCC          <span class="p">;;;;;;;</span> fC :       lC  <span class="p">;</span>    :   <span class="p">;</span>    <span class="p">;</span>:
-   iCf <span class="p">;;</span>               CC         :<span class="p">;;</span>:      tC <span class="p">;</span>       CC  <span class="p">;</span>    :   <span class="p">;</span>     <span class="p">;</span>
-  fCCC :<span class="p">;</span>              LCCf      <span class="p">;;;</span>:         LC :.  ,: C   <span class="p">;</span>    <span class="p">;</span>   <span class="p">;</span> <span class="p">;</span>   <span class="p">;</span>
-  CCCC  <span class="p">;;</span>             CCCC    <span class="p">;;;</span>:           CCi <span class="sb">`</span><span class="p">;;</span><span class="sb">`</span> CC.  <span class="p">;;;;</span> :<span class="p">;</span>.<span class="p">;</span>.  <span class="p">;</span> ,<span class="p">;</span>
-    CCl <span class="p">;;</span>             CC    <span class="p">;;;;</span>              CCC    CCL
-   tCCC  <span class="p">;;</span>        <span class="p">;;</span> CCCL  <span class="p">;;;</span>                  tCCCCC.
-    CCCC  <span class="p">;;</span>     :<span class="p">;;</span> CCCCf  <span class="p">;</span>                     ,L
-     lCCC   <span class="p">;;;;;;</span>  CCCL
-     CCCCCC  :<span class="p">;;</span>  fCCCCC
+     iCCCt  ;;;;;.  CCCC
+    CCCC  ;;;;;;;;;. CClL.                          c
+   CCCC ,;;       ;;: CCCC  ;                   : CCCCi
+    CCC ;;         ;;  CC   ;;:                CCC<span class="sb">`</span>   <span class="sb">`</span>C;
+  lCCC ;;              CCCC  ;;;:             :CC .;;. C;   ;    :   ;  :;;
+  CCCC ;.              CCCC    ;;;,           CC ;    ; Ci  ;    :   ;  :  ;
+   iCC :;               CC       ;;;,        ;C ;       CC  ;    :   ; .
+  CCCi ;;               CCC        ;;;.      .C ;       tf  ;    :   ;  ;.
+  CCC  ;;               CCC          ;;;;;;; fC :       lC  ;    :   ;    ;:
+   iCf ;;               CC         :;;:      tC ;       CC  ;    :   ;     ;
+  fCCC :;              LCCf      ;;;:         LC :.  ,: C   ;    ;   ; ;   ;
+  CCCC  ;;             CCCC    ;;;:           CCi <span class="sb">`</span>;;<span class="sb">`</span> CC.  ;;;; :;.;.  ; ,;
+    CCl ;;             CC    ;;;;              CCC    CCL
+   tCCC  ;;        ;; CCCL  ;;;                  tCCCCC.
+    CCCC  ;;     :;; CCCCf  ;                     ,L
+     lCCC   ;;;;;;  CCCL
+     CCCCCC  :;;  fCCCCC
       . CCCC     CCCC .
        .CCCCCCCCCCCCCi
           iCCCCCLCf
@@ -237,35 +237,35 @@ named &#8220;OneFacility&#8221; that looks like this.</p>
               :
 </pre></div>
 </div>
-<div class="highlight-bash"><div class="highlight"><pre>   <span class="nv">$ </span>cyclus -v <span class="m">2</span> input/example.xml
+<div class="highlight-bash"><div class="highlight"><pre>   <span class="nv">$ </span>cyclus -v 2 input/example.xml
                  :
              .CL:CC CC             _Q     _Q  _Q_Q    _Q    _Q              _Q
-           CC<span class="p">;</span>CCCCCCCC:C<span class="p">;</span>         /_<span class="se">\)</span>   /_<span class="se">\)</span>/_/<span class="se">\\</span><span class="o">)</span>  /_<span class="se">\)</span>  /_<span class="se">\)</span>            /_<span class="se">\)</span>
-           CCCCCCCCCCCCCl       __O<span class="p">|</span>/O___O<span class="p">|</span>/O_OO<span class="p">|</span>/O__O<span class="p">|</span>/O__O<span class="p">|</span>/O____________O<span class="p">|</span>/O__
+           CC;CCCCCCCC:C;         /_<span class="se">\)</span>   /_<span class="se">\)</span>/_/<span class="se">\\</span><span class="o">)</span>  /_<span class="se">\)</span>  /_<span class="se">\)</span>            /_<span class="se">\)</span>
+           CCCCCCCCCCCCCl       __O|/O___O|/O_OO|/O__O|/O__O|/O____________O|/O__
         CCCCCCf     iCCCLCC     /////////////////////////////////////////////////
-        iCCCt  <span class="p">;;;;;</span>.  CCCC
-       CCCC  <span class="p">;;;;;;;;;</span>. CClL.                          c
-      CCCC ,<span class="p">;;</span>       <span class="p">;;</span>: CCCC  <span class="p">;</span>                   : CCCCi
-       CCC <span class="p">;;</span>         <span class="p">;;</span>  CC   <span class="p">;;</span>:                CCC<span class="sb">`</span>   <span class="sb">`</span>C<span class="p">;</span>
-     lCCC <span class="p">;;</span>              CCCC  <span class="p">;;;</span>:             :CC .<span class="p">;;</span>. C<span class="p">;</span>   <span class="p">;</span>    :   <span class="p">;</span>  :<span class="p">;;</span>
-     CCCC <span class="p">;</span>.              CCCC    <span class="p">;;;</span>,           CC <span class="p">;</span>    <span class="p">;</span> Ci  <span class="p">;</span>    :   <span class="p">;</span>  :  <span class="p">;</span>
-      iCC :<span class="p">;</span>               CC       <span class="p">;;;</span>,        <span class="p">;</span>C <span class="p">;</span>       CC  <span class="p">;</span>    :   <span class="p">;</span> .
-     CCCi <span class="p">;;</span>               CCC        <span class="p">;;;</span>.      .C <span class="p">;</span>       tf  <span class="p">;</span>    :   <span class="p">;</span>  <span class="p">;</span>.
-     CCC  <span class="p">;;</span>               CCC          <span class="p">;;;;;;;</span> fC :       lC  <span class="p">;</span>    :   <span class="p">;</span>    <span class="p">;</span>:
-      iCf <span class="p">;;</span>               CC         :<span class="p">;;</span>:      tC <span class="p">;</span>       CC  <span class="p">;</span>    :   <span class="p">;</span>     <span class="p">;</span>
-     fCCC :<span class="p">;</span>              LCCf      <span class="p">;;;</span>:         LC :.  ,: C   <span class="p">;</span>    <span class="p">;</span>   <span class="p">;</span> <span class="p">;</span>   <span class="p">;</span>
-     CCCC  <span class="p">;;</span>             CCCC    <span class="p">;;;</span>:           CCi <span class="sb">`</span><span class="p">;;</span><span class="sb">`</span> CC.  <span class="p">;;;;</span> :<span class="p">;</span>.<span class="p">;</span>.  <span class="p">;</span> ,<span class="p">;</span>
-       CCl <span class="p">;;</span>             CC    <span class="p">;;;;</span>              CCC    CCL
-      tCCC  <span class="p">;;</span>        <span class="p">;;</span> CCCL  <span class="p">;;;</span>                  tCCCCC.
-       CCCC  <span class="p">;;</span>     :<span class="p">;;</span> CCCCf  <span class="p">;</span>                     ,L
-        lCCC   <span class="p">;;;;;;</span>  CCCL
-        CCCCCC  :<span class="p">;;</span>  fCCCCC
+        iCCCt  ;;;;;.  CCCC
+       CCCC  ;;;;;;;;;. CClL.                          c
+      CCCC ,;;       ;;: CCCC  ;                   : CCCCi
+       CCC ;;         ;;  CC   ;;:                CCC<span class="sb">`</span>   <span class="sb">`</span>C;
+     lCCC ;;              CCCC  ;;;:             :CC .;;. C;   ;    :   ;  :;;
+     CCCC ;.              CCCC    ;;;,           CC ;    ; Ci  ;    :   ;  :  ;
+      iCC :;               CC       ;;;,        ;C ;       CC  ;    :   ; .
+     CCCi ;;               CCC        ;;;.      .C ;       tf  ;    :   ;  ;.
+     CCC  ;;               CCC          ;;;;;;; fC :       lC  ;    :   ;    ;:
+      iCf ;;               CC         :;;:      tC ;       CC  ;    :   ;     ;
+     fCCC :;              LCCf      ;;;:         LC :.  ,: C   ;    ;   ; ;   ;
+     CCCC  ;;             CCCC    ;;;:           CCi <span class="sb">`</span>;;<span class="sb">`</span> CC.  ;;;; :;.;.  ; ,;
+       CCl ;;             CC    ;;;;              CCC    CCL
+      tCCC  ;;        ;; CCCL  ;;;                  tCCCCC.
+       CCCC  ;;     :;; CCCCf  ;                     ,L
+        lCCC   ;;;;;;  CCCL
+        CCCCCC  :;;  fCCCCC
          . CCCC     CCCC .
           .CCCCCCCCCCCCCi
              iCCCCCLCf
               .  C. ,
                  :
-INFO1<span class="o">(</span>core  <span class="o">)</span>:Simulation <span class="nb">set </span>to run from <span class="nv">start</span><span class="o">=</span><span class="m">0</span> to <span class="nv">end</span><span class="o">=</span>10
+INFO1<span class="o">(</span>core  <span class="o">)</span>:Simulation <span class="nb">set </span>to run from <span class="nv">start</span><span class="o">=</span>0 to <span class="nv">end</span><span class="o">=</span>10
 INFO1<span class="o">(</span>core  <span class="o">)</span>:Beginning simulation
 INFO1<span class="o">(</span>tutori<span class="o">)</span>:Hello
 INFO1<span class="o">(</span>tutori<span class="o">)</span>:World!
@@ -299,7 +299,7 @@ Simulation ID: 9f15b93c-9ab2-49bb-a14f-fef872e64ce8</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="../../index.html" title="index">
           <img class="logo" src="../../_static/big_c.png" alt="Logo"/>
@@ -330,7 +330,7 @@ Simulation ID: 9f15b93c-9ab2-49bb-a14f-fef872e64ce8</p>
     </ul></li></ul>
   </div>
     
-<div id="searchbox" style="display: none" role="search">
+<div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../../search.html" method="get">
       <input type="text" name="q" />
@@ -379,7 +379,7 @@ Simulation ID: 9f15b93c-9ab2-49bb-a14f-fef872e64ce8</p>
     </div>
     <div class="relbar-bottom">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -394,9 +394,9 @@ Simulation ID: 9f15b93c-9ab2-49bb-a14f-fef872e64ce8</p>
     </div>
     </div>
 
-    <div class="footer" role="contentinfo">
+    <div class="footer">
         &copy; Copyright 2012-2014, University of Wisconsin Computational Nuclear Engineering Research Group.
-      Last updated on May 06, 2015.
+      Last updated on May 19, 2015.
     </div><script type="text/javascript">
     if(ga_enabled){
         document.write("<div class=\"footer\">This page uses <a href=\"http://analytics.google.com\">Google Analytics</a> to collect statistics. ");

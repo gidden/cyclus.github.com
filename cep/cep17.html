@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '(1.2.0-332-g1845a13)',
+        VERSION:     '(1.3.0-rc5-32-g5ecfc06)',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -49,10 +49,10 @@ if(ga_enabled){
 }
 </script>
   </head>
-  <body role="document">
+  <body>
     <div class="relbar-top">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -69,7 +69,7 @@ if(ga_enabled){
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">Home</a> &raquo;</li>
 
-          <li class="nav-item nav-item-1"><a href="cep0.html" accesskey="U"><span style="font-variant:small-caps;">Cyclus</span> Enhancement Proposals</a> &raquo;</li> 
+          <li><a href="cep0.html" accesskey="U"><span style="font-variant:small-caps;">Cyclus</span> Enhancement Proposals</a> &raquo;</li> 
       </ul>
     </div>
     </div>
@@ -78,7 +78,7 @@ if(ga_enabled){
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="cep-17-resource-tracking-and-interfaces-re-re-redo">
 <h1>CEP 17 - Resource Tracking and Interfaces Re-Re-Redo<a class="headerlink" href="#cep-17-resource-tracking-and-interfaces-re-re-redo" title="Permalink to this headline">¶</a></h1>
@@ -113,7 +113,7 @@ analyses include agent time-dependent isotopic inventories and
 proliferation-resistance material handling. It is proposed that all
 resource state and state transitions will be tracked (as opposed to just
 recording state at inter-agent transactions).  In addition to required
-internal additions/changes to resource classes, explicit <code class="docutils literal"><span class="pre">transmute</span></code>
+internal additions/changes to resource classes, explicit <tt class="docutils literal"><span class="pre">transmute</span></tt>
 functionality will be added to the Material class to accommodate
 mass-conserving state changes that occur in agents such as Reactors.</p>
 </li>
@@ -263,7 +263,7 @@ resources to be transacted in a simulation.</p>
 <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">ResourceType</span><span class="p">;</span>
 
 <span class="k">class</span> <span class="nc">Resource</span> <span class="p">{</span>
- <span class="k">public</span><span class="o">:</span>
+ <span class="nl">public:</span>
   <span class="k">typedef</span> <span class="n">boost</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Resource</span><span class="o">&gt;</span> <span class="n">Ptr</span><span class="p">;</span>
 
   <span class="k">virtual</span> <span class="o">~</span><span class="n">Resource</span><span class="p">()</span> <span class="p">{</span> <span class="p">};</span>
@@ -359,7 +359,7 @@ operations performed will be recorded. Usage examples:</p>
 </div>
 <p>Proposed material class interface:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Material</span><span class="o">:</span> <span class="k">public</span> <span class="n">Resource</span> <span class="p">{</span>
- <span class="k">public</span><span class="o">:</span>
+ <span class="nl">public:</span>
   <span class="k">typedef</span> <span class="n">boost</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Material</span><span class="o">&gt;</span> <span class="n">Ptr</span><span class="p">;</span>
   <span class="k">static</span> <span class="k">const</span> <span class="n">ResourceType</span> <span class="n">kType</span><span class="p">;</span>
 
@@ -408,7 +408,7 @@ operations performed will be recorded. Usage examples:</p>
 <p>Implements the Resource class interface in a simple way usable for things
 like: bananas, man-hours, water, buying power, etc.</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="k">class</span> <span class="nc">GenericResource</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Resource</span> <span class="p">{</span>
- <span class="k">public</span><span class="o">:</span>
+ <span class="nl">public:</span>
   <span class="k">typedef</span> <span class="n">boost</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">GenericResource</span><span class="o">&gt;</span> <span class="n">Ptr</span><span class="p">;</span>
   <span class="k">static</span> <span class="k">const</span> <span class="n">ResourceType</span> <span class="n">kType</span><span class="p">;</span>
 
@@ -493,7 +493,7 @@ or other places.</p>
 
 <span class="c1">// Represents an immutable nuclear material composition</span>
 <span class="k">class</span> <span class="nc">Composition</span> <span class="p">{</span>
- <span class="k">public</span><span class="o">:</span>
+ <span class="nl">public:</span>
   <span class="k">typedef</span> <span class="n">boost</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Composition</span><span class="o">&gt;</span> <span class="n">Ptr</span><span class="p">;</span>
 
   <span class="k">static</span> <span class="n">Ptr</span> <span class="nf">CreateAtom</span><span class="p">(</span><span class="n">CompMap</span> <span class="n">v</span><span class="p">);</span>
@@ -558,7 +558,7 @@ needed.</p>
 information about a material they could ever reasonably need. The interface is
 designed to grow organically as needed.</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MatQuery</span> <span class="p">{</span>
-  <span class="k">public</span><span class="o">:</span>
+  <span class="nl">public:</span>
     <span class="n">MatQuery</span><span class="p">(</span><span class="n">Material</span><span class="o">::</span><span class="n">Ptr</span> <span class="n">m</span><span class="p">);</span>
 
     <span class="c1">/// Convenience constructor that auto-casts a Resource::Ptr to a</span>
@@ -590,7 +590,7 @@ responsible for loading recipes from xml input and serving them up simulation
 wide.  Agents are also allowed to register their own compositions manually.
 RecipeLibrary interface becomes:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="k">class</span> <span class="nc">RecipeLibrary</span> <span class="p">{</span>
- <span class="k">public</span><span class="o">:</span>
+ <span class="nl">public:</span>
   <span class="cm">/**</span>
 <span class="cm">     Gives all simulation objects global access to the RecipeLibrary by</span>
 <span class="cm">     returning a pointer to it.</span>
@@ -663,7 +663,7 @@ will cause significant slowdown using an Sqlite backend database <em>when
 material decay is frequent</em>.  This slowdown prompted the development of a
 faster HDF5 alternative (currently merged into develop branch).</p>
 <p>Basic performance stats were collected by running a full <span style="font-variant:small-caps;">Cyclus</span>
-inpro_low.xml simulation <code class="docutils literal"><span class="pre">time</span> <span class="pre">cyclus</span> <span class="pre">[path/to/]inpro_low.xml</span></code>.  For
+inpro_low.xml simulation <tt class="docutils literal"><span class="pre">time</span> <span class="pre">cyclus</span> <span class="pre">[path/to/]inpro_low.xml</span></tt>.  For
 reference:</p>
 <ul class="simple">
 <li>~50,000 material objects total</li>
@@ -759,7 +759,7 @@ here <a class="reference external" href="https://github.com/cyclus/cyclus/issues
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="../index.html" title="index">
           <img class="logo" src="../_static/big_c.png" alt="Logo"/>
@@ -821,7 +821,7 @@ here <a class="reference external" href="https://github.com/cyclus/cyclus/issues
     </ul></li></ul>
   </div>
     
-<div id="searchbox" style="display: none" role="search">
+<div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -870,7 +870,7 @@ here <a class="reference external" href="https://github.com/cyclus/cyclus/issues
     </div>
     <div class="relbar-bottom">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -887,14 +887,14 @@ here <a class="reference external" href="https://github.com/cyclus/cyclus/issues
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">Home</a> &raquo;</li>
 
-          <li class="nav-item nav-item-1"><a href="cep0.html" ><span style="font-variant:small-caps;">Cyclus</span> Enhancement Proposals</a> &raquo;</li> 
+          <li><a href="cep0.html" ><span style="font-variant:small-caps;">Cyclus</span> Enhancement Proposals</a> &raquo;</li> 
       </ul>
     </div>
     </div>
 
-    <div class="footer" role="contentinfo">
+    <div class="footer">
         &copy; Copyright 2012-2014, University of Wisconsin Computational Nuclear Engineering Research Group.
-      Last updated on May 06, 2015.
+      Last updated on May 19, 2015.
     </div><script type="text/javascript">
     if(ga_enabled){
         document.write("<div class=\"footer\">This page uses <a href=\"http://analytics.google.com\">Google Analytics</a> to collect statistics. ");

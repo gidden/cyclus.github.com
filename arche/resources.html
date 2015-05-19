@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '(1.2.0-332-g1845a13)',
+        VERSION:     '(1.3.0-rc5-32-g5ecfc06)',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -49,10 +49,10 @@ if(ga_enabled){
 }
 </script>
   </head>
-  <body role="document">
+  <body>
     <div class="relbar-top">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -69,7 +69,7 @@ if(ga_enabled){
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">Home</a> &raquo;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U"><span style="font-variant:small-caps;">Cyclus</span> Archetype Developer Guide</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U"><span style="font-variant:small-caps;">Cyclus</span> Archetype Developer Guide</a> &raquo;</li> 
       </ul>
     </div>
     </div>
@@ -78,7 +78,7 @@ if(ga_enabled){
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="resources">
 <h1>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h1>
@@ -102,7 +102,7 @@ quality/units.</li>
 item (e.g., electricity, money, or workers).  By default, all changes to
 resource objects (including creation) are tracked and recorded in the
 database.  Because of this, agents should handle resources carefully.  For
-more details about this, see <a class="reference internal" href="#tracked-untracked"><span>Tracked and Untracked Resources</span></a>.</p>
+more details about this, see <a class="reference internal" href="#tracked-untracked"><em>Tracked and Untracked Resources</em></a>.</p>
 <p>All resource objects are created and managed as pointer types. For
 convenience, each of the classes related to resources have a special pointer
 type defined:</p>
@@ -115,7 +115,7 @@ type defined:</p>
 <p>These pointer types should be always be used instead of plain class instances
 or raw pointers.  The following sections describe basic creation and
 manipulation of resource objects.  The <span style="font-variant:small-caps;">Cyclus</span> kernel deals with resources in
-terms of the <code class="docutils literal"><span class="pre">cyclus::Resource</span></code> superclass.  So it will sometimes be
+terms of the <tt class="docutils literal"><span class="pre">cyclus::Resource</span></tt> superclass.  So it will sometimes be
 necessary to cast down to the appropriate resource subclass.  <span style="font-variant:small-caps;">Cyclus</span> provides
 an overloaded ResCast function for casting convenience:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="c1">// r is a Material object stored in a cyclus::Resource::Ptr var</span>
@@ -130,7 +130,7 @@ an overloaded ResCast function for casting convenience:</p>
 <div class="section" id="product-resources">
 <h2>Product Resources<a class="headerlink" href="#product-resources" title="Permalink to this headline">¶</a></h2>
 <p>Products in <span style="font-variant:small-caps;">Cyclus</span> have a quantity (no particular units) and a quality.
-The quality is a <code class="docutils literal"><span class="pre">std::string</span></code> that describes what the product is.  A
+The quality is a <tt class="docutils literal"><span class="pre">std::string</span></tt> that describes what the product is.  A
 product&#8217;s quality might be &#8220;apples&#8221;, &#8220;kg apples&#8221;, &#8220;man-hours&#8221;, etc.  Product
 resources with different qualities may NOT be combined together.</p>
 <p>There are 3 basic operations that can be performed on product resources
@@ -156,10 +156,10 @@ resources with different qualities may NOT be combined together.</p>
 <div class="section" id="material-resources">
 <h2>Material Resources<a class="headerlink" href="#material-resources" title="Permalink to this headline">¶</a></h2>
 <p>Materials in <span style="font-variant:small-caps;">Cyclus</span> have a mass and an associated nuclide composition.  The
-composition is represented by a  <code class="docutils literal"><span class="pre">cyclus::Composition</span></code> object.  Material
+composition is represented by a  <tt class="docutils literal"><span class="pre">cyclus::Composition</span></tt> object.  Material
 quantity is always represented in units of kg. Agents can either create a
 composition manually (see the <em>Compositions</em> section below) or acquire one from
-their <code class="docutils literal"><span class="pre">cyclus::Context</span></code> which holds all recipes defined as part of the
+their <tt class="docutils literal"><span class="pre">cyclus::Context</span></tt> which holds all recipes defined as part of the
 simulation input.</p>
 <p>There are 4 basic operations that can be performed on material resources
 (examples follow):</p>
@@ -200,8 +200,8 @@ be correct.</p>
 </div>
 <div class="section" id="compositions">
 <h3>Compositions<a class="headerlink" href="#compositions" title="Permalink to this headline">¶</a></h3>
-<p>A <code class="docutils literal"><span class="pre">cyclus::Composition</span></code> is a massless, immutable nuclide composition.
-Because it is immutable, a mutable <code class="docutils literal"><span class="pre">cyclus::CompMap</span></code> must be populated in
+<p>A <tt class="docutils literal"><span class="pre">cyclus::Composition</span></tt> is a massless, immutable nuclide composition.
+Because it is immutable, a mutable <tt class="docutils literal"><span class="pre">cyclus::CompMap</span></tt> must be populated in
 order to create a composition:</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="n">cyclus</span><span class="o">::</span><span class="n">CompMap</span> <span class="n">m</span><span class="p">;</span>
 <span class="n">m</span><span class="p">[</span><span class="mi">922350000</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
@@ -214,29 +214,29 @@ order to create a composition:</p>
 <span class="n">cyclus</span><span class="o">::</span><span class="n">Composition</span><span class="o">::</span><span class="n">Ptr</span> <span class="n">c2</span> <span class="o">=</span> <span class="n">cyclus</span><span class="o">::</span><span class="n">Composition</span><span class="o">::</span><span class="n">CreateFromAtom</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Note that the <code class="docutils literal"><span class="pre">cyclus::CompMap</span></code> above has no notion of mass.  Only the
-relative nuclide ratios matter.  Also notable is that <code class="docutils literal"><span class="pre">c1</span></code> and <code class="docutils literal"><span class="pre">c2</span></code> in the
+<p>Note that the <tt class="docutils literal"><span class="pre">cyclus::CompMap</span></tt> above has no notion of mass.  Only the
+relative nuclide ratios matter.  Also notable is that <tt class="docutils literal"><span class="pre">c1</span></tt> and <tt class="docutils literal"><span class="pre">c2</span></tt> in the
 above example have different compositions.</p>
 <p>Because compositions are immutable, it is desirable for performance and
 database space reasons to avoid as much as possible creating multiple
-compositions from equivalent <code class="docutils literal"><span class="pre">cyclus::CompMap</span></code> objects.  Reusing
-<code class="docutils literal"><span class="pre">cyclus::Composition</span></code> objects helps avoid duplicate records in the
+compositions from equivalent <tt class="docutils literal"><span class="pre">cyclus::CompMap</span></tt> objects.  Reusing
+<tt class="docutils literal"><span class="pre">cyclus::Composition</span></tt> objects helps avoid duplicate records in the
 database and redundant decay calculations.</p>
 </div>
 </div>
 <div class="section" id="resource-ids">
 <span id="id1"></span><h2>Resource IDs<a class="headerlink" href="#resource-ids" title="Permalink to this headline">¶</a></h2>
-<p>Every resource object has 3 different IDs.  One of them, the <code class="docutils literal"><span class="pre">qual_id</span></code>, is
+<p>Every resource object has 3 different IDs.  One of them, the <tt class="docutils literal"><span class="pre">qual_id</span></tt>, is
 generally not of use to agent developers and can be ignored.  The other two
 serve two different purposes, and it is important to understand their
 difference:</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">state_id</span></code>: A unique identifier associated with the entire state of the
+<li><tt class="docutils literal"><span class="pre">state_id</span></tt>: A unique identifier associated with the entire state of the
 resource object.  Any time a resource&#8217;s state changes in any way (mass,
 composition, etc.) this ID will be updated to a new, unique value
 associated with the new state.  When recording resource-related information
 to the database in custom tables, this ID should generally be used.</li>
-<li><code class="docutils literal"><span class="pre">obj_id</span></code>: A unique identifier associated with the resource object
+<li><tt class="docutils literal"><span class="pre">obj_id</span></tt>: A unique identifier associated with the resource object
 instance.  This ID does not ever change for the life of a resource instance.
 Only newly created resource objects get new obj_id&#8217;s.  This ID should be
 used when using resources as std::map keys and in other data structures when
@@ -269,9 +269,9 @@ resource objects need to be associated with some other information.</li>
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">When associating information with resources like the <code class="docutils literal"><span class="pre">rsrc_labels</span></code>
+<p class="last">When associating information with resources like the <tt class="docutils literal"><span class="pre">rsrc_labels</span></tt>
 example above, you should <strong>NEVER</strong> use pointers (e.g.
-<code class="docutils literal"><span class="pre">std::map&lt;cyclus::Resource::Ptr,</span> <span class="pre">std::string&gt;</span></code>).  Pointers are unstable
+<tt class="docutils literal"><span class="pre">std::map&lt;cyclus::Resource::Ptr,</span> <span class="pre">std::string&gt;</span></tt>).  Pointers are unstable
 and change across simulation snapshot+restart.</p>
 </div>
 </div>
@@ -317,7 +317,7 @@ resources to use in resource exchange requests and bids.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="../index.html" title="index">
           <img class="logo" src="../_static/big_c.png" alt="Logo"/>
@@ -362,7 +362,7 @@ resources to use in resource exchange requests and bids.</p>
     </ul></li></ul>
   </div>
     
-<div id="searchbox" style="display: none" role="search">
+<div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -411,7 +411,7 @@ resources to use in resource exchange requests and bids.</p>
     </div>
     <div class="relbar-bottom">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -428,14 +428,14 @@ resources to use in resource exchange requests and bids.</p>
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">Home</a> &raquo;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" ><span style="font-variant:small-caps;">Cyclus</span> Archetype Developer Guide</a> &raquo;</li> 
+          <li><a href="index.html" ><span style="font-variant:small-caps;">Cyclus</span> Archetype Developer Guide</a> &raquo;</li> 
       </ul>
     </div>
     </div>
 
-    <div class="footer" role="contentinfo">
+    <div class="footer">
         &copy; Copyright 2012-2014, University of Wisconsin Computational Nuclear Engineering Research Group.
-      Last updated on May 06, 2015.
+      Last updated on May 19, 2015.
     </div><script type="text/javascript">
     if(ga_enabled){
         document.write("<div class=\"footer\">This page uses <a href=\"http://analytics.google.com\">Google Analytics</a> to collect statistics. ");

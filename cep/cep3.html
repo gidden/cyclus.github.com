@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '(1.2.0-332-g1845a13)',
+        VERSION:     '(1.3.0-rc5-32-g5ecfc06)',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -49,10 +49,10 @@ if(ga_enabled){
 }
 </script>
   </head>
-  <body role="document">
+  <body>
     <div class="relbar-top">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -69,7 +69,7 @@ if(ga_enabled){
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">Home</a> &raquo;</li>
 
-          <li class="nav-item nav-item-1"><a href="cep0.html" accesskey="U"><span style="font-variant:small-caps;">Cyclus</span> Enhancement Proposals</a> &raquo;</li> 
+          <li><a href="cep0.html" accesskey="U"><span style="font-variant:small-caps;">Cyclus</span> Enhancement Proposals</a> &raquo;</li> 
       </ul>
     </div>
     </div>
@@ -78,7 +78,7 @@ if(ga_enabled){
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="cep-3-cyclus-release-procedure">
 <h1>CEP 3 - <span style="font-variant:small-caps;">Cyclus</span> Release Procedure<a class="headerlink" href="#cep-3-cyclus-release-procedure" title="Permalink to this headline">¶</a></h1>
@@ -90,9 +90,9 @@ if(ga_enabled){
 </tr>
 <tr class="field-even field"><th class="field-name">Title:</th><td class="field-body"><span style="font-variant:small-caps;">Cyclus</span> Release Procedure</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Last-Modified:</th><td class="field-body">2014-09-11</td>
+<tr class="field-odd field"><th class="field-name">Last-Modified:</th><td class="field-body">2015-05-01</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Author:</th><td class="field-body">Anthony Scopatz</td>
+<tr class="field-even field"><th class="field-name">Author:</th><td class="field-body">Anthony Scopatz and Matthew Gidden</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body">Accepted</td>
 </tr>
@@ -119,82 +119,153 @@ stable.)  The projects that are under the release manager&#8217;s purview are:</
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/cyclus/cyclus">Cyclus</a></li>
 <li><a class="reference external" href="https://github.com/cyclus/cycamore">Cycamore</a></li>
-<li><a class="reference external" href="https://github.com/cyclus/cycstub">Cycstub</a> - copy the files from <span style="font-variant:small-caps;">Cyclus</span> core&#8217;s <code class="docutils literal"><span class="pre">stub/</span></code> dir into the
-cycstub&#8217;s <code class="docutils literal"><span class="pre">src/</span></code> dir.</li>
+<li><a class="reference external" href="https://github.com/cyclus/cycstub">Cycstub</a></li>
+<li><a class="reference external" href="https://github.com/cyclus/cymetric">Cymetric</a></li>
 </ul>
 <p>The projects which are not yet under the release managers purview are:</p>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/cyclus/cyclist2">Cyclist</a></li>
-<li><a class="reference external" href="https://github.com/cyclus/ciclus">CIclus</a></li>
 </ul>
 </div>
-<div class="section" id="release-candidates-branches">
-<h2>Release Candidates &amp; Branches<a class="headerlink" href="#release-candidates-branches" title="Permalink to this headline">¶</a></h2>
-<p>All projects should have a release candidate (&#8216;-rc1&#8217;) that comes out 2 - 5 days
-prior to the scheduled release.  During this time, no changes should occur to
-a special release branch (&#8216;vX.X.X-release&#8217;).</p>
-<p>The release branch is there so that development can continue on the
-develop branch while the release candidates (rc) are out and under review.
-This is because otherwise any new developments would have to wait until
-post-release to be merged into develop to prevent them from accidentally
-getting released early.</p>
-<p>As such, the &#8216;vX.X.X-release&#8217; branch should only exist while there are
-release candidates out.  They are akin to a temporary second level of staging
-to be used to keep master clean and safe.  As such, everything that is in this
-branch should also be part of develop.  Graphically,</p>
-<div class="figure align-center" id="id4">
-<img src="../_images/cep-0003-1.svg" /><p class="caption"><span class="caption-text"><strong>Figure 1:</strong> Branch hierarchy under release.</span></p>
+<div class="section" id="release-candidates-tags-branches">
+<h2>Release Candidates (Tags &amp; Branches)<a class="headerlink" href="#release-candidates-tags-branches" title="Permalink to this headline">¶</a></h2>
+<p>At the beginning of a release, a special branch for <em>each</em> project should be
+made off of <tt class="docutils literal"><span class="pre">develop</span></tt> named <tt class="docutils literal"><span class="pre">vX.X.X-release</span></tt>. Note the <em>v</em> at the beginning. Each
+project should have the initial version of of it&#8217;s release branch <em>tagged</em> as
+<tt class="docutils literal"><span class="pre">X.X.X-rc1</span></tt>, the first release candidate.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To distingush them, branch names have a <tt class="docutils literal"><span class="pre">v</span></tt> prefix (<tt class="docutils literal"><span class="pre">vX.X.X-release</span></tt>)
+while tag names lack this prefix (<tt class="docutils literal"><span class="pre">X.X.X-rcX</span></tt>).</p>
 </div>
-<p>Every time a new release candidate comes out the vX.X.X-release should be
-tagged with the name &#8216;X.X.X-rcX&#8217;.  There should be a 2 - 5 day period of time
-in between release candidates.  When the full and final release happens, the
-&#8216;vX.X.X-release&#8217; branch is merged into master and then deleted.</p>
-<p>If you have a new fix that needs to be in the next release candidate, you should
-make a topical branch and then pull request it into the release branch.  After this
-has been accepted, the topical branch should be merged with develop as well.</p>
-<p>The release branch must be quiet and untouched for 2 - 5 days prior to the full
-release.</p>
+<p>Release candidates serve as an official proving ground for the release. Upon
+creation, an announcement should be made to the developer&#8217;s list, and users of
+the project should be encouraged to test them out in order to bugs/other issues.</p>
+<p>Any required changes must be pull requested from a topical branch into the
+<em>release</em> branch.  After this has been accepted, the topical branch must be
+merged with <tt class="docutils literal"><span class="pre">develop</span></tt> as well. The release branch is there so that development
+can continue on the <tt class="docutils literal"><span class="pre">develop</span></tt> branch while the release candidates (rc) are out
+and under review.  This is because otherwise any new developments would have to
+wait until post-release to be merged into <tt class="docutils literal"><span class="pre">develop</span></tt> to prevent them from
+accidentally getting released early.</p>
+<p>Everything that is in the release branch must also be part of <tt class="docutils literal"><span class="pre">develop</span></tt>.
+Graphically,</p>
+<div class="figure align-center">
+<img src="../_images/cep-0003-1.svg" /><p class="caption"><strong>Figure 1:</strong> Branch hierarchy under release.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Any commits merged into the release branch must <em>also</em> be merged into
+<tt class="docutils literal"><span class="pre">develop</span></tt>. It is common practice for the release manager to request the
+reviewer pull requests to merge the subject topical branch into <tt class="docutils literal"><span class="pre">develop</span></tt>
+as well. However, it is the ultimate release manager&#8217;s responsibility to
+make sure <tt class="docutils literal"><span class="pre">develop</span></tt> is kept up to date with the <tt class="docutils literal"><span class="pre">release</span></tt> branch.</p>
+</div>
+<p>If changes are made to the release branch, a new candidate must be issued after
+<em>2 - 5 days</em>. Every time a new release candidate comes out the <tt class="docutils literal"><span class="pre">vX.X.X-release</span></tt>
+must be tagged with the name <tt class="docutils literal"><span class="pre">X.X.X-rcX</span></tt>. A developer&#8217;s list annoucement must
+accompany any new candidate.</p>
+<p>The release branch must be quiet and untouched for <em>2 - 5 days prior</em> to the
+full release. When the full and final release happens, the <tt class="docutils literal"><span class="pre">vX.X.X-release</span></tt>
+branch is merged into <tt class="docutils literal"><span class="pre">master</span></tt> and then deleted. All commits in the
+<tt class="docutils literal"><span class="pre">vX.X.X-release</span></tt> branch must have also been merged into the <tt class="docutils literal"><span class="pre">develop</span></tt> branch
+as they were accepted.</p>
 </div>
 <div class="section" id="project-checklist">
 <h2>Project Checklist<a class="headerlink" href="#project-checklist" title="Permalink to this headline">¶</a></h2>
-<p>When releasing a <span style="font-variant:small-caps;">Cyclus</span> project, make sure to do the following items in order:</p>
-<ol class="arabic simple">
-<li>Review <strong>ALL</strong> issues in the issue tracker, reassigning or closing them as needed.</li>
-<li>Ensure that all issues in this release&#8217;s milestone have been closed.  Moving issues
-to the next release&#8217;s milestone is a perfectly valid strategy for completing this
-milestone.</li>
-<li>Perform maintainence tasks for this project, see below.</li>
-<li>Write and commit the release notes.</li>
-<li>Review the current state of documentation and make approriate updates.</li>
-<li>Bump the version (in code, documentation, etc.) and commit the change.</li>
-<li>If this is a release candidate, tag the release branch with a name that matches
-that of the release:<ul>
-<li>If this is the first release candidate, create a release branch called
-&#8216;vX.X.X-release&#8217; off of develop.  Tag this branch with the name &#8216;X.X.X-rc1&#8217;.</li>
-<li>If this is the second or later release candidate, tag the release branch
-with the name &#8216;X.X.X-rcX&#8217;.</li>
-</ul>
-</li>
-<li>If this is the full and final release (and not a release candidate),
-merge the release branch into the master branch.  Next, tag the master branch
-with the name &#8216;X.X.X&#8217;.  Finally, delete the release branch.</li>
-<li>Push the tags upstream</li>
-<li>Create a DOI. See <a class="reference internal" href="cep4.html"><em>CEP4</em></a> for details.</li>
-<li>Update release information on the website.</li>
-</ol>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">To distingush them, branch names have a <code class="docutils literal"><span class="pre">v</span></code> prefix (<code class="docutils literal"><span class="pre">vX.X.X</span></code>) while tag
-names lack this prefix (<code class="docutils literal"><span class="pre">X.X.X</span></code>).</p>
+<p class="last">Utility scripts for this process can be found in the <a class="reference external" href="https://github.com/cyclus/release">release</a> repository</p>
 </div>
+<p>When releasing a <span style="font-variant:small-caps;">Cyclus</span> project, make sure to do the following items in order:</p>
+<ol class="arabic">
+<li><p class="first">Review <strong>ALL</strong> issues and pull requests, reassigning or closing them as needed.</p>
+</li>
+<li><p class="first">Ensure that all issues/PRs in this release&#8217;s milestone have been closed.
+Moving them to the next release&#8217;s milestone is a perfectly valid strategy for
+completing this milestone.</p>
+</li>
+<li><p class="first">Initiate the release candidate process (see above)</p>
+</li>
+<li><p class="first">Draft release notes</p>
+<ul class="simple">
+<li>the <tt class="docutils literal"><span class="pre">make_release_notes.sh</span></tt> utility in <tt class="docutils literal"><span class="pre">release/utils</span></tt> will help
+provide a template</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> /path/to/release/utils
+<span class="nv">$ </span><span class="nb">export </span><span class="nv">CYCLUS_DIR</span><span class="o">=</span>/path/to/cyclus
+<span class="nv">$ </span><span class="nb">export </span><span class="nv">CYCAMORE_DIR</span><span class="o">=</span>/path/to/cycamore
+<span class="nv">$ </span><span class="nb">export </span><span class="nv">CYMETRIC_DIR</span><span class="o">=</span>/path/to/cymetric
+<span class="nv">$ </span>./make_release_notes.sh W.W.W X.X.X <span class="c"># W.W.W is the previous version, X.X.X is *this* version</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>add the release notes to <tt class="docutils literal"><span class="pre">cyclus.github.com/source/previous/</span></tt> with
+appropriate updates to <tt class="docutils literal"><span class="pre">index.rst</span></tt> in that directory</li>
+</ul>
+</li>
+<li><p class="first">Review the current state of documentation and make approriate updates.</p>
+</li>
+<li><p class="first">Finish the release candidate process</p>
+<ul class="simple">
+<li>make sure all commits in the <tt class="docutils literal"><span class="pre">release</span></tt> branch also are in <tt class="docutils literal"><span class="pre">develop</span></tt></li>
+</ul>
+</li>
+<li><p class="first">Bump the version in <tt class="docutils literal"><span class="pre">cyclus/src/version.h</span></tt>, commit the change</p>
+</li>
+<li><p class="first">Perform maintainence tasks for this project</p>
+<ul class="simple">
+<li>they are described in detail below, <em>but</em></li>
+<li>the <tt class="docutils literal"><span class="pre">maintenence.sh</span></tt> utility in <tt class="docutils literal"><span class="pre">release/utils</span></tt> will do this
+automatically for you</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> /path/to/release/utils
+<span class="nv">$ </span><span class="nb">export </span><span class="nv">CYCLUS_DIR</span><span class="o">=</span>/path/to/cyclus
+<span class="nv">$ </span><span class="nb">export </span><span class="nv">CYCAMORE_DIR</span><span class="o">=</span>/path/to/cycamore
+<span class="nv">$ </span><span class="nb">export </span><span class="nv">CYCSTUB_DIR</span><span class="o">=</span>/path/to/cycstub
+<span class="nv">$ </span>./maintenence.sh -r -v X.X.X <span class="c"># X.X.X is *this* version</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Upload the conda packages</p>
+<ul class="simple">
+<li>the <tt class="docutils literal"><span class="pre">upload_conda.sh</span></tt> utility in <tt class="docutils literal"><span class="pre">release/utils</span></tt> will do this
+automatically for you</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> /path/to/release/utils
+<span class="nv">$ </span><span class="nb">export </span><span class="nv">CYCLUS_DIR</span><span class="o">=</span>/path/to/cyclus
+<span class="nv">$ </span><span class="nb">export </span><span class="nv">CYCAMORE_DIR</span><span class="o">=</span>/path/to/cycamore
+<span class="nv">$ </span><span class="nb">export </span><span class="nv">CYMETRIC_DIR</span><span class="o">=</span>/path/to/cymetric
+<span class="nv">$ </span>./conda_upload.sh X.X.X <span class="c"># X.X.X is *this* version</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Update the <tt class="docutils literal"><span class="pre">master</span></tt> branch of all projects</p>
+<ul class="simple">
+<li>merge the <tt class="docutils literal"><span class="pre">release</span></tt> branch into <tt class="docutils literal"><span class="pre">master</span></tt></li>
+<li>tag the master branch with the name &#8216;X.X.X&#8217;</li>
+<li>push the master branch and tag upstream</li>
+<li>delete the release branch</li>
+</ul>
+</li>
+<li><p class="first">Create a DOI. See <a class="reference internal" href="cep4.html"><em>CEP4</em></a> for details.</p>
+</li>
+<li><p class="first">Update release information on the front page (<tt class="docutils literal"><span class="pre">index.rst</span></tt>) of the website.</p>
+</li>
+</ol>
 </div>
 <div class="section" id="maintainence-tasks">
 <h2>Maintainence Tasks<a class="headerlink" href="#maintainence-tasks" title="Permalink to this headline">¶</a></h2>
-<p>Each project may have associate maintenance tasks which may need to be performed at
-least as often as every micro release.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">There is now the <tt class="docutils literal"><span class="pre">maintenence.sh</span></tt> utility in <tt class="docutils literal"><span class="pre">release/utils</span></tt> that
+will automate this for you. The section remains here for posterity.</p>
+</div>
+<p>Each project may have associate maintenance tasks which may need to be performed
+at least as often as every micro release.</p>
 <div class="section" id="cyclus">
 <h3><span style="font-variant:small-caps;">Cyclus</span><a class="headerlink" href="#cyclus" title="Permalink to this headline">¶</a></h3>
-<p><strong>Update Pyne:</strong>  PyNE source code is included and shipped as part of <span style="font-variant:small-caps;">Cyclus</span>. As pyne
+<p><strong>Update PyNE:</strong>  PyNE source code is included and shipped as part of <span style="font-variant:small-caps;">Cyclus</span>. As pyne
 evolves, we&#8217;ll want to have our version evolve as well. Here are the steps to do so.
 These assume that in your HOME dir there are both the pyne and <span style="font-variant:small-caps;">Cyclus</span> repos.  Remember
 to check in the changes afterwards.</p>
@@ -213,11 +284,11 @@ The command for generating <span style="font-variant:small-caps;">Cyclus</span> 
 </div>
 <p>Once the file is generated it must be put onto rackspace.</p>
 <p><strong>Update Gtest:</strong> We include a copy of the fused Gtest source code within our
-source tree located in the <code class="docutils literal"><span class="pre">tests/GoogleTest</span></code> directory.  To keep up with
+source tree located in the <tt class="docutils literal"><span class="pre">tests/GoogleTest</span></tt> directory.  To keep up with
 Gtest&#8217;s natural evolution cycle, please download the latest release of Google Tests
 and follow <a class="reference external" href="https://code.google.com/p/googletest/wiki/V1_6_AdvancedGuide#Fusing_Google_Test_Source_Files">the fused source directions here</a>.  If we go too long without doing this,
 it could be very painful to update.</p>
-<p><strong>Verify &amp; Update API Stability:</strong> Since Cyclus v1.0 we promise API stability.
+<p><strong>Verify &amp; Update API Stability:</strong> Since <span style="font-variant:small-caps;">Cyclus</span> v1.0 we promise API stability.
 Luckily, we have a tool for keeping track of this mostly automatically.
 Every release please run the following command to verify that the release
 branch is stable:</p>
@@ -225,12 +296,12 @@ branch is stable:</p>
 <span class="nv">$ </span>./smbchk.py --update -t HEAD --no-save --check
 </pre></div>
 </div>
-<p>If cyclus only has API additions, it is considered stable and the command will
-tell you so. If cyclus also has API deletions, then cyclus is considered
+<p>If <span style="font-variant:small-caps;">Cyclus</span> only has API additions, it is considered stable and the command will
+tell you so. If <span style="font-variant:small-caps;">Cyclus</span> also has API deletions, then <span style="font-variant:small-caps;">Cyclus</span> is considered
 unstable and a diff of the symbols will be prinited.
-<strong>You cannot release cyclus if it is unstable!</strong> Please post the diff to
+<strong>You cannot release |cyclus| if it is unstable!</strong> Please post the diff to
 either the mailing list or the issue tracker and work to resolve the removed
-symbols until it this command declares that cyclus is stable. It is
+symbols until it this command declares that <span style="font-variant:small-caps;">Cyclus</span> is stable. It is
 probably best to do this prior to any release candidates if possible.</p>
 <p>Once stable and there are no more code changes to be made, add the symbols
 in this release to the database with the following command:</p>
@@ -238,62 +309,25 @@ in this release to the database with the following command:</p>
 <span class="nv">$ </span>./smbchk.py --update -t X.X.X
 </pre></div>
 </div>
-<p>where <code class="docutils literal"><span class="pre">X.X.X</span></code> is the version tag. This should alter the <code class="docutils literal"><span class="pre">symbols.json</span></code>
+<p>where <tt class="docutils literal"><span class="pre">X.X.X</span></tt> is the version tag. This should alter the <tt class="docutils literal"><span class="pre">symbols.json</span></tt>
 file.  Commit this and add it to the repo.</p>
 </div>
 <div class="section" id="cycamore">
 <h3>Cycamore<a class="headerlink" href="#cycamore" title="Permalink to this headline">¶</a></h3>
-<p>On each new release (major, minor, micro), the release manager is responsible
-for updating the regression test databases updated.</p>
-<p>First, add the actual releases as tags (this can be done through the GitHub
-interface).</p>
-<p>Next, generate the new databases:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> ~/cycamore/tests
-<span class="nv">$ </span>python ref.py gen
-</pre></div>
-</div>
-<p>Next, rename the databases:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rename <span class="s1">&#39;s/^[^_]*_[^_]*_(.*)/&lt;cyclus version&gt;_&lt;cycamore version&gt;_$1/&#39;</span> *.h5
-</pre></div>
-</div>
-<p>where</p>
-<ul class="simple">
-<li>&lt;cyclus version&gt; is replaced by the current version tag name for cyclus
-(e.g. v0.1)</li>
-<li>&lt;cycamore version&gt; is replaced by the current version tag name for cycamore
-(e.g. v0.1)</li>
-</ul>
-<p>so that, using the above examples, the command is</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rename <span class="s1">&#39;s/^[^_]*_[^_]*_(.*)/v0.1_v0.1_$1/&#39;</span> *.h5
-</pre></div>
-</div>
-<p>At this point, you will need to get a credentials file, which exists in the
-metadata document in the Cyclus-CI shared folder on Google drive. If you have
-questions, please email <a class="reference external" href="mailto:cyclus-ci&#37;&#52;&#48;googlegroups&#46;com">cyclus-ci<span>&#64;</span>googlegroups<span>&#46;</span>com</a>. The file must be named
-<cite>rs.cred</cite>.</p>
-<p>Now, update (add) them on the regression test server</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>python ref.py add *.h5
-</pre></div>
-</div>
-<p>Next, add the reflist file you just altered:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git add reflist.json
-<span class="nv">$ </span>git commit -m <span class="s2">&quot;updated reflist.json&quot;</span>
-<span class="nv">$ </span>git push upstream develop
-</pre></div>
-</div>
-<p>Finally, feel free to clean up after yourself</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rm *.h5
-</pre></div>
-</div>
+<p>No maintenence required.</p>
 </div>
 <div class="section" id="cycstub">
 <h3>Cycstub<a class="headerlink" href="#cycstub" title="Permalink to this headline">¶</a></h3>
-<p>Every release the relevant files from <span style="font-variant:small-caps;">Cyclus</span> should be copied over to cyclus.
+<p>Every release the relevant files from <span style="font-variant:small-caps;">Cyclus</span> should be copied over to <span style="font-variant:small-caps;">Cyclus</span>.
 Use the following BASH commands to do so:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cp ~/cyclus/tests/input/stub_example.xml ~/cycstub/input/example.xml <span class="o">&amp;&amp;</span> <span class="se">\</span>
   cp ~/cyclus/stubs/stub_* ~/cycstub/src/
 </pre></div>
 </div>
+</div>
+<div class="section" id="cymetric">
+<h3>Cymetric<a class="headerlink" href="#cymetric" title="Permalink to this headline">¶</a></h3>
+<p>No maintenance required.</p>
 </div>
 </div>
 <div class="section" id="document-history">
@@ -306,7 +340,7 @@ Use the following BASH commands to do so:</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="../index.html" title="index">
           <img class="logo" src="../_static/big_c.png" alt="Logo"/>
@@ -316,12 +350,13 @@ Use the following BASH commands to do so:</p>
 <li><a class="reference internal" href="#">CEP 3 - <span style="font-variant:small-caps;">Cyclus</span> Release Procedure</a><ul>
 <li><a class="reference internal" href="#abstract">Abstract</a></li>
 <li><a class="reference internal" href="#the-cyclus-ecosystem">The <span style="font-variant:small-caps;">Cyclus</span> Ecosystem</a></li>
-<li><a class="reference internal" href="#release-candidates-branches">Release Candidates &amp; Branches</a></li>
+<li><a class="reference internal" href="#release-candidates-tags-branches">Release Candidates (Tags &amp; Branches)</a></li>
 <li><a class="reference internal" href="#project-checklist">Project Checklist</a></li>
 <li><a class="reference internal" href="#maintainence-tasks">Maintainence Tasks</a><ul>
 <li><a class="reference internal" href="#cyclus"><span style="font-variant:small-caps;">Cyclus</span></a></li>
 <li><a class="reference internal" href="#cycamore">Cycamore</a></li>
 <li><a class="reference internal" href="#cycstub">Cycstub</a></li>
+<li><a class="reference internal" href="#cymetric">Cymetric</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#document-history">Document History</a></li>
@@ -355,7 +390,7 @@ Use the following BASH commands to do so:</p>
     </ul></li></ul>
   </div>
     
-<div id="searchbox" style="display: none" role="search">
+<div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -404,7 +439,7 @@ Use the following BASH commands to do so:</p>
     </div>
     <div class="relbar-bottom">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -421,14 +456,14 @@ Use the following BASH commands to do so:</p>
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">Home</a> &raquo;</li>
 
-          <li class="nav-item nav-item-1"><a href="cep0.html" ><span style="font-variant:small-caps;">Cyclus</span> Enhancement Proposals</a> &raquo;</li> 
+          <li><a href="cep0.html" ><span style="font-variant:small-caps;">Cyclus</span> Enhancement Proposals</a> &raquo;</li> 
       </ul>
     </div>
     </div>
 
-    <div class="footer" role="contentinfo">
+    <div class="footer">
         &copy; Copyright 2012-2014, University of Wisconsin Computational Nuclear Engineering Research Group.
-      Last updated on May 06, 2015.
+      Last updated on May 19, 2015.
     </div><script type="text/javascript">
     if(ga_enabled){
         document.write("<div class=\"footer\">This page uses <a href=\"http://analytics.google.com\">Google Analytics</a> to collect statistics. ");

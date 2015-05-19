@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '(1.2.0-332-g1845a13)',
+        VERSION:     '(1.3.0-rc5-32-g5ecfc06)',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -46,10 +46,10 @@ if(ga_enabled){
 }
 </script>
   </head>
-  <body role="document">
+  <body>
     <div class="relbar-top">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -68,7 +68,7 @@ if(ga_enabled){
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="making-your-first-change-by-introducing-logging-hello-world">
 <h1>Making your first change by introducing Logging: &#8220;Hello World!&#8221;<a class="headerlink" href="#making-your-first-change-by-introducing-logging-hello-world" title="Permalink to this headline">¶</a></h1>
@@ -78,13 +78,13 @@ this step, we will add log message to our archetype so that we can see it
 operating in a simulation.</p>
 <p>In this lesson we will do the following:</p>
 <ol class="arabic simple">
-<li>Change the <code class="docutils literal"><span class="pre">Tick()</span></code> and <code class="docutils literal"><span class="pre">Tock()</span></code> methods to generate log messages</li>
+<li>Change the <tt class="docutils literal"><span class="pre">Tick()</span></tt> and <tt class="docutils literal"><span class="pre">Tock()</span></tt> methods to generate log messages</li>
 </ol>
 <p>2. Build and install our archetype module
 4. Run Cyclus with a sample input file to see the log messages</p>
 <div class="section" id="generate-log-messages-in-tick-and-tock">
-<h2>Generate Log Messages in <code class="docutils literal"><span class="pre">Tick()</span></code> and <code class="docutils literal"><span class="pre">Tock()</span></code><a class="headerlink" href="#generate-log-messages-in-tick-and-tock" title="Permalink to this headline">¶</a></h2>
-<p>To do this, please open up the <code class="file docutils literal"><span class="pre">src/tutorial_storage_facility.cc</span></code> file
+<h2>Generate Log Messages in <tt class="docutils literal"><span class="pre">Tick()</span></tt> and <tt class="docutils literal"><span class="pre">Tock()</span></tt><a class="headerlink" href="#generate-log-messages-in-tick-and-tock" title="Permalink to this headline">¶</a></h2>
+<p>To do this, please open up the <tt class="file docutils literal"><span class="pre">src/tutorial_storage_facility.cc</span></tt> file
 in your favorite text editor (vim, emacs, gedit, <a class="reference external" href="http://exofrills.org">notepad++</a>).</p>
 <p>Change the original functions to look like:</p>
 <p><strong>Original Tick() and Tock() in src/tutorial_storage_facility.cc:</strong></p>
@@ -107,9 +107,9 @@ in your favorite text editor (vim, emacs, gedit, <a class="reference external" h
 <div class="section" id="build-and-install-the-new-archetype-module">
 <h2>Build and Install the New Archetype Module<a class="headerlink" href="#build-and-install-the-new-archetype-module" title="Permalink to this headline">¶</a></h2>
 <p>Now that we have altered the behavior of the Tutorial_storageFacility, let&#8217;s compile and
-install the <code class="docutils literal"><span class="pre">tutorial</span></code> project.  This done with the <code class="docutils literal"><span class="pre">install.py</span></code> script.
+install the <tt class="docutils literal"><span class="pre">tutorial</span></tt> project.  This done with the <tt class="docutils literal"><span class="pre">install.py</span></tt> script.
 The install script puts the project into your cyclus userspace,
-<code class="docutils literal"><span class="pre">${HOME}/.local/lib/cyclus</span></code>.</p>
+<tt class="docutils literal"><span class="pre">${HOME}/.local/lib/cyclus</span></tt>.</p>
 <div class="highlight-bash"><div class="highlight"><pre>tutorial <span class="nv">$ </span>python install.py
 </pre></div>
 </div>
@@ -117,38 +117,38 @@ The install script puts the project into your cyclus userspace,
 <div class="section" id="write-a-short-input-file-that-uses-this-new-archetype">
 <h2>Write a Short Input File that Uses this New Archetype<a class="headerlink" href="#write-a-short-input-file-that-uses-this-new-archetype" title="Permalink to this headline">¶</a></h2>
 <p>Let&#8217;s run <span style="font-variant:small-caps;">Cyclus</span> with the Tutorial_storageFacility! In the input directory
-there is an <code class="file docutils literal"><span class="pre">example.xml</span></code>. Running <span style="font-variant:small-caps;">Cyclus</span> on this file with the
-command <code class="docutils literal"><span class="pre">cyclus</span> <span class="pre">-v</span> <span class="pre">2</span> <span class="pre">input/example.xml</span></code> should produce the following output.
-Note: the arguement <code class="docutils literal"><span class="pre">-v</span> <span class="pre">2</span></code> invokes the level 2 verbosity of the logger.</p>
-<div class="highlight-bash"><div class="highlight"><pre>   <span class="nv">$ </span>cyclus -v <span class="m">2</span> input/example.xml
+there is an <tt class="file docutils literal"><span class="pre">example.xml</span></tt>. Running <span style="font-variant:small-caps;">Cyclus</span> on this file with the
+command <tt class="docutils literal"><span class="pre">cyclus</span> <span class="pre">-v</span> <span class="pre">2</span> <span class="pre">input/example.xml</span></tt> should produce the following output.
+Note: the arguement <tt class="docutils literal"><span class="pre">-v</span> <span class="pre">2</span></tt> invokes the level 2 verbosity of the logger.</p>
+<div class="highlight-bash"><div class="highlight"><pre>   <span class="nv">$ </span>cyclus -v 2 input/example.xml
                  :
              .CL:CC CC             _Q     _Q  _Q_Q    _Q    _Q              _Q
-           CC<span class="p">;</span>CCCCCCCC:C<span class="p">;</span>         /_<span class="se">\)</span>   /_<span class="se">\)</span>/_/<span class="se">\\</span><span class="o">)</span>  /_<span class="se">\)</span>  /_<span class="se">\)</span>            /_<span class="se">\)</span>
-           CCCCCCCCCCCCCl       __O<span class="p">|</span>/O___O<span class="p">|</span>/O_OO<span class="p">|</span>/O__O<span class="p">|</span>/O__O<span class="p">|</span>/O____________O<span class="p">|</span>/O__
+           CC;CCCCCCCC:C;         /_<span class="se">\)</span>   /_<span class="se">\)</span>/_/<span class="se">\\</span><span class="o">)</span>  /_<span class="se">\)</span>  /_<span class="se">\)</span>            /_<span class="se">\)</span>
+           CCCCCCCCCCCCCl       __O|/O___O|/O_OO|/O__O|/O__O|/O____________O|/O__
         CCCCCCf     iCCCLCC     /////////////////////////////////////////////////
-        iCCCt  <span class="p">;;;;;</span>.  CCCC
-       CCCC  <span class="p">;;;;;;;;;</span>. CClL.                          c
-      CCCC ,<span class="p">;;</span>       <span class="p">;;</span>: CCCC  <span class="p">;</span>                   : CCCCi
-       CCC <span class="p">;;</span>         <span class="p">;;</span>  CC   <span class="p">;;</span>:                CCC<span class="sb">`</span>   <span class="sb">`</span>C<span class="p">;</span>
-     lCCC <span class="p">;;</span>              CCCC  <span class="p">;;;</span>:             :CC .<span class="p">;;</span>. C<span class="p">;</span>   <span class="p">;</span>    :   <span class="p">;</span>  :<span class="p">;;</span>
-     CCCC <span class="p">;</span>.              CCCC    <span class="p">;;;</span>,           CC <span class="p">;</span>    <span class="p">;</span> Ci  <span class="p">;</span>    :   <span class="p">;</span>  :  <span class="p">;</span>
-      iCC :<span class="p">;</span>               CC       <span class="p">;;;</span>,        <span class="p">;</span>C <span class="p">;</span>       CC  <span class="p">;</span>    :   <span class="p">;</span> .
-     CCCi <span class="p">;;</span>               CCC        <span class="p">;;;</span>.      .C <span class="p">;</span>       tf  <span class="p">;</span>    :   <span class="p">;</span>  <span class="p">;</span>.
-     CCC  <span class="p">;;</span>               CCC          <span class="p">;;;;;;;</span> fC :       lC  <span class="p">;</span>    :   <span class="p">;</span>    <span class="p">;</span>:
-      iCf <span class="p">;;</span>               CC         :<span class="p">;;</span>:      tC <span class="p">;</span>       CC  <span class="p">;</span>    :   <span class="p">;</span>     <span class="p">;</span>
-     fCCC :<span class="p">;</span>              LCCf      <span class="p">;;;</span>:         LC :.  ,: C   <span class="p">;</span>    <span class="p">;</span>   <span class="p">;</span> <span class="p">;</span>   <span class="p">;</span>
-     CCCC  <span class="p">;;</span>             CCCC    <span class="p">;;;</span>:           CCi <span class="sb">`</span><span class="p">;;</span><span class="sb">`</span> CC.  <span class="p">;;;;</span> :<span class="p">;</span>.<span class="p">;</span>.  <span class="p">;</span> ,<span class="p">;</span>
-       CCl <span class="p">;;</span>             CC    <span class="p">;;;;</span>              CCC    CCL
-      tCCC  <span class="p">;;</span>        <span class="p">;;</span> CCCL  <span class="p">;;;</span>                  tCCCCC.
-       CCCC  <span class="p">;;</span>     :<span class="p">;;</span> CCCCf  <span class="p">;</span>                     ,L
-        lCCC   <span class="p">;;;;;;</span>  CCCL
-        CCCCCC  :<span class="p">;;</span>  fCCCCC
+        iCCCt  ;;;;;.  CCCC
+       CCCC  ;;;;;;;;;. CClL.                          c
+      CCCC ,;;       ;;: CCCC  ;                   : CCCCi
+       CCC ;;         ;;  CC   ;;:                CCC<span class="sb">`</span>   <span class="sb">`</span>C;
+     lCCC ;;              CCCC  ;;;:             :CC .;;. C;   ;    :   ;  :;;
+     CCCC ;.              CCCC    ;;;,           CC ;    ; Ci  ;    :   ;  :  ;
+      iCC :;               CC       ;;;,        ;C ;       CC  ;    :   ; .
+     CCCi ;;               CCC        ;;;.      .C ;       tf  ;    :   ;  ;.
+     CCC  ;;               CCC          ;;;;;;; fC :       lC  ;    :   ;    ;:
+      iCf ;;               CC         :;;:      tC ;       CC  ;    :   ;     ;
+     fCCC :;              LCCf      ;;;:         LC :.  ,: C   ;    ;   ; ;   ;
+     CCCC  ;;             CCCC    ;;;:           CCi <span class="sb">`</span>;;<span class="sb">`</span> CC.  ;;;; :;.;.  ; ,;
+       CCl ;;             CC    ;;;;              CCC    CCL
+      tCCC  ;;        ;; CCCL  ;;;                  tCCCCC.
+       CCCC  ;;     :;; CCCCf  ;                     ,L
+        lCCC   ;;;;;;  CCCL
+        CCCCCC  :;;  fCCCCC
          . CCCC     CCCC .
           .CCCCCCCCCCCCCi
              iCCCCCLCf
               .  C. ,
                  :
-INFO1<span class="o">(</span>core  <span class="o">)</span>:Simulation <span class="nb">set </span>to run from <span class="nv">start</span><span class="o">=</span><span class="m">0</span> to <span class="nv">end</span><span class="o">=</span>10
+INFO1<span class="o">(</span>core  <span class="o">)</span>:Simulation <span class="nb">set </span>to run from <span class="nv">start</span><span class="o">=</span>0 to <span class="nv">end</span><span class="o">=</span>10
 INFO1<span class="o">(</span>core  <span class="o">)</span>:Beginning simulation
 INFO1<span class="o">(</span>tutori<span class="o">)</span>:Hello
 INFO1<span class="o">(</span>tutori<span class="o">)</span>:World!
@@ -199,7 +199,7 @@ your local repository.  Commit early, commit often!</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="../../index.html" title="index">
           <img class="logo" src="../../_static/big_c.png" alt="Logo"/>
@@ -207,7 +207,7 @@ your local repository.  Commit early, commit often!</p>
     <h3><a href="../../index.html">Page contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">Making your first change by introducing Logging: &#8220;Hello World!&#8221;</a><ul>
-<li><a class="reference internal" href="#generate-log-messages-in-tick-and-tock">Generate Log Messages in <code class="docutils literal"><span class="pre">Tick()</span></code> and <code class="docutils literal"><span class="pre">Tock()</span></code></a></li>
+<li><a class="reference internal" href="#generate-log-messages-in-tick-and-tock">Generate Log Messages in <tt class="docutils literal"><span class="pre">Tick()</span></tt> and <tt class="docutils literal"><span class="pre">Tock()</span></tt></a></li>
 <li><a class="reference internal" href="#build-and-install-the-new-archetype-module">Build and Install the New Archetype Module</a></li>
 <li><a class="reference internal" href="#write-a-short-input-file-that-uses-this-new-archetype">Write a Short Input File that Uses this New Archetype</a></li>
 <li><a class="reference internal" href="#commit-these-changes-to-your-local-repository">Commit these Changes to your Local Repository</a></li>
@@ -231,7 +231,7 @@ your local repository.  Commit early, commit often!</p>
     </ul></li></ul>
   </div>
     
-<div id="searchbox" style="display: none" role="search">
+<div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../../search.html" method="get">
       <input type="text" name="q" />
@@ -280,7 +280,7 @@ your local repository.  Commit early, commit often!</p>
     </div>
     <div class="relbar-bottom">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -295,9 +295,9 @@ your local repository.  Commit early, commit often!</p>
     </div>
     </div>
 
-    <div class="footer" role="contentinfo">
+    <div class="footer">
         &copy; Copyright 2012-2014, University of Wisconsin Computational Nuclear Engineering Research Group.
-      Last updated on May 06, 2015.
+      Last updated on May 19, 2015.
     </div><script type="text/javascript">
     if(ga_enabled){
         document.write("<div class=\"footer\">This page uses <a href=\"http://analytics.google.com\">Google Analytics</a> to collect statistics. ");

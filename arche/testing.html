@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '(1.2.0-332-g1845a13)',
+        VERSION:     '(1.3.0-rc5-32-g5ecfc06)',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -49,10 +49,10 @@ if(ga_enabled){
 }
 </script>
   </head>
-  <body role="document">
+  <body>
     <div class="relbar-top">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -69,7 +69,7 @@ if(ga_enabled){
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">Home</a> &raquo;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U"><span style="font-variant:small-caps;">Cyclus</span> Archetype Developer Guide</a> &raquo;</li> 
+          <li><a href="index.html" accesskey="U"><span style="font-variant:small-caps;">Cyclus</span> Archetype Developer Guide</a> &raquo;</li> 
       </ul>
     </div>
     </div>
@@ -78,7 +78,7 @@ if(ga_enabled){
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="testing-agents-and-modules">
 <h1>Testing Agents and Modules<a class="headerlink" href="#testing-agents-and-modules" title="Permalink to this headline">¶</a></h1>
@@ -95,23 +95,23 @@ the primer.</p>
 <div class="section" id="unit-tests-out-of-the-box">
 <h2>Unit Tests Out of the Box<a class="headerlink" href="#unit-tests-out-of-the-box" title="Permalink to this headline">¶</a></h2>
 <p>The <span style="font-variant:small-caps;">Cyclus</span> dev team provides a number of unit tests for free (as in
-beer). Really! You can unit test your <a class="reference internal" href="../basics/glossary.html#term-archetype"><span class="xref std std-term">archetype</span></a> immediately to confirm
-some basic functionality with the <a class="reference internal" href="../basics/glossary.html#term-cyclus-kernel"><span class="xref std std-term">cyclus kernel</span></a>. We provide basic unit
+beer). Really! You can unit test your <a class="reference internal" href="../basics/glossary.html#term-archetype"><em class="xref std std-term">archetype</em></a> immediately to confirm
+some basic functionality with the <a class="reference internal" href="../basics/glossary.html#term-cyclus-kernel"><em class="xref std std-term">cyclus kernel</em></a>. We provide basic unit
 tests for any class that inherits from one of:</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">cyclus::Agent</span></code></li>
-<li><code class="docutils literal"><span class="pre">cyclus::Facility</span></code></li>
-<li><code class="docutils literal"><span class="pre">cyclus::Institution</span></code></li>
-<li><code class="docutils literal"><span class="pre">cyclus::Region</span></code></li>
+<li><tt class="docutils literal"><span class="pre">cyclus::Agent</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cyclus::Facility</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cyclus::Institution</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">cyclus::Region</span></tt></li>
 </ul>
-<p>Note that <code class="docutils literal"><span class="pre">cyclus::Agent</span></code> is the base class for any object that acts as an
-<a class="reference internal" href="../basics/glossary.html#term-agent"><span class="xref std std-term">agent</span></a> in the simulation, so every archetype can invoke those unit tests.</p>
+<p>Note that <tt class="docutils literal"><span class="pre">cyclus::Agent</span></tt> is the base class for any object that acts as an
+<a class="reference internal" href="../basics/glossary.html#term-agent"><em class="xref std std-term">agent</em></a> in the simulation, so every archetype can invoke those unit tests.</p>
 <p>In order to get the provided unit tests in your archetype&#8217;s tests, a few extra
-lines must be added to your <code class="docutils literal"><span class="pre">*_tests.cc</span></code> file. For instance, the
-<code class="docutils literal"><span class="pre">TutorialFacility</span></code> in the <a class="reference internal" href="hello_world.html#hello-world"><span>Hello, Cyclus!</span></a> example with the file structure
-outline in <a class="reference internal" href="cmake.html#cmake-build"><span>Building Modules with CMake</span></a> adds the following lines to
-<code class="docutils literal"><span class="pre">tutorial_facility_tests.cc</span></code> to get all of the free <code class="docutils literal"><span class="pre">cyclus::Agent</span></code> and
-<code class="docutils literal"><span class="pre">cyclus::Facility</span></code> unit tests:</p>
+lines must be added to your <tt class="docutils literal"><span class="pre">*_tests.cc</span></tt> file. For instance, the
+<tt class="docutils literal"><span class="pre">TutorialFacility</span></tt> in the <a class="reference internal" href="hello_world.html#hello-world"><em>Hello, Cyclus!</em></a> example with the file structure
+outline in <a class="reference internal" href="cmake.html#cmake-build"><em>Building Modules with CMake</em></a> adds the following lines to
+<tt class="docutils literal"><span class="pre">tutorial_facility_tests.cc</span></tt> to get all of the free <tt class="docutils literal"><span class="pre">cyclus::Agent</span></tt> and
+<tt class="docutils literal"><span class="pre">cyclus::Facility</span></tt> unit tests:</p>
 <div class="highlight-python"><div class="highlight"><pre>#include &quot;tutorial_facility.h&quot;
 #include &quot;facility_tests.h&quot;
 #include &quot;agent_tests.h&quot;
@@ -133,46 +133,46 @@ INSTANTIATE_TEST_CASE_P(TutorialFac, AgentTests,
                         ::testing::Values(&amp;TutorialFacilityConstructor));
 </pre></div>
 </div>
-<p>The above lines can be specialized to your case by replacing <code class="docutils literal"><span class="pre">TutorialFac</span></code> with
+<p>The above lines can be specialized to your case by replacing <tt class="docutils literal"><span class="pre">TutorialFac</span></tt> with
 an appropriate moniker (anything that uniquely identifies your unit test
-name). Also, if you&#8217;re subclassing from <code class="docutils literal"><span class="pre">cyclus::Institution</span></code> or
-<code class="docutils literal"><span class="pre">cyclus::Region</span></code>, replace all instances of facility in the above example with
+name). Also, if you&#8217;re subclassing from <tt class="docutils literal"><span class="pre">cyclus::Institution</span></tt> or
+<tt class="docutils literal"><span class="pre">cyclus::Region</span></tt>, replace all instances of facility in the above example with
 the institution or region, respectively.</p>
 </div>
 <div class="section" id="unit-test-example">
 <h2>Unit Test Example<a class="headerlink" href="#unit-test-example" title="Permalink to this headline">¶</a></h2>
-<p>Now we will provide an example of a very simple <a class="reference internal" href="../basics/glossary.html#term-archetype"><span class="xref std std-term">archetype</span></a> that keeps
-track of how many <a class="reference internal" href="../basics/glossary.html#term-tick"><span class="xref std std-term">ticks</span></a> it has experienced. We&#8217;ll call it
-<code class="docutils literal"><span class="pre">TickTracker</span></code>.</p>
+<p>Now we will provide an example of a very simple <a class="reference internal" href="../basics/glossary.html#term-archetype"><em class="xref std std-term">archetype</em></a> that keeps
+track of how many <a class="reference internal" href="../basics/glossary.html#term-tick"><em class="xref std std-term">ticks</em></a> it has experienced. We&#8217;ll call it
+<tt class="docutils literal"><span class="pre">TickTracker</span></tt>.</p>
 <p>This tutorial assumes that you have a directory setup like that described in
-<a class="reference internal" href="hello_world.html#hello-world"><span>Hello, Cyclus!</span></a>, namely that there is a <cite>src</cite> directory in which
-<a class="reference internal" href="../basics/glossary.html#term-archetype"><span class="xref std std-term">archetype</span></a> source files are housed and a <cite>install.py</cite> file that will
+<a class="reference internal" href="hello_world.html#hello-world"><em>Hello, Cyclus!</em></a>, namely that there is a <cite>src</cite> directory in which
+<a class="reference internal" href="../basics/glossary.html#term-archetype"><em class="xref std std-term">archetype</em></a> source files are housed and a <cite>install.py</cite> file that will
 install them on your system.</p>
-<p>Make a file called <code class="docutils literal"><span class="pre">tick_tracker.h</span></code> in the <code class="docutils literal"><span class="pre">src</span></code> directory that has the
+<p>Make a file called <tt class="docutils literal"><span class="pre">tick_tracker.h</span></tt> in the <tt class="docutils literal"><span class="pre">src</span></tt> directory that has the
 following lines:</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span class="cp">#include &quot;cyclus.h&quot;</span>
+<div class="highlight-cpp"><div class="highlight"><pre>#include &quot;cyclus.h&quot;
 
-<span class="k">class</span> <span class="nc">TickTracker</span> <span class="o">:</span> <span class="k">public</span> <span class="n">cyclus</span><span class="o">::</span><span class="n">Facility</span> <span class="p">{</span>
- <span class="k">public</span><span class="o">:</span>
-  <span class="n">TickTracker</span><span class="p">(</span><span class="n">cyclus</span><span class="o">::</span><span class="n">Context</span><span class="o">*</span> <span class="n">ctx</span><span class="p">);</span>
+class TickTracker : public cyclus::Facility {
+ public:
+  TickTracker(cyclus::Context* ctx);
 
-  <span class="cp">#pragma cyclus</span>
+  #pragma cyclus
 
-  <span class="c1">/// increments n_ticks</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">Tick</span><span class="p">();</span>
+  /// increments n_ticks
+  virtual void Tick();
 
-  <span class="c1">/// no-op</span>
-  <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">Tock</span><span class="p">()</span> <span class="p">{};</span>
+  /// no-op
+  virtual void Tock() {};
 
-  <span class="c1">/// query now many ticks the agent has experienced</span>
-  <span class="kr">inline</span> <span class="kt">int</span> <span class="n">n_ticks</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">n_ticks_</span><span class="p">;}</span>
+  /// query now many ticks the agent has experienced
+  inline int n_ticks() const {return n_ticks_;}
 
- <span class="k">private</span><span class="o">:</span>
-  <span class="kt">int</span> <span class="n">n_ticks_</span><span class="p">;</span>
-<span class="p">};</span>
+ private:
+  int n_ticks_;
+};
 </pre></div>
 </div>
-<p>Next, make a file called <code class="docutils literal"><span class="pre">tick_tracker.cc</span></code> in the <code class="docutils literal"><span class="pre">src</span></code> directory that has the
+<p>Next, make a file called <tt class="docutils literal"><span class="pre">tick_tracker.cc</span></tt> in the <tt class="docutils literal"><span class="pre">src</span></tt> directory that has the
 following lines:</p>
 <div class="highlight-cpp"><div class="highlight"><pre><span class="cp">#include &quot;tick_tracker.h&quot;</span>
 
@@ -184,7 +184,7 @@ following lines:</p>
 <span class="kt">void</span> <span class="n">TickTracker</span><span class="o">::</span><span class="n">Tick</span><span class="p">()</span> <span class="p">{</span><span class="n">n_ticks_</span><span class="o">++</span><span class="p">;}</span>
 </pre></div>
 </div>
-<p>Now, make a file called <code class="docutils literal"><span class="pre">tick_tracker_tests.cc</span></code> in the <code class="docutils literal"><span class="pre">src</span></code> directory that
+<p>Now, make a file called <tt class="docutils literal"><span class="pre">tick_tracker_tests.cc</span></tt> in the <tt class="docutils literal"><span class="pre">src</span></tt> directory that
 has the following lines:</p>
 <div class="highlight-cpp"><div class="highlight"><pre><span class="c1">// gtest deps</span>
 <span class="cp">#include &lt;gtest/gtest.h&gt;</span>
@@ -226,14 +226,14 @@ has the following lines:</p>
                         <span class="o">::</span><span class="n">testing</span><span class="o">::</span><span class="n">Values</span><span class="p">(</span><span class="o">&amp;</span><span class="n">TickTrackerConstructor</span><span class="p">));</span>
 </pre></div>
 </div>
-<p>Add the following lines to the <code class="docutils literal"><span class="pre">src/CMakeLists.txt</span></code> file:</p>
+<p>Add the following lines to the <tt class="docutils literal"><span class="pre">src/CMakeLists.txt</span></tt> file:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">INSTALL_CYCLUS_STANDALONE</span><span class="p">(</span><span class="s">&quot;TickTracker&quot;</span> <span class="s">&quot;tick_tracker&quot;</span> <span class="s">&quot;tutorial&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Now we&#8217;re ready to install the <code class="docutils literal"><span class="pre">TickTracker</span></code> module and run its tests. If you
-haven&#8217;t already, now is a good time to add the <code class="docutils literal"><span class="pre">$CYCLUS_INSTALL_PATH</span></code> to your
-<code class="docutils literal"><span class="pre">PATH</span></code> environment variable (<span style="font-variant:small-caps;">Cyclus</span>&#8216; <code class="docutils literal"><span class="pre">install.py</span></code> defaults to
-<code class="docutils literal"><span class="pre">~/.local</span></code>). Next, from your top level directory (where your <code class="docutils literal"><span class="pre">install.py</span></code>
+<p>Now we&#8217;re ready to install the <tt class="docutils literal"><span class="pre">TickTracker</span></tt> module and run its tests. If you
+haven&#8217;t already, now is a good time to add the <tt class="docutils literal"><span class="pre">$CYCLUS_INSTALL_PATH</span></tt> to your
+<tt class="docutils literal"><span class="pre">PATH</span></tt> environment variable (<span style="font-variant:small-caps;">Cyclus</span>&#8216; <tt class="docutils literal"><span class="pre">install.py</span></tt> defaults to
+<tt class="docutils literal"><span class="pre">~/.local</span></tt>). Next, from your top level directory (where your <tt class="docutils literal"><span class="pre">install.py</span></tt>
 file is), run:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>./install.py
 <span class="nv">$ </span>TickTracker_unit_tests
@@ -281,7 +281,7 @@ resources at the right time?  One of the best ways to test this is to actually
 run a simulation with your archetype.  Cyclus comes with a mock simulation
 environment that makes it easy to write these kinds of tests in a way that
 works well with gtest.</p>
-<p><code class="docutils literal"><span class="pre">MockSim</span></code> is a helper for running full simulations entirely in-code without
+<p><tt class="docutils literal"><span class="pre">MockSim</span></tt> is a helper for running full simulations entirely in-code without
 having to deal with input files, output database files, and other pieces of
 the full Cyclus stack.  All you have to do is initialize a MockSim indicating
 the archetype you want to test and the simulation duration.  Then add any
@@ -323,13 +323,13 @@ agents:Source archetype in Cyclus as the tested agent:</p>
 </div>
 <p>The parameters that can be set (or not) for each source/sink are:</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">recipe(std::string</span> <span class="pre">r)</span></code>: The recipe to request/provide. Default is none -
+<li><tt class="docutils literal"><span class="pre">recipe(std::string</span> <span class="pre">r)</span></tt>: The recipe to request/provide. Default is none -
 sources provide requested material, sinks take anything.</li>
-<li><code class="docutils literal"><span class="pre">capacity(double</span> <span class="pre">cap)</span></code>: The per time step throughput/capacity limit for
+<li><tt class="docutils literal"><span class="pre">capacity(double</span> <span class="pre">cap)</span></tt>: The per time step throughput/capacity limit for
 the source/sink. Default is infinite.</li>
-<li><code class="docutils literal"><span class="pre">start(int</span> <span class="pre">t)</span></code>: Time the source/sink is initially built. Default is time
+<li><tt class="docutils literal"><span class="pre">start(int</span> <span class="pre">t)</span></tt>: Time the source/sink is initially built. Default is time
 step zero.</li>
-<li><code class="docutils literal"><span class="pre">lifetime(int)</span></code>: The number of time steps the source/sink is deployed
+<li><tt class="docutils literal"><span class="pre">lifetime(int)</span></tt>: The number of time steps the source/sink is deployed
 until automatic decommissioning. Default is infinite (never decommissioned).</li>
 </ul>
 <p>For more details, you can read the <a class="reference external" href="http://fuelcycle.org/cyclus/api/classcyclus_1_1MockSim.html">MockSim API docs</a>.
@@ -368,32 +368,32 @@ details.</p>
 resource exchange into the database.  This information can be
 particularly helpful for debugging and verifying your archetype&#8217;s behavior
 with respect to resource exchange.  To turn on this debugging, simply run
-cyclus with the environment variable <code class="docutils literal"><span class="pre">CYCLUS_DEBUG_DRE</span></code> set to any non-empty
+cyclus with the environment variable <tt class="docutils literal"><span class="pre">CYCLUS_DEBUG_DRE</span></tt> set to any non-empty
 value:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ CYCLUS_DEBUG_DRE</span><span class="o">=</span><span class="m">1</span> cyclus my-sim.xml
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ CYCLUS_DEBUG_DRE</span><span class="o">=</span>1 cyclus my-sim.xml
 </pre></div>
 </div>
 <p>The database will then contain two extra tables with several columns each:</p>
 <ul class="simple">
 <li><strong>DebugRequests</strong>: record of every resource request made in the simulation.<ul>
-<li><code class="docutils literal"><span class="pre">SimId</span></code>:  simulation UUID</li>
-<li><code class="docutils literal"><span class="pre">Time</span></code>:  time step of the request</li>
-<li><code class="docutils literal"><span class="pre">ReqId</span></code>, simulation-unique identifier for this request</li>
-<li><code class="docutils literal"><span class="pre">RequesterID</span></code>: ID of the requesting agent</li>
-<li><code class="docutils literal"><span class="pre">Commodity</span></code>: the commodity of the request</li>
-<li><code class="docutils literal"><span class="pre">Preference</span></code>: agent&#8217;s preference for this particular request</li>
-<li><code class="docutils literal"><span class="pre">Exclusive</span></code>: true (non-zero) if this request is all-or-nothing (integral)</li>
-<li><code class="docutils literal"><span class="pre">ResType</span></code>: resource type (e.g. &#8220;Material&#8221;, &#8220;Product&#8221;)</li>
-<li><code class="docutils literal"><span class="pre">Quantity</span></code>: amount of the request</li>
-<li><code class="docutils literal"><span class="pre">ResUnits</span></code>: units of the request (e.g. kg)</li>
+<li><tt class="docutils literal"><span class="pre">SimId</span></tt>:  simulation UUID</li>
+<li><tt class="docutils literal"><span class="pre">Time</span></tt>:  time step of the request</li>
+<li><tt class="docutils literal"><span class="pre">ReqId</span></tt>, simulation-unique identifier for this request</li>
+<li><tt class="docutils literal"><span class="pre">RequesterID</span></tt>: ID of the requesting agent</li>
+<li><tt class="docutils literal"><span class="pre">Commodity</span></tt>: the commodity of the request</li>
+<li><tt class="docutils literal"><span class="pre">Preference</span></tt>: agent&#8217;s preference for this particular request</li>
+<li><tt class="docutils literal"><span class="pre">Exclusive</span></tt>: true (non-zero) if this request is all-or-nothing (integral)</li>
+<li><tt class="docutils literal"><span class="pre">ResType</span></tt>: resource type (e.g. &#8220;Material&#8221;, &#8220;Product&#8221;)</li>
+<li><tt class="docutils literal"><span class="pre">Quantity</span></tt>: amount of the request</li>
+<li><tt class="docutils literal"><span class="pre">ResUnits</span></tt>: units of the request (e.g. kg)</li>
 </ul>
 </li>
 <li><strong>DebugBids</strong>: record of every resource bid made in the simulation.<ul>
-<li><code class="docutils literal"><span class="pre">SimId</span></code>: simulation UUID</li>
-<li><code class="docutils literal"><span class="pre">ReqId</span></code>: simulation-unique identifier for the bid&#8217;s request</li>
-<li><code class="docutils literal"><span class="pre">BidderId</span></code>: ID of the the bidding agent</li>
-<li><code class="docutils literal"><span class="pre">BidQuantity</span></code>: amount of thd bid</li>
-<li><code class="docutils literal"><span class="pre">Exclusive</span></code>: true(non-zero) if this request is all-or-nothing (integral)</li>
+<li><tt class="docutils literal"><span class="pre">SimId</span></tt>: simulation UUID</li>
+<li><tt class="docutils literal"><span class="pre">ReqId</span></tt>: simulation-unique identifier for the bid&#8217;s request</li>
+<li><tt class="docutils literal"><span class="pre">BidderId</span></tt>: ID of the the bidding agent</li>
+<li><tt class="docutils literal"><span class="pre">BidQuantity</span></tt>: amount of thd bid</li>
+<li><tt class="docutils literal"><span class="pre">Exclusive</span></tt>: true(non-zero) if this request is all-or-nothing (integral)</li>
 </ul>
 </li>
 </ul>
@@ -407,7 +407,7 @@ to those of the corresponding request.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="../index.html" title="index">
           <img class="logo" src="../_static/big_c.png" alt="Logo"/>
@@ -450,7 +450,7 @@ to those of the corresponding request.</p>
     </ul></li></ul>
   </div>
     
-<div id="searchbox" style="display: none" role="search">
+<div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -499,7 +499,7 @@ to those of the corresponding request.</p>
     </div>
     <div class="relbar-bottom">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -516,14 +516,14 @@ to those of the corresponding request.</p>
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">Home</a> &raquo;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" ><span style="font-variant:small-caps;">Cyclus</span> Archetype Developer Guide</a> &raquo;</li> 
+          <li><a href="index.html" ><span style="font-variant:small-caps;">Cyclus</span> Archetype Developer Guide</a> &raquo;</li> 
       </ul>
     </div>
     </div>
 
-    <div class="footer" role="contentinfo">
+    <div class="footer">
         &copy; Copyright 2012-2014, University of Wisconsin Computational Nuclear Engineering Research Group.
-      Last updated on May 06, 2015.
+      Last updated on May 19, 2015.
     </div><script type="text/javascript">
     if(ga_enabled){
         document.write("<div class=\"footer\">This page uses <a href=\"http://analytics.google.com\">Google Analytics</a> to collect statistics. ");

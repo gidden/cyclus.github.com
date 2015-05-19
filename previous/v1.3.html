@@ -1,0 +1,357 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Cyclus 1.3.0 Release Notes &mdash; Home</title>
+    
+    <link rel="stylesheet" href="../_static/cyclus.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '(1.3.0-rc5-32-g5ecfc06)',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="shortcut icon" href="../_static/big_c.ico"/>
+    <link rel="top" title="Home" href="../index.html" />
+    <link rel="up" title="Cyclus Previous Versions" href="index.html" />
+    <link rel="next" title="Cyclus 1.2 Release Notes" href="v1.2.html" />
+    <link rel="prev" title="Cyclus Previous Versions" href="index.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1"><script type="text/javascript">
+var ga_enabled = !$.cookie('disable-ga');
+if(ga_enabled){
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-12222727-2']);
+  _gaq.push(['_setCookiePath', '/']);
+  _gaq.push(['_setDetectFlash', false]);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+}
+</script>
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="v1.2.html" title="Cyclus 1.2 Release Notes"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="index.html" title="Cyclus Previous Versions"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">Home</a> &raquo;</li>
+
+          <li><a href="index.html" accesskey="U"><span style="font-variant:small-caps;">Cyclus</span> Previous Versions</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="cyclus-1-3-0-release-notes">
+<h1>Cyclus 1.3.0 Release Notes<a class="headerlink" href="#cyclus-1-3-0-release-notes" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body">Cyclus Developers</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Website:</th><td class="field-body"><a class="reference external" href="http://fuelcycle.org/">http://fuelcycle.org/</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Contact:</th><td class="field-body"><a class="reference external" href="https://groups.google.com/forum/#!forum/cyclus-dev">https://groups.google.com/forum/#!forum/cyclus-dev</a></td>
+</tr>
+</tbody>
+</table>
+<p>The Cyclus core team is excited to announce the latest stable version of the
+cyclus ecosystem!</p>
+<div class="section" id="major-features">
+<h2>Major features<a class="headerlink" href="#major-features" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="kernel">
+<h3>Kernel<a class="headerlink" href="#kernel" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">~3x speedups for recipe-based simulations</p>
+</li>
+<li><p class="first">Basic inventory policies added</p>
+</li>
+<li><p class="first">Support for recursive containers in archetypes</p>
+</li>
+<li><p class="first">Many new recursive containers added to sqlite backend</p>
+</li>
+<li><p class="first">Regression tests run on macs!</p>
+</li>
+<li><p class="first">A MockSim interface for full simulation testing without input files</p>
+</li>
+<li><p class="first">Added customizeable TimeSeries output for recording archetype-specific time
+series</p>
+</li>
+<li><p class="first">Added json-to-xml conversion capability</p>
+</li>
+<li><p class="first">Added new ResMap container</p>
+</li>
+<li><dl class="first docutils">
+<dt>Decay added (via Pyne)! An input file flag can be set to</dt>
+<dd><ul class="first last simple">
+<li>never: never decay</li>
+<li>manual: archetypes must call the decay API manually</li>
+<li>lazy: materials are decayed as needed when their Material::comp function is
+called</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="cycamore">
+<h3>Cycamore<a class="headerlink" href="#cycamore" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><dl class="first docutils">
+<dt>New facility archetypes added</dt>
+<dd><ul class="first last simple">
+<li>Reactor</li>
+<li>FuelFab</li>
+<li>Separations</li>
+<li>Enrichment</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Other facility archetypes removed</dt>
+<dd><ul class="first last simple">
+<li>BatchReactor</li>
+<li>EnrichmentFacility</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Regression tests run on macs!</p>
+</li>
+</ul>
+</div>
+<div class="section" id="cymetric">
+<h3>Cymetric<a class="headerlink" href="#cymetric" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">First release for a new analysis and visualization tool for Cyclus simulation output</p>
+</li>
+<li><p class="first">Command line tool and Python interface</p>
+</li>
+<li><dl class="first docutils">
+<dt>Calculates metrics of user interest from a Cyclus database</dt>
+<dd><ul class="first last">
+<li><p class="first">Writes metrics back to database</p>
+</li>
+<li><dl class="first docutils">
+<dt>Simple for users to extend the suite of metrics</dt>
+<dd><ul class="first last simple">
+<li>Designed so calculations can be based on dependencies (other metrics or root metrics)</li>
+<li>Uses pandas data types</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Uses PyNE for nuclear data</p>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Visualization available from the command line via matplotlib</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>Since v1.2.0,</p>
+<ul class="simple">
+<li>Cyclus: 308 commits resulting in  97 files changed, 6539 insertions(+), 1639 deletions(-)</li>
+<li>Cycamore: 272 commits resulting in  67 files changed, 6077 insertions(+), 5912 deletions(-)</li>
+<li>Cymetric: 1st release</li>
+</ul>
+</div>
+<div class="section" id="contributors">
+<h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h2>
+<p>The following people contributed to this release of Cyclus.  A &#8220;*&#8221; by their
+name indicates a first time contributor.  Names follow alphabetically,</p>
+<ul class="simple">
+<li>Robert Carlsen</li>
+<li>Robert Flanagan</li>
+<li>Matthew Gidden</li>
+<li>Meghan McGarry</li>
+<li>Arrielle Opotowsky</li>
+<li>Anthony Scopatz</li>
+<li>Paul Wilson</li>
+<li>John Xia</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/big_c.png" alt="Logo"/>
+        </a></p><div class="sphinxlocaltoc">
+    <h3><a href="../index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Cyclus 1.3.0 Release Notes</a><ul>
+<li><a class="reference internal" href="#major-features">Major features</a><ul>
+<li><a class="reference internal" href="#kernel">Kernel</a></li>
+<li><a class="reference internal" href="#cycamore">Cycamore</a></li>
+<li><a class="reference internal" href="#cymetric">Cymetric</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+<li><a class="reference internal" href="#contributors">Contributors</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="index.html"
+                          title="Previous page">&larr; <span style="font-variant:small-caps;">Cyclus</span> Previous Versions</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="v1.2.html"
+                          title="Next page">&rarr; Cyclus 1.2 Release Notes</a></p>
+  </div>
+  <div class="sphinxlocaltoc">
+  <h3>Useful Pages</h3>
+    <ul><li><ul>
+    <li><a href="/user/index.html">User Guide</a></li>
+    <li><a href="/arche/index.html">Archetype Developer Guide</a></li>
+    <li><a href="http://fuelcycle.org/cyclus/api/">Cyclus API Documentation</a></li>
+    <li><a href="http://fuelcycle.org/cycamore/api/">Cycamore API Documentation</a></li>
+    <li><a href="/basics/glossary.html">Glossary</a></li>
+    <li><a href="mailto:cyclus-users+subscribe@googlegroups.com?subject=Subscribe&body=Send this message to subscribe to the list">Join</a> the 
+      <a href="https://groups.google.com/forum/#!forum/cyclus-users" target="_blank"><span style="font-variant:small-caps">Cyclus</span> Users</a> mailing list.
+    <li><a href="mailto:cyclus-dev+subscribe@googlegroups.com?subject=Subscribe&body=Send this message to subscribe to the list">Join</a> the 
+      <a href="https://groups.google.com/forum/#!forum/cyclus-users" target="_blank"><span style="font-variant:small-caps">Cyclus</span> Developers</a> mailing list.
+    </ul></li></ul>
+  </div>
+    
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+    <h3>Get Cyclus</h3>
+    <br>
+    Current version: <b>1.2.0</b>
+    <br><br>
+    Install:
+    <div class="highlight-bash" style="width:97.5%"><div class="highlight"><pre><span class="nv">$ </span>conda install cyclus cycamore</pre></div></div>
+    Get the Source:
+    <ul><li><ul>
+          <li><a href="https://github.com/cyclus/cyclus">Cyclus</a></li>
+          <li><a href="https://github.com/cyclus/cycamore">Cycamore</a></li>
+    </ul></li></ul>
+    <h3>Acknowledgements</h3>
+    The Cyclus project has received support from:
+    <br />
+    <a href="http://www.neup.gov" target="_blank"><img src="../_static/neup_logo_large.png" width=170px></a>
+    <br />
+    <br />
+
+    In addition, some of the students working on Cyclus have received support from:
+    <br />
+    <a href="http://www.anl.gov" target="_blank"><img src="../_static/AnlLogo.png" height=100px></a>
+    <a href="http://www.nrc.gov" target="_blank"><img src="../_static/USNRC.png" height=100px></a>
+    <br />
+    <a href="http://www.neup.gov" target="_blank"><img src="../_static/neup_logo_large.png" width=170px></a>
+    <br />
+    <a href="http://www.nsf.gov" target="_blank"><img src="../_static/nsf_logo.png" height=100px></a>
+    <a href="http://www.wisc.edu" target="_blank"><img src="../_static/crest.png" height=100px></a>
+
+    
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="v1.2.html" title="Cyclus 1.2 Release Notes"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="index.html" title="Cyclus Previous Versions"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">Home</a> &raquo;</li>
+
+          <li><a href="index.html" ><span style="font-variant:small-caps;">Cyclus</span> Previous Versions</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2012-2014, University of Wisconsin Computational Nuclear Engineering Research Group.
+      Last updated on May 19, 2015.
+    </div><script type="text/javascript">
+    if(ga_enabled){
+        document.write("<div class=\"footer\">This page uses <a href=\"http://analytics.google.com\">Google Analytics</a> to collect statistics. ");
+        document.write("Click <button title=\"set cookie to disable analytics for this site\" class=\"link\" onclick=\"$.cookie('disable-ga', 'true', {expires: 3650, path: '/'}); window.location.reload(); return false; \">here</button> to disable analytics for this site.");
+        document.write("</div>");
+    }else{
+        document.write("<div class=\"footer\">Google Analytics has been disabled. ");
+        document.write("Click <button title=\"set cookie to re-enable analytics for this site\" class=\"link\" onclick=\"$.cookie('disable-ga', null, {path: '/'}); window.location.reload(); return false; \">here</button> to re-enable analytics for this site.");
+    };
+</script>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

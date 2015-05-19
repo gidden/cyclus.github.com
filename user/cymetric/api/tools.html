@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '(1.2.0-332-g1845a13)',
+        VERSION:     '(1.3.0-rc5-32-g5ecfc06)',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -49,10 +49,10 @@ if(ga_enabled){
 }
 </script>
   </head>
-  <body role="document">
+  <body>
     <div class="relbar-top">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -69,9 +69,9 @@ if(ga_enabled){
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../../../index.html">Home</a> &raquo;</li>
 
-          <li class="nav-item nav-item-1"><a href="../../index.html" ><span style="font-variant:small-caps;">Cyclus</span> User Guide</a> &raquo;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" >Cymetric</a> &raquo;</li>
-          <li class="nav-item nav-item-3"><a href="index.html" accesskey="U">Cymetric API</a> &raquo;</li> 
+          <li><a href="../../index.html" ><span style="font-variant:small-caps;">Cyclus</span> User Guide</a> &raquo;</li>
+          <li><a href="../index.html" >Cymetric</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Cymetric API</a> &raquo;</li> 
       </ul>
     </div>
     </div>
@@ -80,27 +80,27 @@ if(ga_enabled){
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="module-cymetric.tools">
-<span id="cymetric-tools-tools"></span><span id="cym-tools"></span><h1><a class="reference internal" href="#module-cymetric.tools" title="cymetric.tools"><code class="xref py py-mod docutils literal"><span class="pre">cymetric.tools</span></code></a> - Tools<a class="headerlink" href="#module-cymetric.tools" title="Permalink to this headline">¶</a></h1>
+<span id="cymetric-tools-tools"></span><span id="cym-tools"></span><h1><a class="reference internal" href="#module-cymetric.tools" title="cymetric.tools"><tt class="xref py py-mod docutils literal"><span class="pre">cymetric.tools</span></tt></a> - Tools<a class="headerlink" href="#module-cymetric.tools" title="Permalink to this headline">¶</a></h1>
 <p>General cymetric tools.</p>
 <dl class="function">
 <dt id="cymetric.tools.dbopen">
-<code class="descclassname">cymetric.tools.</code><code class="descname">dbopen</code><span class="sig-paren">(</span><em>fname</em><span class="sig-paren">)</span><a class="headerlink" href="#cymetric.tools.dbopen" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">cymetric.tools.</tt><tt class="descname">dbopen</tt><big>(</big><em>fname</em><big>)</big><a class="headerlink" href="#cymetric.tools.dbopen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Opens a Cyclus database.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="cymetric.tools.ensure_dt_bytes">
-<code class="descclassname">cymetric.tools.</code><code class="descname">ensure_dt_bytes</code><span class="sig-paren">(</span><em>dt</em><span class="sig-paren">)</span><a class="headerlink" href="#cymetric.tools.ensure_dt_bytes" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">cymetric.tools.</tt><tt class="descname">ensure_dt_bytes</tt><big>(</big><em>dt</em><big>)</big><a class="headerlink" href="#cymetric.tools.ensure_dt_bytes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ensures that a structured numpy dtype is given in a Python 2 &amp; 3
 compatible way.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="cymetric.tools.merge_and_fillna_col">
-<code class="descclassname">cymetric.tools.</code><code class="descname">merge_and_fillna_col</code><span class="sig-paren">(</span><em>left</em>, <em>right</em>, <em>lcol</em>, <em>rcol</em>, <em>how=u'inner'</em>, <em>on=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cymetric.tools.merge_and_fillna_col" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">cymetric.tools.</tt><tt class="descname">merge_and_fillna_col</tt><big>(</big><em>left</em>, <em>right</em>, <em>lcol</em>, <em>rcol</em>, <em>how=u'inner'</em>, <em>on=None</em><big>)</big><a class="headerlink" href="#cymetric.tools.merge_and_fillna_col" title="Permalink to this definition">¶</a></dt>
 <dd><p>Merges two dataframes and fills the values of the left column
 with the values from the right column. A copy of left is returned.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -139,13 +139,13 @@ with the values from the right column. A copy of left is returned.</p>
 
 <dl class="function">
 <dt id="cymetric.tools.raise_no_pyne">
-<code class="descclassname">cymetric.tools.</code><code class="descname">raise_no_pyne</code><span class="sig-paren">(</span><em>msg</em>, <em>have_pyne=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cymetric.tools.raise_no_pyne" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">cymetric.tools.</tt><tt class="descname">raise_no_pyne</tt><big>(</big><em>msg</em>, <em>have_pyne=False</em><big>)</big><a class="headerlink" href="#cymetric.tools.raise_no_pyne" title="Permalink to this definition">¶</a></dt>
 <dd><p>Raise an error when PyNE cannot be found.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="cymetric.tools.raw_to_series">
-<code class="descclassname">cymetric.tools.</code><code class="descname">raw_to_series</code><span class="sig-paren">(</span><em>df</em>, <em>idx</em>, <em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#cymetric.tools.raw_to_series" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">cymetric.tools.</tt><tt class="descname">raw_to_series</tt><big>(</big><em>df</em>, <em>idx</em>, <em>val</em><big>)</big><a class="headerlink" href="#cymetric.tools.raw_to_series" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert data frame to series with multi-index.</p>
 </dd></dl>
 
@@ -155,7 +155,7 @@ with the values from the right column. A copy of left is returned.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="../../../index.html" title="index">
           <img class="logo" src="../../../_static/big_c.png" alt="Logo"/>
@@ -163,7 +163,7 @@ with the values from the right column. A copy of left is returned.</p>
   <div class="sphinxprev">
     <h4>Previous page</h4>
     <p class="topless"><a href="main.html"
-                          title="Previous page">&larr; <code class="docutils literal"><span class="pre">cymetric.main</span></code> - Command Line Interface</a></p>
+                          title="Previous page">&larr; <tt class="docutils literal"><span class="pre">cymetric.main</span></tt> - Command Line Interface</a></p>
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
@@ -185,7 +185,7 @@ with the values from the right column. A copy of left is returned.</p>
     </ul></li></ul>
   </div>
     
-<div id="searchbox" style="display: none" role="search">
+<div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../../../search.html" method="get">
       <input type="text" name="q" />
@@ -234,7 +234,7 @@ with the values from the right column. A copy of left is returned.</p>
     </div>
     <div class="relbar-bottom">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -251,16 +251,16 @@ with the values from the right column. A copy of left is returned.</p>
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../../../index.html">Home</a> &raquo;</li>
 
-          <li class="nav-item nav-item-1"><a href="../../index.html" ><span style="font-variant:small-caps;">Cyclus</span> User Guide</a> &raquo;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" >Cymetric</a> &raquo;</li>
-          <li class="nav-item nav-item-3"><a href="index.html" >Cymetric API</a> &raquo;</li> 
+          <li><a href="../../index.html" ><span style="font-variant:small-caps;">Cyclus</span> User Guide</a> &raquo;</li>
+          <li><a href="../index.html" >Cymetric</a> &raquo;</li>
+          <li><a href="index.html" >Cymetric API</a> &raquo;</li> 
       </ul>
     </div>
     </div>
 
-    <div class="footer" role="contentinfo">
+    <div class="footer">
         &copy; Copyright 2012-2014, University of Wisconsin Computational Nuclear Engineering Research Group.
-      Last updated on May 06, 2015.
+      Last updated on May 19, 2015.
     </div><script type="text/javascript">
     if(ga_enabled){
         document.write("<div class=\"footer\">This page uses <a href=\"http://analytics.google.com\">Google Analytics</a> to collect statistics. ");

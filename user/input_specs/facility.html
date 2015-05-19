@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '(1.2.0-332-g1845a13)',
+        VERSION:     '(1.3.0-rc5-32-g5ecfc06)',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -49,10 +49,10 @@ if(ga_enabled){
 }
 </script>
   </head>
-  <body role="document">
+  <body>
     <div class="relbar-top">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -69,8 +69,8 @@ if(ga_enabled){
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../../index.html">Home</a> &raquo;</li>
 
-          <li class="nav-item nav-item-1"><a href="../index.html" ><span style="font-variant:small-caps;">Cyclus</span> User Guide</a> &raquo;</li>
-          <li class="nav-item nav-item-2"><a href="../writing_input.html" accesskey="U">Writing a <span style="font-variant:small-caps;">Cyclus</span> Input File</a> &raquo;</li> 
+          <li><a href="../index.html" ><span style="font-variant:small-caps;">Cyclus</span> User Guide</a> &raquo;</li>
+          <li><a href="../writing_input.html" accesskey="U">Writing a <span style="font-variant:small-caps;">Cyclus</span> Input File</a> &raquo;</li> 
       </ul>
     </div>
     </div>
@@ -79,20 +79,20 @@ if(ga_enabled){
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="facility-facility-prototypes-at-least-one-required">
-<h1><code class="docutils literal"><span class="pre">Facility</span></code> - Facility Prototypes (at least one required)<a class="headerlink" href="#facility-facility-prototypes-at-least-one-required" title="Permalink to this headline">¶</a></h1>
+<h1><tt class="docutils literal"><span class="pre">Facility</span></tt> - Facility Prototypes (at least one required)<a class="headerlink" href="#facility-facility-prototypes-at-least-one-required" title="Permalink to this headline">¶</a></h1>
 <p>Every agent that participates in a <span style="font-variant:small-caps;">Cyclus</span> simulation represents either a
-facility, an institution or a region.  Each <code class="docutils literal"><span class="pre">facility</span></code> block defines a
+facility, an institution or a region.  Each <tt class="docutils literal"><span class="pre">facility</span></tt> block defines a
 single prototype for an agent that acts as a facility in the simulation.</p>
-<p>Each <code class="docutils literal"><span class="pre">facility</span></code> block has the follwoing sections in any order:</p>
+<p>Each <tt class="docutils literal"><span class="pre">facility</span></tt> block has the follwoing sections in any order:</p>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">name</span></code> (required once) - a name for the prototype</li>
-<li><code class="docutils literal"><span class="pre">lifetime</span></code> (optional once) - a non-negative integer indicating the number
+<li><tt class="docutils literal"><span class="pre">name</span></tt> (required once) - a name for the prototype</li>
+<li><tt class="docutils literal"><span class="pre">lifetime</span></tt> (optional once) - a non-negative integer indicating the number
 of time steps that an agent of this prototype will be active in the
 simulation</li>
-<li><code class="docutils literal"><span class="pre">config</span></code> (required once) - the archetype-specific configuration</li>
+<li><tt class="docutils literal"><span class="pre">config</span></tt> (required once) - the archetype-specific configuration</li>
 </ul>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
@@ -117,11 +117,11 @@ simulation</li>
 </pre></div>
 </div>
 <p>This example introduces two facility prototypes.  The first has the name
-<cite>LongTermStorage</cite>, and is configured from the <a class="reference internal" href="../../basics/glossary.html#term-archetype"><span class="xref std std-term">archetype</span></a> with the name
-(or alias) <cite>Sink</cite>.  The contents of the <code class="docutils literal"><span class="pre">Sink</span></code> section are defined by the
-author of the <cite>Sink</cite> archetype.  The second has the name <code class="docutils literal"><span class="pre">PBMR</span></code>, has a
+<cite>LongTermStorage</cite>, and is configured from the <a class="reference internal" href="../../basics/glossary.html#term-archetype"><em class="xref std std-term">archetype</em></a> with the name
+(or alias) <cite>Sink</cite>.  The contents of the <tt class="docutils literal"><span class="pre">Sink</span></tt> section are defined by the
+author of the <cite>Sink</cite> archetype.  The second has the name <tt class="docutils literal"><span class="pre">PBMR</span></tt>, has a
 lifetime of 720 time steps (60 years) and is based on the archetype with the
-name (or alias) <cite>RecipeReactor</cite>.  The contents of the <code class="docutils literal"><span class="pre">RecipeReactor</span></code>
+name (or alias) <cite>RecipeReactor</cite>.  The contents of the <tt class="docutils literal"><span class="pre">RecipeReactor</span></tt>
 section are defined by the author of the <cite>RecipeReactor</cite> archetype.</p>
 </div>
 <div class="html-toggle section" id="grammar-definition">
@@ -147,14 +147,14 @@ section are defined by the author of the <cite>RecipeReactor</cite> archetype.</
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="../../index.html" title="index">
           <img class="logo" src="../../_static/big_c.png" alt="Logo"/>
         </a></p><div class="sphinxlocaltoc">
     <h3><a href="../../index.html">Page contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#"><code class="docutils literal"><span class="pre">Facility</span></code> - Facility Prototypes (at least one required)</a><ul>
+<li><a class="reference internal" href="#"><tt class="docutils literal"><span class="pre">Facility</span></tt> - Facility Prototypes (at least one required)</a><ul>
 <li><a class="reference internal" href="#example">Example</a></li>
 <li><a class="reference internal" href="#grammar-definition">Grammar Definition</a></li>
 </ul>
@@ -165,12 +165,12 @@ section are defined by the author of the <cite>RecipeReactor</cite> archetype.</
   <div class="sphinxprev">
     <h4>Previous page</h4>
     <p class="topless"><a href="archetypes.html"
-                          title="Previous page">&larr; <code class="docutils literal"><span class="pre">Archetypes</span></code> - List of available agent archetypes (required once)</a></p>
+                          title="Previous page">&larr; <tt class="docutils literal"><span class="pre">Archetypes</span></tt> - List of available agent archetypes (required once)</a></p>
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
     <p class="topless"><a href="region.html"
-                          title="Next page">&rarr; <code class="docutils literal"><span class="pre">Region</span></code> - Region agents (at least one required)</a></p>
+                          title="Next page">&rarr; <tt class="docutils literal"><span class="pre">Region</span></tt> - Region agents (at least one required)</a></p>
   </div>
   <div class="sphinxlocaltoc">
   <h3>Useful Pages</h3>
@@ -187,7 +187,7 @@ section are defined by the author of the <cite>RecipeReactor</cite> archetype.</
     </ul></li></ul>
   </div>
     
-<div id="searchbox" style="display: none" role="search">
+<div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../../search.html" method="get">
       <input type="text" name="q" />
@@ -236,7 +236,7 @@ section are defined by the author of the <cite>RecipeReactor</cite> archetype.</
     </div>
     <div class="relbar-bottom">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -253,15 +253,15 @@ section are defined by the author of the <cite>RecipeReactor</cite> archetype.</
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../../index.html">Home</a> &raquo;</li>
 
-          <li class="nav-item nav-item-1"><a href="../index.html" ><span style="font-variant:small-caps;">Cyclus</span> User Guide</a> &raquo;</li>
-          <li class="nav-item nav-item-2"><a href="../writing_input.html" >Writing a <span style="font-variant:small-caps;">Cyclus</span> Input File</a> &raquo;</li> 
+          <li><a href="../index.html" ><span style="font-variant:small-caps;">Cyclus</span> User Guide</a> &raquo;</li>
+          <li><a href="../writing_input.html" >Writing a <span style="font-variant:small-caps;">Cyclus</span> Input File</a> &raquo;</li> 
       </ul>
     </div>
     </div>
 
-    <div class="footer" role="contentinfo">
+    <div class="footer">
         &copy; Copyright 2012-2014, University of Wisconsin Computational Nuclear Engineering Research Group.
-      Last updated on May 06, 2015.
+      Last updated on May 19, 2015.
     </div><script type="text/javascript">
     if(ga_enabled){
         document.write("<div class=\"footer\">This page uses <a href=\"http://analytics.google.com\">Google Analytics</a> to collect statistics. ");

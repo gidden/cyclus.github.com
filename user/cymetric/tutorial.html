@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '(1.2.0-332-g1845a13)',
+        VERSION:     '(1.3.0-rc5-32-g5ecfc06)',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -49,10 +49,10 @@ if(ga_enabled){
 }
 </script>
   </head>
-  <body role="document">
+  <body>
     <div class="relbar-top">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -69,8 +69,8 @@ if(ga_enabled){
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../../index.html">Home</a> &raquo;</li>
 
-          <li class="nav-item nav-item-1"><a href="../index.html" ><span style="font-variant:small-caps;">Cyclus</span> User Guide</a> &raquo;</li>
-          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">Cymetric</a> &raquo;</li> 
+          <li><a href="../index.html" ><span style="font-variant:small-caps;">Cyclus</span> User Guide</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Cymetric</a> &raquo;</li> 
       </ul>
     </div>
     </div>
@@ -79,7 +79,7 @@ if(ga_enabled){
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="tutorial">
 <span id="cym-tutorial"></span><h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
@@ -115,13 +115,13 @@ for building it from source <a class="reference external" href="http://fuelcycle
 </div>
 <div class="section" id="command-line-usage">
 <h2>Command Line Usage<a class="headerlink" href="#command-line-usage" title="Permalink to this headline">¶</a></h2>
-<p>Cymetric ships with a command line utility, just called <code class="docutils literal"><span class="pre">cymetric</span></code>. Since
+<p>Cymetric ships with a command line utility, just called <tt class="docutils literal"><span class="pre">cymetric</span></tt>. Since
 cymetric is wholly dependent on acting <span style="font-variant:small-caps;">Cyclus</span> database, you must supply a
-database as an argument on the command line. We&#8217;ll be using <code class="docutils literal"><span class="pre">test.h5</span></code> and
-<code class="docutils literal"><span class="pre">test.sqlite</span></code> as our example database here.</p>
+database as an argument on the command line. We&#8217;ll be using <tt class="docutils literal"><span class="pre">test.h5</span></tt> and
+<tt class="docutils literal"><span class="pre">test.sqlite</span></tt> as our example database here.</p>
 <div class="section" id="table-listing-l">
-<h3>Table Listing: <code class="docutils literal"><span class="pre">-l</span></code><a class="headerlink" href="#table-listing-l" title="Permalink to this headline">¶</a></h3>
-<p>The first switch here, lowercase-L <code class="docutils literal"><span class="pre">-l</span></code>, simply lists the tables in the database.
+<h3>Table Listing: <tt class="docutils literal"><span class="pre">-l</span></tt><a class="headerlink" href="#table-listing-l" title="Permalink to this headline">¶</a></h3>
+<p>The first switch here, lowercase-L <tt class="docutils literal"><span class="pre">-l</span></tt>, simply lists the tables in the database.
 Note that this may list more tables in the database than are strictly part of the
 <span style="font-variant:small-caps;">Cyclus</span> interface, because of the need for <span style="font-variant:small-caps;">Cyclus</span> to store metadata. Don&#8217;t
 be alarmed. Listing the current tables is easy:</p>
@@ -155,89 +155,89 @@ XMLPPInfo
 <p>Metrics that are generated will show up in this listing after they have been computed.</p>
 </div>
 <div class="section" id="code-execution-e">
-<h3>Code Execution: <code class="docutils literal"><span class="pre">-e</span></code><a class="headerlink" href="#code-execution-e" title="Permalink to this headline">¶</a></h3>
+<h3>Code Execution: <tt class="docutils literal"><span class="pre">-e</span></tt><a class="headerlink" href="#code-execution-e" title="Permalink to this headline">¶</a></h3>
 <p>Cymetric allows you to execute arbitrary code on metrics from the command line with
-the <code class="docutils literal"><span class="pre">-e</span></code> flag. The code that you pass in is pure Python. Every metric and root
+the <tt class="docutils literal"><span class="pre">-e</span></tt> flag. The code that you pass in is pure Python. Every metric and root
 <span style="font-variant:small-caps;">Cyclus</span> table (see <a class="reference external" href="http://fuelcycle.org/user/dbdoc.html">http://fuelcycle.org/user/dbdoc.html</a>) are assigned automatically
 to variable names that you can use. Indexing the table variables will return the
 metric as a pandas data frame (see <a class="reference external" href="http://pandas.pydata.org/">http://pandas.pydata.org/</a>). For example, to
-print the <code class="docutils literal"><span class="pre">AgentEntry</span></code> table, we would write <code class="docutils literal"><span class="pre">AgentEntry[:]</span></code> to get the
-table and <code class="docutils literal"><span class="pre">print(AgentEntry[:])</span></code> to display it after the <code class="docutils literal"><span class="pre">-e</span></code> flag:</p>
+print the <tt class="docutils literal"><span class="pre">AgentEntry</span></tt> table, we would write <tt class="docutils literal"><span class="pre">AgentEntry[:]</span></tt> to get the
+table and <tt class="docutils literal"><span class="pre">print(AgentEntry[:])</span></tt> to display it after the <tt class="docutils literal"><span class="pre">-e</span></tt> flag:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cymetric test.h5 -e <span class="s2">&quot;print(AgentEntry[:])&quot;</span>
                                   SimId  AgentId      Kind                    Spec          Prototype  ParentId  Lifetime  EnterTime
-<span class="m">0</span>  db805939-c565-404a-9483-adfb3da8b6d2       <span class="m">11</span>    Region      :agents:NullRegion       SingleRegion        -1        -1          0
-<span class="m">1</span>  db805939-c565-404a-9483-adfb3da8b6d2       <span class="m">12</span>      Inst    :cycamore:DeployInst  SingleInstitution        <span class="m">11</span>        -1          0
-<span class="m">2</span>  db805939-c565-404a-9483-adfb3da8b6d2       <span class="m">13</span>  Facility        :cycamore:Source         UOX_Source        <span class="m">12</span>        -1          1
-<span class="m">3</span>  db805939-c565-404a-9483-adfb3da8b6d2       <span class="m">14</span>  Facility        :cycamore:Source         MOX_Source        <span class="m">12</span>        -1          1
-<span class="m">4</span>  db805939-c565-404a-9483-adfb3da8b6d2       <span class="m">15</span>  Facility  :cycamore:BatchReactor           Reactor1        <span class="m">12</span>        -1          1
-<span class="m">5</span>  db805939-c565-404a-9483-adfb3da8b6d2       <span class="m">16</span>  Facility  :cycamore:BatchReactor           Reactor2        <span class="m">12</span>        -1          2
-<span class="m">6</span>  db805939-c565-404a-9483-adfb3da8b6d2       <span class="m">17</span>  Facility  :cycamore:BatchReactor           Reactor3        <span class="m">12</span>        -1          3
+0  db805939-c565-404a-9483-adfb3da8b6d2       11    Region      :agents:NullRegion       SingleRegion        -1        -1          0
+1  db805939-c565-404a-9483-adfb3da8b6d2       12      Inst    :cycamore:DeployInst  SingleInstitution        11        -1          0
+2  db805939-c565-404a-9483-adfb3da8b6d2       13  Facility        :cycamore:Source         UOX_Source        12        -1          1
+3  db805939-c565-404a-9483-adfb3da8b6d2       14  Facility        :cycamore:Source         MOX_Source        12        -1          1
+4  db805939-c565-404a-9483-adfb3da8b6d2       15  Facility  :cycamore:BatchReactor           Reactor1        12        -1          1
+5  db805939-c565-404a-9483-adfb3da8b6d2       16  Facility  :cycamore:BatchReactor           Reactor2        12        -1          2
+6  db805939-c565-404a-9483-adfb3da8b6d2       17  Facility  :cycamore:BatchReactor           Reactor3        12        -1          3
 
-<span class="o">[</span><span class="m">7</span> rows x <span class="m">8</span> columns<span class="o">]</span>
+<span class="o">[</span>7 rows x 8 columns<span class="o">]</span>
 </pre></div>
 </div>
-<p>Indexing a metric with an empty slice (<code class="docutils literal"><span class="pre">[:]</span></code>), none (<code class="docutils literal"><span class="pre">[None]</span></code>), or an ellipsis
-(<code class="docutils literal"><span class="pre">[...]</span></code>) will return the full metric. However, you can also index by condition
+<p>Indexing a metric with an empty slice (<tt class="docutils literal"><span class="pre">[:]</span></tt>), none (<tt class="docutils literal"><span class="pre">[None]</span></tt>), or an ellipsis
+(<tt class="docutils literal"><span class="pre">[...]</span></tt>) will return the full metric. However, you can also index by condition
 filters on the column names. The column names of the metric are thus also available for
 use.  For example, let&#8217;s just grab all of the facilities out of the entry table:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cymetric test.h5 -e <span class="s2">&quot;print(AgentEntry[Kind == &#39;Facility&#39;])&quot;</span>
                                   SimId  AgentId      Kind                    Spec   Prototype  ParentId  Lifetime  EnterTime
-<span class="m">0</span>  db805939-c565-404a-9483-adfb3da8b6d2       <span class="m">13</span>  Facility        :cycamore:Source  UOX_Source        <span class="m">12</span>        -1          1
-<span class="m">1</span>  db805939-c565-404a-9483-adfb3da8b6d2       <span class="m">14</span>  Facility        :cycamore:Source  MOX_Source        <span class="m">12</span>        -1          1
-<span class="m">2</span>  db805939-c565-404a-9483-adfb3da8b6d2       <span class="m">15</span>  Facility  :cycamore:BatchReactor    Reactor1        <span class="m">12</span>        -1          1
-<span class="m">3</span>  db805939-c565-404a-9483-adfb3da8b6d2       <span class="m">16</span>  Facility  :cycamore:BatchReactor    Reactor2        <span class="m">12</span>        -1          2
-<span class="m">4</span>  db805939-c565-404a-9483-adfb3da8b6d2       <span class="m">17</span>  Facility  :cycamore:BatchReactor    Reactor3        <span class="m">12</span>        -1          3
+0  db805939-c565-404a-9483-adfb3da8b6d2       13  Facility        :cycamore:Source  UOX_Source        12        -1          1
+1  db805939-c565-404a-9483-adfb3da8b6d2       14  Facility        :cycamore:Source  MOX_Source        12        -1          1
+2  db805939-c565-404a-9483-adfb3da8b6d2       15  Facility  :cycamore:BatchReactor    Reactor1        12        -1          1
+3  db805939-c565-404a-9483-adfb3da8b6d2       16  Facility  :cycamore:BatchReactor    Reactor2        12        -1          2
+4  db805939-c565-404a-9483-adfb3da8b6d2       17  Facility  :cycamore:BatchReactor    Reactor3        12        -1          3
 
-<span class="o">[</span><span class="m">5</span> rows x <span class="m">8</span> columns<span class="o">]</span>
+<span class="o">[</span>5 rows x 8 columns<span class="o">]</span>
 </pre></div>
 </div>
-<p>Separate the conditions by commas (<code class="docutils literal"><span class="pre">,</span></code>) to apply multiple filters at the same
+<p>Separate the conditions by commas (<tt class="docutils literal"><span class="pre">,</span></tt>) to apply multiple filters at the same
 time:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cymetric test.h5 -e <span class="s2">&quot;print(AgentEntry[Kind == &#39;Facility&#39;, AgentId &gt; 14])&quot;</span>
                                   SimId  AgentId      Kind                    Spec Prototype  ParentId  Lifetime  EnterTime
-<span class="m">0</span>  db805939-c565-404a-9483-adfb3da8b6d2       <span class="m">15</span>  Facility  :cycamore:BatchReactor  Reactor1        <span class="m">12</span>        -1          1
-<span class="m">1</span>  db805939-c565-404a-9483-adfb3da8b6d2       <span class="m">16</span>  Facility  :cycamore:BatchReactor  Reactor2        <span class="m">12</span>        -1          2
-<span class="m">2</span>  db805939-c565-404a-9483-adfb3da8b6d2       <span class="m">17</span>  Facility  :cycamore:BatchReactor  Reactor3        <span class="m">12</span>        -1          3
+0  db805939-c565-404a-9483-adfb3da8b6d2       15  Facility  :cycamore:BatchReactor  Reactor1        12        -1          1
+1  db805939-c565-404a-9483-adfb3da8b6d2       16  Facility  :cycamore:BatchReactor  Reactor2        12        -1          2
+2  db805939-c565-404a-9483-adfb3da8b6d2       17  Facility  :cycamore:BatchReactor  Reactor3        12        -1          3
 
-<span class="o">[</span><span class="m">3</span> rows x <span class="m">8</span> columns<span class="o">]</span>
+<span class="o">[</span>3 rows x 8 columns<span class="o">]</span>
 </pre></div>
 </div>
 <p>Because code execution is just pure Python, we can do <em>anything</em> that we would be
-able to do in Python. Suppose that we have a <code class="docutils literal"><span class="pre">Materials</span></code> metric with a <code class="docutils literal"><span class="pre">Mass</span></code>
+able to do in Python. Suppose that we have a <tt class="docutils literal"><span class="pre">Materials</span></tt> metric with a <tt class="docutils literal"><span class="pre">Mass</span></tt>
 column. We can compute this metric, pull the column out, multiply it by 42,
 save the result to a variable, and then print this variable all via the following.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cymetric test.h5 -e <span class="s2">&quot;mass = Materials[:][&#39;Mass&#39;] * 42; print(mass)&quot;</span>
-<span class="m">0</span>      0.000000
-<span class="m">1</span>      0.000000
-<span class="m">2</span>      0.000000
-<span class="m">3</span>      0.000000
-<span class="m">4</span>      0.000000
-<span class="m">5</span>      0.000000
-<span class="m">6</span>      0.000000
-<span class="m">7</span>      0.000000
-<span class="m">8</span>      0.000000
-<span class="m">9</span>      0.000000
-<span class="m">10</span>     4.790314
-<span class="m">11</span>     0.007370
-<span class="m">12</span>     0.066327
-<span class="m">13</span>     0.368486
-<span class="m">14</span>    33.064222
+0      0.000000
+1      0.000000
+2      0.000000
+3      0.000000
+4      0.000000
+5      0.000000
+6      0.000000
+7      0.000000
+8      0.000000
+9      0.000000
+10     4.790314
+11     0.007370
+12     0.066327
+13     0.368486
+14    33.064222
 ...
-<span class="m">462</span>     0.493771
-<span class="m">463</span>     0.313213
-<span class="m">464</span>     0.350812
-<span class="m">465</span>     0.228541
-<span class="m">466</span>    40.917474
-<span class="m">467</span>     0.030567
-<span class="m">468</span>     0.011288
-<span class="m">469</span>     0.238031
-<span class="m">470</span>     0.092571
-<span class="m">471</span>     0.081648
-<span class="m">472</span>     0.034441
-<span class="m">473</span>     0.002762
-<span class="m">474</span>     0.008074
-<span class="m">475</span>     0.000965
-<span class="m">476</span>     0.002827
+462     0.493771
+463     0.313213
+464     0.350812
+465     0.228541
+466    40.917474
+467     0.030567
+468     0.011288
+469     0.238031
+470     0.092571
+471     0.081648
+472     0.034441
+473     0.002762
+474     0.008074
+475     0.000965
+476     0.002827
 Name: Mass, Length: 477, dtype: float64
 </pre></div>
 </div>
@@ -254,23 +254,23 @@ under standard aliases. This prevents you from having to import them manually yo
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">cymetric</span></code></td>
-<td><code class="docutils literal"><span class="pre">cym</span></code></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">cymetric</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">cym</span></tt></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">numpy</span></code></td>
-<td><code class="docutils literal"><span class="pre">np</span></code></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">numpy</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">np</span></tt></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">pandas</span></code></td>
-<td><code class="docutils literal"><span class="pre">pd</span></code></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">pandas</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">pd</span></tt></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">uuid</span></code></td>
-<td><code class="docutils literal"><span class="pre">uuid</span></code></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">uuid</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">uuid</span></tt></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">matplotlib</span></code></td>
-<td><code class="docutils literal"><span class="pre">matplotlib</span></code></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">matplotlib</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">matplotlib</span></tt></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">matplotlib.pyplot</span></code></td>
-<td><code class="docutils literal"><span class="pre">plt</span></code></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">matplotlib.pyplot</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">plt</span></tt></td>
 </tr>
 </tbody>
 </table>
@@ -286,8 +286,8 @@ For example,</p>
 <div class="section" id="python-interface">
 <h2>Python Interface<a class="headerlink" href="#python-interface" title="Permalink to this headline">¶</a></h2>
 <p>Using cymetric from Python is also easy.  Typically, it is recommended that you
-alias <code class="docutils literal"><span class="pre">cymetric</span></code> as <code class="docutils literal"><span class="pre">cym</span></code>, because all of the important functionality lives here.
-To start, use the <code class="docutils literal"><span class="pre">dbopen()</span></code> function to open up a database:</p>
+alias <tt class="docutils literal"><span class="pre">cymetric</span></tt> as <tt class="docutils literal"><span class="pre">cym</span></tt>, because all of the important functionality lives here.
+To start, use the <tt class="docutils literal"><span class="pre">dbopen()</span></tt> function to open up a database:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">cymetric</span> <span class="kn">as</span> <span class="nn">cym</span>
 
 <span class="n">db</span> <span class="o">=</span> <span class="n">cym</span><span class="o">.</span><span class="n">dbopen</span><span class="p">(</span><span class="s">&#39;test.sqlite&#39;</span><span class="p">)</span>
@@ -296,7 +296,7 @@ To start, use the <code class="docutils literal"><span class="pre">dbopen()</spa
 <div class="section" id="evaluating-metrics">
 <h3>Evaluating Metrics<a class="headerlink" href="#evaluating-metrics" title="Permalink to this headline">¶</a></h3>
 <p>The main purpose of cymetric is to evaluate metrics. The easiest way to do this
-is via the <code class="docutils literal"><span class="pre">eval()</span></code> function. This accepts a metric name and a database and
+is via the <tt class="docutils literal"><span class="pre">eval()</span></tt> function. This accepts a metric name and a database and
 returns a pandas DataFrame:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">frame</span> <span class="o">=</span> <span class="n">cym</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s">&#39;Materials&#39;</span><span class="p">,</span> <span class="n">db</span><span class="p">)</span>
 </pre></div>
@@ -306,11 +306,11 @@ filter the metric on.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">filtered_frame</span> <span class="o">=</span> <span class="n">cym</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s">&#39;Materials&#39;</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">conds</span><span class="o">=</span><span class="p">[(</span><span class="s">&#39;NucId&#39;</span><span class="p">,</span> <span class="s">&#39;==&#39;</span><span class="p">,</span> <span class="mi">922350000</span><span class="p">)])</span>
 </pre></div>
 </div>
-<p>Calling <code class="docutils literal"><span class="pre">eval()</span></code> sets up a new <code class="docutils literal"><span class="pre">Evaluator</span></code> object each time a metric is
+<p>Calling <tt class="docutils literal"><span class="pre">eval()</span></tt> sets up a new <tt class="docutils literal"><span class="pre">Evaluator</span></tt> object each time a metric is
 evaluated.  This can be inefficient if you computing many metrics because it will
 have to read in from the database each time.  Thus, if you are planning on computing
-many metrics, then its is better to create your own <code class="docutils literal"><span class="pre">Evaluator</span></code> and call its
-<code class="docutils literal"><span class="pre">eval()</span></code> method directly. For example,</p>
+many metrics, then its is better to create your own <tt class="docutils literal"><span class="pre">Evaluator</span></tt> and call its
+<tt class="docutils literal"><span class="pre">eval()</span></tt> method directly. For example,</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">evaler</span> <span class="o">=</span> <span class="n">cym</span><span class="o">.</span><span class="n">Evaluator</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
 <span class="n">frame1</span> <span class="o">=</span> <span class="n">evaler</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s">&#39;Materials&#39;</span><span class="p">)</span>
 <span class="n">frame2</span> <span class="o">=</span> <span class="n">evaler</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s">&#39;AgentEntry&#39;</span><span class="p">,</span> <span class="n">conds</span><span class="o">=</span><span class="p">[(</span><span class="s">&#39;Kind&#39;</span><span class="p">,</span> <span class="s">&#39;==&#39;</span><span class="p">,</span> <span class="s">&#39;Facility&#39;</span><span class="p">)])</span>
@@ -322,7 +322,7 @@ most out of your analysis from this point.</p>
 <div class="section" id="executing-code">
 <h3>Executing Code<a class="headerlink" href="#executing-code" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes, you just have a code snippet as a string like you might run from the
-command line, even though you are in Python. The <code class="docutils literal"><span class="pre">exec_code()</span></code> function gives
+command line, even though you are in Python. The <tt class="docutils literal"><span class="pre">exec_code()</span></tt> function gives
 you easy access to the exact same capabilities that you have on the command line.
 This function accepts the code string and the database:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">cym</span><span class="o">.</span><span class="n">exec_code</span><span class="p">(</span><span class="s">&quot;print(AgentEntry[:])&quot;</span><span class="p">,</span> <span class="n">db</span><span class="p">)</span>
@@ -339,9 +339,9 @@ by cymetric. You have your own data and your own analysis that you want to perfo
 Cymetric makes it easy to write your own metrics and fully hook into the cymetric
 tools.</p>
 <p>All you need to do is write a function that accepts pandas series, returns a pandas
-data frame, and decorate it by the <code class="docutils literal"><span class="pre">&#64;metric()</span></code> decorator found in cymetric.
+data frame, and decorate it by the <tt class="docutils literal"><span class="pre">&#64;metric()</span></tt> decorator found in cymetric.
 For example, if you wanted to square the mass of materials as your
-metric, you could write the following.  Call the new metric <code class="docutils literal"><span class="pre">MaterialsSquared</span></code>.</p>
+metric, you could write the following.  Call the new metric <tt class="docutils literal"><span class="pre">MaterialsSquared</span></tt>.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">deps</span> <span class="o">=</span> <span class="p">[(</span><span class="s">&#39;Materials&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s">&#39;SimId&#39;</span><span class="p">,</span> <span class="s">&#39;ResourceId&#39;</span><span class="p">,</span> <span class="s">&#39;NucId&#39;</span><span class="p">),</span> <span class="s">&#39;Mass&#39;</span><span class="p">)]</span>
 
 <span class="n">schema</span> <span class="o">=</span> <span class="p">[(</span><span class="s">&#39;SimId&#39;</span><span class="p">,</span> <span class="n">cym</span><span class="o">.</span><span class="n">UUID</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;ResourceId&#39;</span><span class="p">,</span> <span class="n">cym</span><span class="o">.</span><span class="n">INT</span><span class="p">),</span>
@@ -358,26 +358,26 @@ metric, you could write the following.  Call the new metric <code class="docutil
 </div>
 <p>Note that to write this metric, no knowledge of the database or any filters is
 assumed. Cymetric handles all of these details for you!</p>
-<p>In the above, the <code class="docutils literal"><span class="pre">&#64;metric()</span></code> decorator takes three arguments. The first is
-the <code class="docutils literal"><span class="pre">name</span></code> of the metric. Note that this can be distinct from the function name.</p>
-<p>The second is <code class="docutils literal"><span class="pre">deps</span></code>, which represents the metric dependencies.  This is a list
-of 3-tuples that represents which <code class="docutils literal"><span class="pre">series</span></code> to pull out of the database and
-pass into the metric function (here <code class="docutils literal"><span class="pre">mats_sqrd()</span></code>).  The first element is
-the table name as a string (eg <code class="docutils literal"><span class="pre">'Materials'</span></code>). The second element is a tuple of
+<p>In the above, the <tt class="docutils literal"><span class="pre">&#64;metric()</span></tt> decorator takes three arguments. The first is
+the <tt class="docutils literal"><span class="pre">name</span></tt> of the metric. Note that this can be distinct from the function name.</p>
+<p>The second is <tt class="docutils literal"><span class="pre">deps</span></tt>, which represents the metric dependencies.  This is a list
+of 3-tuples that represents which <tt class="docutils literal"><span class="pre">series</span></tt> to pull out of the database and
+pass into the metric function (here <tt class="docutils literal"><span class="pre">mats_sqrd()</span></tt>).  The first element is
+the table name as a string (eg <tt class="docutils literal"><span class="pre">'Materials'</span></tt>). The second element is a tuple of
 column names that become the index of the series
-(eg <code class="docutils literal"><span class="pre">('SimId',</span> <span class="pre">'ResourceId',</span> <span class="pre">'NucId')</span></code>). Finally, the last element is the
+(eg <tt class="docutils literal"><span class="pre">('SimId',</span> <span class="pre">'ResourceId',</span> <span class="pre">'NucId')</span></tt>). Finally, the last element is the
 column of the table that becomes the values of the series.  A metric may have
 as many dependencies as required. Circular dependencies are not allowed.</p>
-<p>Lastly, the <code class="docutils literal"><span class="pre">&#64;metric()</span></code> decorator takes a <code class="docutils literal"><span class="pre">schema</span></code> argument. This represents
+<p>Lastly, the <tt class="docutils literal"><span class="pre">&#64;metric()</span></tt> decorator takes a <tt class="docutils literal"><span class="pre">schema</span></tt> argument. This represents
 the structure of the metric table on disk and in <span style="font-variant:small-caps;">Cyclus</span>. Thus, it is highly
 tied to the <span style="font-variant:small-caps;">Cyclus</span> type system (see <a class="reference external" href="http://fuelcycle.org/arche/dbtypes.html">http://fuelcycle.org/arche/dbtypes.html</a>),
 as represented in cymetric. The data frame that is returned should have column
 names that match the schema provided. It is generally a good idea to include a
-<code class="docutils literal"><span class="pre">SimId</span></code> column.</p>
+<tt class="docutils literal"><span class="pre">SimId</span></tt> column.</p>
 <p>The above shows how easy it is to incorporate metrics that are computed via
 cymetric. However, cymetric also helps you bring in data that might come from
 custom <span style="font-variant:small-caps;">Cyclus</span> tables (see <a class="reference external" href="http://fuelcycle.org/arche/custom_tables.html">http://fuelcycle.org/arche/custom_tables.html</a>).
-All you need to do is use the <code class="docutils literal"><span class="pre">root_metric()</span></code> function somewhere. This simply
+All you need to do is use the <tt class="docutils literal"><span class="pre">root_metric()</span></tt> function somewhere. This simply
 accepts the name of the table.  For example,</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">my_table</span> <span class="o">=</span> <span class="n">cym</span><span class="o">.</span><span class="n">root_metric</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;MyTable&#39;</span><span class="p">)</span>
 </pre></div>
@@ -390,7 +390,7 @@ accepts the name of the table.  For example,</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="../../index.html" title="index">
           <img class="logo" src="../../_static/big_c.png" alt="Logo"/>
@@ -404,8 +404,8 @@ accepts the name of the table.  For example,</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#command-line-usage">Command Line Usage</a><ul>
-<li><a class="reference internal" href="#table-listing-l">Table Listing: <code class="docutils literal"><span class="pre">-l</span></code></a></li>
-<li><a class="reference internal" href="#code-execution-e">Code Execution: <code class="docutils literal"><span class="pre">-e</span></code></a></li>
+<li><a class="reference internal" href="#table-listing-l">Table Listing: <tt class="docutils literal"><span class="pre">-l</span></tt></a></li>
+<li><a class="reference internal" href="#code-execution-e">Code Execution: <tt class="docutils literal"><span class="pre">-e</span></tt></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#python-interface">Python Interface</a><ul>
@@ -444,7 +444,7 @@ accepts the name of the table.  For example,</p>
     </ul></li></ul>
   </div>
     
-<div id="searchbox" style="display: none" role="search">
+<div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../../search.html" method="get">
       <input type="text" name="q" />
@@ -493,7 +493,7 @@ accepts the name of the table.  For example,</p>
     </div>
     <div class="relbar-bottom">
         
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -510,15 +510,15 @@ accepts the name of the table.  For example,</p>
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../../index.html">Home</a> &raquo;</li>
 
-          <li class="nav-item nav-item-1"><a href="../index.html" ><span style="font-variant:small-caps;">Cyclus</span> User Guide</a> &raquo;</li>
-          <li class="nav-item nav-item-2"><a href="index.html" >Cymetric</a> &raquo;</li> 
+          <li><a href="../index.html" ><span style="font-variant:small-caps;">Cyclus</span> User Guide</a> &raquo;</li>
+          <li><a href="index.html" >Cymetric</a> &raquo;</li> 
       </ul>
     </div>
     </div>
 
-    <div class="footer" role="contentinfo">
+    <div class="footer">
         &copy; Copyright 2012-2014, University of Wisconsin Computational Nuclear Engineering Research Group.
-      Last updated on May 06, 2015.
+      Last updated on May 19, 2015.
     </div><script type="text/javascript">
     if(ga_enabled){
         document.write("<div class=\"footer\">This page uses <a href=\"http://analytics.google.com\">Google Analytics</a> to collect statistics. ");
