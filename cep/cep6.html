@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Cyclus 1.0 Release Notes &mdash; Home</title>
+    <title>CEP 6 - Cyclus Pull Request Style Guide &mdash; Home</title>
     
     <link rel="stylesheet" href="../_static/cyclus.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -30,9 +30,9 @@
     <script type="text/javascript" src="../_static/cloud.js"></script>
     <link rel="shortcut icon" href="../_static/big_c.ico"/>
     <link rel="top" title="Home" href="../index.html" />
-    <link rel="up" title="Cyclus Previous Versions" href="index.html" />
-    <link rel="next" title="Cyclus 0.4 Release Notes" href="v0.4.html" />
-    <link rel="prev" title="Cyclus 1.1 Release Notes" href="v1.1.html" /> 
+    <link rel="up" title="Cyclus Enhancement Proposals" href="cep0.html" />
+    <link rel="next" title="CEP 17 - Resource Tracking and Interfaces Re-Re-Redo" href="cep17.html" />
+    <link rel="prev" title="CEP 5 - Archetype Development Best Practices" href="cep5.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1"><script type="text/javascript">
 var ga_enabled = !$.cookie('disable-ga');
 if(ga_enabled){
@@ -62,14 +62,14 @@ if(ga_enabled){
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="v0.4.html" title="Cyclus 0.4 Release Notes"
+          <a href="cep17.html" title="CEP 17 - Resource Tracking and Interfaces Re-Re-Redo"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="v1.1.html" title="Cyclus 1.1 Release Notes"
+          <a href="cep5.html" title="CEP 5 - Archetype Development Best Practices"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">Home</a> &raquo;</li>
 
-          <li><a href="index.html" accesskey="U"><span style="font-variant:small-caps;">Cyclus</span> Previous Versions</a> &raquo;</li> 
+          <li><a href="cep0.html" accesskey="U"><span style="font-variant:small-caps;">Cyclus</span> Enhancement Proposals</a> &raquo;</li> 
       </ul>
     </div>
     </div>
@@ -80,110 +80,114 @@ if(ga_enabled){
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="cyclus-1-0-release-notes">
-<h1>Cyclus 1.0 Release Notes<a class="headerlink" href="#cyclus-1-0-release-notes" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="cep-6-cyclus-pull-request-style-guide">
+<h1>CEP 6 - <span style="font-variant:small-caps;">Cyclus</span> Pull Request Style Guide<a class="headerlink" href="#cep-6-cyclus-pull-request-style-guide" title="Permalink to this headline">¶</a></h1>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body">Cyclus Developers</td>
+<tr class="field-odd field"><th class="field-name">CEP:</th><td class="field-body">6</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Website:</th><td class="field-body"><a class="reference external" href="http://fuelcycle.org/">http://fuelcycle.org/</a></td>
+<tr class="field-even field"><th class="field-name">Title:</th><td class="field-body"><span style="font-variant:small-caps;">Cyclus</span> Pull Request Style Guide</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Contact:</th><td class="field-body"><a class="reference external" href="https://groups.google.com/forum/#!forum/cyclus-dev">https://groups.google.com/forum/#!forum/cyclus-dev</a></td>
+<tr class="field-odd field"><th class="field-name">Last-Modified:</th><td class="field-body">2015-05-08</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Author:</th><td class="field-body">Matthew Gidden</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Status:</th><td class="field-body">Draft</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">Process</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body">2015-05-04</td>
 </tr>
 </tbody>
 </table>
-<p>The Cyclus core team is excited to announce the latest stable version
-of the cyclus ecosystem!  This includes over 5000 commits by
-8 developers.</p>
-<div class="section" id="major-features">
-<h2>Major features<a class="headerlink" href="#major-features" title="Permalink to this headline">¶</a></h2>
-<ul>
-<li><p class="first">Cyclus Enhancement Proposal (CEP) system for large changes</p>
-</li>
-<li><p class="first">Testing suite</p>
-<blockquote>
-<div><ul class="simple">
-<li>unit tests</li>
-<li>integration tests (continuous through BaTLab and Polyphemus)</li>
-<li>regression tests</li>
-</ul>
-</div></blockquote>
-</li>
-<li><p class="first">Resource tracking functionality and resource interface simplicity (CEP 17)</p>
-</li>
-<li><p class="first">Complicated fuel cycles enabled via dynamic resource exchange (CEP 18)</p>
-</li>
-<li><p class="first">Advanced time step execution for consistent agent behavior (CEP 20)</p>
-</li>
-<li><p class="first">Basic modules in Cyclus core, advanced modules in Cycamore</p>
-<ul class="simple">
-<li>relatedly, agent identification (CEP 21)</li>
-</ul>
-</li>
-<li><p class="first">Pre-processing</p>
-<ul class="simple">
-<li>auto-generate input/output archetype code for supported datatypes</li>
-</ul>
-</li>
-<li><p class="first">Simulation initialization and restart</p>
-</li>
-<li><p class="first">Now using PyNE for nuclear data (<a class="reference external" href="http://pyne.io">http://pyne.io</a>)</p>
-</li>
-<li><p class="first">Basic Lodtka-Volterra predator/prey-like simulation behavior demonstrated</p>
-</li>
-<li><p class="first">Updated build system</p>
-<ul class="simple">
-<li>kernel in <tt class="docutils literal"><span class="pre">$PREFIX/lib/</span></tt> as <tt class="docutils literal"><span class="pre">cyclus</span></tt> (i.e., <tt class="docutils literal"><span class="pre">libcyclus.so</span></tt> or
-<tt class="docutils literal"><span class="pre">libcyclus.dylib</span></tt>)</li>
-<li>cyclus agents in <tt class="docutils literal"><span class="pre">$PREFIX/lib/cyclus</span></tt> as <tt class="docutils literal"><span class="pre">agents</span></tt></li>
-<li>cyclus generic agent archetype unit tests in <tt class="docutils literal"><span class="pre">$PREFIX/lib/cyclus</span></tt> as
-<tt class="docutils literal"><span class="pre">baseagentunittests</span></tt></li>
-<li>cycamore agents in <tt class="docutils literal"><span class="pre">$PREFIX/lib/cyclus</span></tt> as <tt class="docutils literal"><span class="pre">cycamore</span></tt></li>
-<li>cyclus unit tests in <tt class="docutils literal"><span class="pre">$PREFIX/bin</span></tt> as <tt class="docutils literal"><span class="pre">cyclus_unit_tests</span></tt></li>
-<li>cycamore unit tests in <tt class="docutils literal"><span class="pre">$PREFIX/bin</span></tt> as <tt class="docutils literal"><span class="pre">cycamore_unit_tests</span></tt></li>
-<li>support for easy build/install of modules with single agent archetype and
-associated tests</li>
-<li>support for easy build/install of modules of group of agent archetypes and
-associated tests</li>
-</ul>
-</li>
-<li><p class="first">Toolkit</p>
-<ul class="simple">
-<li>separation of additional &#8220;helper&#8221; classes and interfaces out of kernel
-source directory and namespace</li>
-</ul>
-</li>
-<li><p class="first">Significantly updated database schema, utilized for both canonical input and
-output</p>
-<ul class="simple">
-<li>supports variable length datatypes for both sqlite and hdf5</li>
-</ul>
-</li>
-</ul>
-<p>Since v0.4</p>
-<ul class="simple">
-<li>Cyclus: 1,125 commits resulted in 262 changed files encompassing a net 33,825
-line insertions(+) and 9,676 deletions(-).</li>
-<li>Cycamore: 270 commits resulted in 133 changed files encompassing a net 2,243
-line insertions(+) and 95,294 deletions(-).</li>
-</ul>
+<div class="section" id="abstract">
+<h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline">¶</a></h2>
+<p>There is a strong motivation for summarizing and enumerating feature additions,
+bug fixes, and other changes to the code base. Through use of an agreed-upon
+format and style, tools for aggregating and categorizing changes can be
+developed. While this strategy may be applied to issues, this CEP is related to
+pull requests (PRs) only.</p>
+<p>A canoncial class of top-level labels is proposed. The purpose of these labels
+is to broadly categorize additions to the code base. Then, a minimum style guide
+is proposed to provide a known, queryable structure to the body of each pull
+request.</p>
 </div>
-<div class="section" id="contributors">
-<h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h2>
-<p>The following people contributed to this release of Cyclus.  A &#8220;*&#8221; by their
-name indicates a first time contributor.  Names follow alphabetically,</p>
+<div class="section" id="labels">
+<h2>Labels<a class="headerlink" href="#labels" title="Permalink to this headline">¶</a></h2>
+<p>Every PR must be assigned at least one label from the following set:</p>
 <ul class="simple">
-<li>Robert Carlsen</li>
-<li>Matthew Gidden</li>
-<li>Katy Huff</li>
-<li>Arrielle Opotowsky</li>
-<li>Olzhas Rakhimov</li>
-<li>Anthony Scopatz</li>
-<li>Zach Welch</li>
-<li>Paul Wilson</li>
+<li>Feature - Release Notes</li>
+<li>Feature</li>
+<li>Bug Fix</li>
+<li>Maintenance</li>
+<li>Other</li>
 </ul>
+<p>While a PR may have any number of other descriptive labels, it is considered
+blocked if it does not have (at minimum) one of the above labels.</p>
+<p>A PR may be labeled as <cite>Feature - Release Notes</cite> by either the author or
+reviewer. If there is a disagreement between the two parties, deference is given
+to the party who prefers the <cite>Feature - Release Notes</cite> tag. A PR with this label
+is provided candidacy for inclusion in the release notes (highlighting the
+feature addition) but does not guaranteed inclusion in the release notes. The
+release manager is provided deference in making the decision of what features to
+highlight in the release notes, per <a class="reference external" href="fuelcycle.org/cep/cep3.html">CEP 3</a>.</p>
+</div>
+<div class="section" id="layout">
+<h2>Layout<a class="headerlink" href="#layout" title="Permalink to this headline">¶</a></h2>
+<p>Any PR must have, at minimum, a succinct summary of its associated changes. This
+summary must be present at the top of the PR body and must be followed by a new
+line. A PR is considered blocked if it does comply with this structure.</p>
+<p>Any additional structure, while clarifying, is optional.</p>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>The following provides an example of the raw markdown associated with an
+existing <a class="reference external" href="https://github.com/cyclus/cyclus/pull/1127">PR</a>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Added simple buy and sell inventory policies
+
+Detail
+======
+Inventory policies were added that automate simplistic interactions with the
+DRE. Each policy is assigned to a `ResBuf` instance and implements the `Trader`
+interface. They can be initialized with information regarding the commodities to
+be bought or sold as well as a maximum per-timestep throughput. Purchasing
+inventory policies also support `(S, s)` behavior, noted in supply chain literature. [1]
+
+[1] Zheng, Yu-Sheng. &quot;A simple proof for optimality of (s, S) policies in
+infinite-horizon inventory systems.&quot; Journal of Applied Probability
+(1991): 802-810.
+
+Related Issues
+==============
+* closes #1047
+* related to cyclus/cycamore#318
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="automation">
+<h2>Automation<a class="headerlink" href="#automation" title="Permalink to this headline">¶</a></h2>
+<p>Using the Github <a class="reference external" href="https://developer.github.com/v3/">API</a> either directly or
+through a module like <a class="reference external" href="https://github3py.readthedocs.org/en/master/">github3.py</a> in conjunction with a standard
+style can allow for the automation of otherwise repetitive and time consuming
+tasks. A chief use case is the generation of release notes. Specifically, if
+every PR that enables a major and minor feature can be identified and
+a summary statement extracted, then the task of writing release notes becomes
+much simpler. This proposal enables such tools to be constructed and utilized.</p>
+</div>
+<div class="section" id="backwards-compatibility">
+<h2>Backwards Compatibility<a class="headerlink" href="#backwards-compatibility" title="Permalink to this headline">¶</a></h2>
+<p>Closed PRs are archival documents whereas a codebase is a living
+&#8220;document&#8221;. Accordingly, while one would expect a code style guide to be
+applicable upon acceptance to the entire code base, this style guide to only be
+applicable to open PRs. Closed PR text cannot be edited such that it no longer
+complies with the document structure listed in the Layout section. Additional
+comments on closed PRs encouraged as they are needed.</p>
+</div>
+<div class="section" id="document-history">
+<h2>Document History<a class="headerlink" href="#document-history" title="Permalink to this headline">¶</a></h2>
+<p>This document is released under the CC-BY 3.0 license.</p>
 </div>
 </div>
 
@@ -198,9 +202,16 @@ name indicates a first time contributor.  Names follow alphabetically,</p>
         </a></p><div class="sphinxlocaltoc">
     <h3><a href="../index.html">Page contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Cyclus 1.0 Release Notes</a><ul>
-<li><a class="reference internal" href="#major-features">Major features</a></li>
-<li><a class="reference internal" href="#contributors">Contributors</a></li>
+<li><a class="reference internal" href="#">CEP 6 - <span style="font-variant:small-caps;">Cyclus</span> Pull Request Style Guide</a><ul>
+<li><a class="reference internal" href="#abstract">Abstract</a></li>
+<li><a class="reference internal" href="#labels">Labels</a></li>
+<li><a class="reference internal" href="#layout">Layout</a><ul>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#automation">Automation</a></li>
+<li><a class="reference internal" href="#backwards-compatibility">Backwards Compatibility</a></li>
+<li><a class="reference internal" href="#document-history">Document History</a></li>
 </ul>
 </li>
 </ul>
@@ -208,13 +219,13 @@ name indicates a first time contributor.  Names follow alphabetically,</p>
   </div>
   <div class="sphinxprev">
     <h4>Previous page</h4>
-    <p class="topless"><a href="v1.1.html"
-                          title="Previous page">&larr; Cyclus 1.1 Release Notes</a></p>
+    <p class="topless"><a href="cep5.html"
+                          title="Previous page">&larr; CEP 5 - Archetype Development Best Practices</a></p>
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
-    <p class="topless"><a href="v0.4.html"
-                          title="Next page">&rarr; Cyclus 0.4 Release Notes</a></p>
+    <p class="topless"><a href="cep17.html"
+                          title="Next page">&rarr; CEP 17 - Resource Tracking and Interfaces Re-Re-Redo</a></p>
   </div>
   <div class="sphinxlocaltoc">
   <h3>Useful Pages</h3>
@@ -290,14 +301,14 @@ name indicates a first time contributor.  Names follow alphabetically,</p>
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="v0.4.html" title="Cyclus 0.4 Release Notes"
+          <a href="cep17.html" title="CEP 17 - Resource Tracking and Interfaces Re-Re-Redo"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="v1.1.html" title="Cyclus 1.1 Release Notes"
+          <a href="cep5.html" title="CEP 5 - Archetype Development Best Practices"
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">Home</a> &raquo;</li>
 
-          <li><a href="index.html" ><span style="font-variant:small-caps;">Cyclus</span> Previous Versions</a> &raquo;</li> 
+          <li><a href="cep0.html" ><span style="font-variant:small-caps;">Cyclus</span> Enhancement Proposals</a> &raquo;</li> 
       </ul>
     </div>
     </div>
